@@ -16,15 +16,7 @@ namespace SampleApp
         {
             AddStudent();
             Console.ReadLine();
-            string line;
-            StreamReader tsr = new StreamReader("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-            line = tsr.ReadLine();
-            while (line != null)
-            {
-                Console.WriteLine(line);
-                line = tsr.ReadLine();
-            }
-            tsr.Close();
+            ShowAllStudents();
             Console.ReadLine();
         }
 
@@ -37,10 +29,14 @@ namespace SampleApp
             Console.Write("Username: ");
             var userName = Console.ReadLine();
             Console.Write("Age: ");
-            var Age = Convert.ToInt32(Console.ReadLine());
+            int Age = Convert.ToInt32(Console.ReadLine());
 
             var studentToBeAdded = new Student(firstName, lastName, userName, Age);
             _controller.AddStudent(studentToBeAdded);
+        }
+        public void ShowAllStudents()
+        {
+            _controller.ShowAllStudents();
         }
     }
 }
