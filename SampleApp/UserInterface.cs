@@ -6,7 +6,7 @@ namespace SampleApp
     {
         private Controller _controller;
 
-        public UserInterface() 
+        public UserInterface()
         {
             _controller = new Controller();
         }
@@ -24,8 +24,12 @@ namespace SampleApp
             var firstName = Console.ReadLine();
             Console.Write("Last Name: ");
             var lastName = Console.ReadLine();
+            Console.Write("Username: ");
+            var userName = Console.ReadLine();
+            Console.Write("Age: ");
+            var userAge = Console.ReadLine();
 
-            var studentToBeAdded = new Student(firstName, lastName);
+            var studentToBeAdded = new Student(firstName, lastName, userName, userAge);
             _controller.AddStudent(studentToBeAdded);
         }
     }
