@@ -9,13 +9,13 @@ namespace SampleApp
         public Controller()
         {
             _repository = new Repository();
+
         }
 
         public void AddStudent(Student s)
         {
-            // do stuff with student here;
-            var StudentToBeInserted = new Student(s.FirstName, s.LastName, s.UserName, s.UserAge);
-            _repository.InsertStudent(StudentToBeInserted);
+            var StudentToBeAdded = new Student(s.FirstName, s.LastName, s.UserName, s.Age);
+            _repository.AddStudent(StudentToBeAdded);
         }
     }
 }

@@ -2,12 +2,12 @@ namespace SampleApp
 {
     public class Student
     {
-        public Student(string firstName, string lastName, string userName, string userAge)
+        public Student(string firstName, string lastName, string userName, int Age)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
             this.UserName = userName;
-            this.UserAge = userAge;
+            this.Age = Age;
         }
 
         public string FirstName { get; set; }
@@ -16,6 +16,6 @@ namespace SampleApp
 
         public string UserName { get; set; }
 
-        public string UserAge { get; set; }
+        public int Age { get; set; }
     }
 }

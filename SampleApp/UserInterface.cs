@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace SampleApp
 {
@@ -14,7 +15,16 @@ namespace SampleApp
         public void Run()
         {
             AddStudent();
-            Console.WriteLine("Hello World!");
+            Console.ReadLine();
+            string line;
+            StreamReader tsr = new StreamReader("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
+            line = tsr.ReadLine();
+            while (line != null)
+            {
+                Console.WriteLine(line);
+                line = tsr.ReadLine();
+            }
+            tsr.Close();
             Console.ReadLine();
         }
 
@@ -27,9 +37,9 @@ namespace SampleApp
             Console.Write("Username: ");
             var userName = Console.ReadLine();
             Console.Write("Age: ");
-            var userAge = Console.ReadLine();
+            var Age = Convert.ToInt32(Console.ReadLine());
 
-            var studentToBeAdded = new Student(firstName, lastName, userName, userAge);
+            var studentToBeAdded = new Student(firstName, lastName, userName, Age);
             _controller.AddStudent(studentToBeAdded);
         }
     }
