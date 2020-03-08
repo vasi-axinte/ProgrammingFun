@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 
 namespace SampleApp
 {
@@ -36,7 +37,11 @@ namespace SampleApp
         }
         public void ShowAllStudents()
         {
-            _controller.ShowAllStudents();
+            foreach (object Users in _controller.GetAllStudents())
+            {
+                Console.WriteLine(Users);
+            }
+
         }
     }
 }

@@ -1,5 +1,6 @@
 using System.IO;
 using System;
+using System.Collections.Generic;
 namespace SampleApp
 {
     public class Repository
@@ -11,18 +12,17 @@ namespace SampleApp
             writeInFile.WriteLine("{0}  {1}  {2}  {3} ", s.FirstName, s.LastName, s.UserName, s.Age);
             writeInFile.Close();
         }
-        public void ShowAllStudents()
+        public List<string> GetAllStudents()
         {
-            string line;
-            StreamReader readFromFile = new StreamReader("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-            line = readFromFile.ReadLine();
-            while (line != null)
+            List<string> lines = new List<string>();
+            foreach (string line in File.ReadLines("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text"))
             {
-                //Console.WriteLine(line);
-                line = readFromFile.ReadLine();
+                lines.Add(line);
+                lines.ToString();
             }
-            readFromFile.Close();
-            Console.ReadLine();
+            return lines;
+
         }
-     }
+    }
 }
+

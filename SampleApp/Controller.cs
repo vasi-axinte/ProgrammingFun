@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 namespace SampleApp
 {
     public class Controller
@@ -17,9 +17,10 @@ namespace SampleApp
             _repository.AddStudent(StudentToBeAdded);
         }
 
-        public void ShowAllStudents()
+        public List<string> GetAllStudents()
         {
-            _repository.ShowAllStudents();
+            List<string> Users = _repository.GetAllStudents();
+            return Users;
         }
     }
 }
