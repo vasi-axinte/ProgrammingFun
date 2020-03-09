@@ -37,11 +37,10 @@ namespace SampleApp
         }
         public void ShowAllStudents()
         {
-            foreach (object Users in _controller.GetAllStudents())
+            foreach (var student in _controller.GetAllStudents())
             {
-                Console.WriteLine(Users);
+                Console.Write(student);
             }
-
         }
     }
 }

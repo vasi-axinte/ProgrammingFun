@@ -13,14 +13,14 @@ namespace SampleApp
 
         public void AddStudent(Student s)
         {
-            var StudentToBeAdded = new Student(s.FirstName, s.LastName, s.UserName, s.Age);
-            _repository.AddStudent(StudentToBeAdded);
+
+            _repository.AddStudent(s);
         }
 
         public List<string> GetAllStudents()
         {
-            List<string> Users = _repository.GetAllStudents();
-            return Users;
+            List<string> student = _repository.GetAllStudents();
+            return student;
         }
     }
 }
