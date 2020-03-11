@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 namespace SampleApp
 {
@@ -13,13 +12,12 @@ namespace SampleApp
 
         public void AddStudent(Student s)
         {
-
             _repository.AddStudent(s);
         }
 
-        public List<string> GetAllStudents()
+        public List<Student> GetAllStudents()
         {
-            List<string> student = _repository.GetAllStudents();
+            List<Student> student = _repository.GetAllStudents();
             return student;
         }
     }

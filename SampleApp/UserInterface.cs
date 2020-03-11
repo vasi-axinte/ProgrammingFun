@@ -31,15 +31,16 @@ namespace SampleApp
             var userName = Console.ReadLine();
             Console.Write("Age: ");
             int Age = Convert.ToInt32(Console.ReadLine());
+            int Id = 0;
 
-            var studentToBeAdded = new Student(firstName, lastName, userName, Age);
+            var studentToBeAdded = new Student(firstName, lastName, userName, Age, Id);
             _controller.AddStudent(studentToBeAdded);
         }
         public void ShowAllStudents()
         {
             foreach (var student in _controller.GetAllStudents())
             {
-                Console.Write(student);
+                Console.WriteLine(student.Id + " " + student.FirstName + " " + student.LastName);
             }
         }
     }
