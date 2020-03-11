@@ -7,25 +7,25 @@ namespace SampleApp
         public void AddStudent(Student s)
         {
             StreamWriter writeInFile = new StreamWriter("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-            s.Id++;
-            writeInFile.WriteLine("{0}  {1}  {2}  {3} {4}", s.Id, s.FirstName, s.LastName, s.UserName, s.Age);
+            s.id++;
+            writeInFile.WriteLine("{0}  {1}  {2}  {3} {4}", s.id, s.FirstName, s.LastName, s.UserName, s.age);
             writeInFile.Close();
         }
 
         public List<Student> GetAllStudents()
         {
-            int Age;
+            int age;
             List<Student> Students = new List<Student>();
             foreach (string line in File.ReadLines("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text"))
             {
-                string[] sutdentCredentials = line.Split(' ');
-                var Id = int.Parse(sutdentCredentials[0]);
-                var firstName = sutdentCredentials[2];
-                var lastName = sutdentCredentials[4];
-                var userName = sutdentCredentials[6];
-                Age = int.Parse(sutdentCredentials[7]);
-                var Student = new Student(firstName, lastName, userName, Age, Id);
-                Students.Add(Student);
+                string[] sutdentDetails = line.Split(' ');
+                var id = int.Parse(sutdentDetails[0]);
+                var firstName = sutdentDetails[2];
+                var lastName = sutdentDetails[4];
+                var userName = sutdentDetails[6];
+                age = int.Parse(sutdentDetails[7]);
+                var student = new Student(id, firstName, lastName, userName, age);
+                Students.Add(student);
             }
             return Students;
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 namespace SampleApp
 {
     public class Controller
@@ -17,8 +18,8 @@ namespace SampleApp
 
         public List<Student> GetAllStudents()
         {
-            List<Student> student = _repository.GetAllStudents();
-            return student;
+            List<Student> students = _repository.GetAllStudents();
+            return students;
         }
     }
 }

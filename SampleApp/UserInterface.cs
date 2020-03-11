@@ -15,10 +15,48 @@ namespace SampleApp
 
         public void Run()
         {
-            AddStudent();
+            MenuCommands();
             Console.ReadLine();
-            ShowAllStudents();
-            Console.ReadLine();
+        }
+
+        public void MenuCommands()
+        {
+            Console.WriteLine("Main menu:");
+            Console.WriteLine("1.Add new student");
+            Console.WriteLine("2.Show all students");
+            int command = int.Parse(Console.ReadLine());
+            if (command == 1)
+            {
+                AddStudent();
+                Console.WriteLine();
+                BactToMenu();
+            }
+            else if (command == 2)
+            {
+                _controller.GetAllStudents();
+                ShowAllStudents();
+                Console.WriteLine();
+                BactToMenu();
+            }
+            else Console.WriteLine("Not a valid command");
+        }
+
+        public void BactToMenu()
+        {
+            Console.WriteLine("Would you like to return to main menu? ( Y or N )");
+            string answer = Console.ReadLine().ToUpper();
+            if (answer == "Y")
+            {
+                Console.WriteLine();
+                MenuCommands();
+            }
+            else if (answer == "N")
+            {
+                Console.WriteLine();
+                Console.WriteLine("See you next time!");
+                return;
+            }
+            else return;
         }
 
         public void AddStudent()
@@ -30,17 +68,19 @@ namespace SampleApp
             Console.Write("Username: ");
             var userName = Console.ReadLine();
             Console.Write("Age: ");
-            int Age = Convert.ToInt32(Console.ReadLine());
-            int Id = 0;
+            int age = Convert.ToInt32(Console.ReadLine());
+            int id = 0;
 
-            var studentToBeAdded = new Student(firstName, lastName, userName, Age, Id);
+            var studentToBeAdded = new Student(id, firstName, lastName, userName, age);
             _controller.AddStudent(studentToBeAdded);
         }
+
         public void ShowAllStudents()
         {
-            foreach (var student in _controller.GetAllStudents())
+            foreach (var studentList in _controller.GetAllStudents())
             {
-                Console.WriteLine(student.Id + " " + student.FirstName + " " + student.LastName);
+
+                Console.WriteLine(studentList.id + " " + studentList.FirstName + " " + studentList.LastName);
             }
         }
     }
