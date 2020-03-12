@@ -12,11 +12,38 @@ namespace SampleApp
         {
             _controller = new Controller();
         }
-
         public void Run()
         {
-            MenuCommands();
-            Console.ReadLine();
+            bool commandExecution = true;
+            while (commandExecution == true)
+            {
+                MenuCommands();
+                int command = int.Parse(Console.ReadLine());
+                if (command == 1)
+                {
+                    AddStudent();
+                    Console.WriteLine();
+                }
+                else if (command == 2)
+                {
+                    _controller.GetAllStudents();
+                    ShowAllStudents();
+                    Console.WriteLine();
+                }
+                else if (command == 3)
+                {
+                    int idToBeDeleted;
+                    Console.WriteLine("Enter the id that you want to delete");
+                    idToBeDeleted = int.Parse(Console.ReadLine());
+                    _controller.StudentsToBeDeleted(idToBeDeleted);
+                    ShowAllStudents();
+                }
+                else
+                {
+                    Console.WriteLine("Not a valid command");
+                    commandExecution = false;
+                }
+            }
         }
 
         public void MenuCommands()
@@ -24,39 +51,7 @@ namespace SampleApp
             Console.WriteLine("Main menu:");
             Console.WriteLine("1.Add new student");
             Console.WriteLine("2.Show all students");
-            int command = int.Parse(Console.ReadLine());
-            if (command == 1)
-            {
-                AddStudent();
-                Console.WriteLine();
-                BactToMenu();
-            }
-            else if (command == 2)
-            {
-                _controller.GetAllStudents();
-                ShowAllStudents();
-                Console.WriteLine();
-                BactToMenu();
-            }
-            else Console.WriteLine("Not a valid command");
-        }
-
-        public void BactToMenu()
-        {
-            Console.WriteLine("Would you like to return to main menu? ( Y or N )");
-            string answer = Console.ReadLine().ToUpper();
-            if (answer == "Y")
-            {
-                Console.WriteLine();
-                MenuCommands();
-            }
-            else if (answer == "N")
-            {
-                Console.WriteLine();
-                Console.WriteLine("See you next time!");
-                return;
-            }
-            else return;
+            Console.WriteLine("3.Delete students by id");
         }
 
         public void AddStudent()
@@ -79,7 +74,6 @@ namespace SampleApp
         {
             foreach (var studentList in _controller.GetAllStudents())
             {
-
                 Console.WriteLine(studentList.id + " " + studentList.FirstName + " " + studentList.LastName);
             }
         }

@@ -21,5 +21,10 @@ namespace SampleApp
             List<Student> students = _repository.GetAllStudents();
             return students;
         }
+
+        public void StudentsToBeDeleted(int idToBeDeleted)
+        {
+            _repository.StudentsToBeDeleted(idToBeDeleted);
+        }
     }
 }
