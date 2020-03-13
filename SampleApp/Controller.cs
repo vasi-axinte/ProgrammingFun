@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System;
 namespace SampleApp
 {
     public class Controller
@@ -22,10 +21,9 @@ namespace SampleApp
             return students;
         }
 
-        public List<Student> StudentsToBeDeleted(int idToBeDeleted)
+        public void DeleteStudents(int idToBeDeleted)
         {
-            List<Student> students = _repository.StudentsToBeDeleted(idToBeDeleted);
-            return students;
+            _repository.DeleteStudents(idToBeDeleted);
         }
     }
 }

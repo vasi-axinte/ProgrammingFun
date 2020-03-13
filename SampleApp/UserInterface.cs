@@ -1,6 +1,5 @@
 using System;
-using System.IO;
-using System.Collections.Generic;
+
 
 namespace SampleApp
 {
@@ -12,6 +11,7 @@ namespace SampleApp
         {
             _controller = new Controller();
         }
+
         public void Run()
         {
             bool commandExecution = true;
@@ -34,7 +34,8 @@ namespace SampleApp
                 {
                     int idToBeDeleted;
                     Console.WriteLine("Enter the student id that you want to delete");
-                    ShowAllStudentsAfterDeletingById();
+                    idToBeDeleted = int.Parse(Console.ReadLine());
+                    _controller.DeleteStudents(idToBeDeleted);
                 }
                 if (command == 'x')
                 {
@@ -71,16 +72,7 @@ namespace SampleApp
         {
             foreach (var studentList in _controller.GetAllStudents())
             {
-                Console.WriteLine(studentList.id + " " + studentList.FirstName + " " + studentList.LastName);
-            }
-        }
-
-        public void ShowAllStudentsAfterDeletingById()
-        {
-            var idToBeDeleted = int.Parse(Console.ReadLine());
-            foreach (var studentList in _controller.StudentsToBeDeleted(idToBeDeleted))
-            {
-                Console.WriteLine(studentList.id + " " + studentList.FirstName + " " + studentList.LastName);
+                Console.WriteLine(studentList.Id + " " + studentList.FirstName + " " + studentList.LastName);
             }
         }
     }

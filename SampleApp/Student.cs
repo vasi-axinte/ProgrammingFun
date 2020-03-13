@@ -7,8 +7,8 @@ namespace SampleApp
             this.FirstName = firstName;
             this.LastName = lastName;
             this.UserName = userName;
-            this.age = age;
-            this.id = id;
+            this.Age = age;
+            this.Id = id;
         }
 
         public string FirstName { get; set; }
@@ -17,9 +17,9 @@ namespace SampleApp
 
         public string UserName { get; set; }
 
-        public int age { get; set; }
+        public int Age { get; set; }
 
-        public int id { get; set; }
+        public int Id { get; set; }
 
     }
 }

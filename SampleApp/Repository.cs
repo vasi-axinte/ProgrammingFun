@@ -7,8 +7,8 @@ namespace SampleApp
         public void AddStudent(Student s)
         {
             StreamWriter inFile = new StreamWriter("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-            s.id++;
-            inFile.WriteLine("{0}  {1}  {2}  {3}  {4}", s.id, s.FirstName, s.LastName, s.UserName, s.age);
+            s.Id++;
+            inFile.WriteLine("{0}  {1}  {2}  {3}  {4}", s.Id, s.FirstName, s.LastName, s.UserName, s.Age);
             inFile.Close();
         }
 
@@ -17,6 +17,7 @@ namespace SampleApp
             List<Student> students = new List<Student>();
             foreach (string line in File.ReadLines("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text"))
             {
+
                 string[] sutdentDetails = line.Split(' ');
                 var id = int.Parse(sutdentDetails[0]);
                 var firstName = sutdentDetails[2];
@@ -29,7 +30,7 @@ namespace SampleApp
             return students;
         }
 
-        public List<Student> StudentsToBeDeleted(int idToBeDeleted)
+        public void DeleteStudents(int idToBeDeleted)
         {
             List<Student> students = new List<Student>();
             foreach (string line in File.ReadLines("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text"))
@@ -50,10 +51,9 @@ namespace SampleApp
             foreach (var student in students)
             {
                 StreamWriter inFile = new StreamWriter("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-                inFile.WriteLine("{0}  {1}  {2}  {3}  {4}", student.id.ToString(), student.LastName, student.FirstName, student.UserName, student.age);
+                inFile.WriteLine("{0}  {1}  {2}  {3}  {4}", student.Id.ToString(), student.LastName, student.FirstName, student.UserName, student.Age);
                 inFile.Close();
             }
-            return students;
         }
     }
 }
