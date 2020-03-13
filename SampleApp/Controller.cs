@@ -22,9 +22,10 @@ namespace SampleApp
             return students;
         }
 
-        public void StudentsToBeDeleted(int idToBeDeleted)
+        public List<Student> StudentsToBeDeleted(int idToBeDeleted)
         {
-            _repository.StudentsToBeDeleted(idToBeDeleted);
+            List<Student> students = _repository.StudentsToBeDeleted(idToBeDeleted);
+            return students;
         }
     }
 }
