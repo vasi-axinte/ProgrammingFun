@@ -16,7 +16,7 @@ namespace SampleApp
             bool commandExecution = true;
             while (commandExecution == true)
             {
-                ShowMenuCommands();
+                ShowMainMenuCommands();
                 int command = int.Parse(Console.ReadLine());
                 if (command == 1)
                 {
@@ -33,6 +33,18 @@ namespace SampleApp
                     DeleteStudent();
                     Console.WriteLine();
                 }
+                if (command == 4)
+                {
+                    ShowAllStudents();
+                    Console.WriteLine();
+                    ShowGradesMenuCommands();
+                    int gradesCommand = int.Parse(Console.ReadLine());
+                    if (gradesCommand == 1)
+                    {
+                        AddGrade();
+                    }
+                    Console.WriteLine();
+                }
                 if (command == 'x')
                 {
                     commandExecution = false;
@@ -40,12 +52,19 @@ namespace SampleApp
             }
         }
 
-        public void ShowMenuCommands()
+        public void ShowMainMenuCommands()
         {
             Console.WriteLine("Main menu:");
             Console.WriteLine("1.Add new student");
             Console.WriteLine("2.Show all students");
             Console.WriteLine("3.Delete student by id");
+            Console.WriteLine("4.Grades");
+        }
+
+        public void ShowGradesMenuCommands()
+        {
+            Console.WriteLine("Grades menu:");
+            Console.WriteLine("1.Add grade");
         }
 
         public void AddStudent()
@@ -64,6 +83,17 @@ namespace SampleApp
             _controller.AddStudent(studentToBeAdded);
         }
 
+        public void AddGrade()
+        {
+            Console.WriteLine("Insert Student Id");
+            int studentId = (int.Parse(Console.ReadLine()));
+            Console.WriteLine("Insert the grade that you want to be added");
+            int grade = (int.Parse(Console.ReadLine()));
+            Console.WriteLine("Insert date");
+            string date = Console.ReadLine();
+            _controller.AddGrade(studentId, grade, date);
+        }
+
         public void ShowAllStudents()
         {
             foreach (var studentList in _controller.GetAllStudents())
@@ -74,10 +104,10 @@ namespace SampleApp
 
         public void DeleteStudent()
         {
-            int idToBeDeleted;
+            int id;
             Console.WriteLine("Enter the student id that you want to delete");
-            idToBeDeleted = int.Parse(Console.ReadLine());
-            _controller.DeleteStudent(idToBeDeleted);
+            id = int.Parse(Console.ReadLine());
+            _controller.DeleteStudent(id);
         }
     }
 }

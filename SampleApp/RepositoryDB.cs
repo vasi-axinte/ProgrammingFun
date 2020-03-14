@@ -5,7 +5,7 @@ namespace SampleApp
 {
     public class RepositoryDB
     {
-        static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Cristi\source\repos\ThisIs\ThisIs\Students.mdf;Integrated Security=False";
+        static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\SampleApp\SampleApp\Students.mdf;Integrated Security=True";
         SqlConnection connection = new SqlConnection(connectionString);
 
 

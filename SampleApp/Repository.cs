@@ -1,59 +1,69 @@
-using System.IO;
+using System.Data.SqlClient;
 using System.Collections.Generic;
+
 namespace SampleApp
 {
-    public class Repository
+    public class RepositoryDB
     {
+        static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Cristi\source\repos\ThisIs\ThisIs\Students.mdf;Integrated Security=False";
+        SqlConnection connection = new SqlConnection(connectionString);
+
+
         public void AddStudent(Student s)
         {
-            StreamWriter inFile = new StreamWriter("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-            s.Id++;
-            inFile.WriteLine("{0}  {1}  {2}  {3}  {4}", s.Id, s.FirstName, s.LastName, s.Username, s.Age);
-            inFile.Close();
+            connection.Open();
+
+            SqlCommand insertStudent = new SqlCommand("INSERT INTO Students (Firstname, Lastname, Username, Age) VALUES (@Firstname, @Lastname, @Username, @Age)", connection);
+            insertStudent.Parameters.Add("@Firstname", s.FirstName);
+            insertStudent.Parameters.Add("@Lastname", s.LastName);
+            insertStudent.Parameters.Add("@Username", s.Username);
+            insertStudent.Parameters.Add("@Age", s.Age);
+            insertStudent.ExecuteNonQuery();
+
+            connection.Close();
         }
 
         public List<Student> GetAllStudents()
         {
+            connection.Open();
             List<Student> students = new List<Student>();
-            foreach (string line in File.ReadLines("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text"))
+            SqlCommand getStudent = new SqlCommand("SELECT * FROM Students", connection);
+            SqlDataReader readstudent = getStudent.ExecuteReader();
+            while (readstudent.Read())
             {
+                var idStudent = readstudent["IdStudent"];
+                var firstName = readstudent["Firstname"];
+                var lastName = readstudent["Lastname"];
+                var userName = readstudent["Username"];
+                var age = readstudent["Age"];
+                Student student = new Student(int.Parse(idStudent.ToString().Trim()), firstName.ToString().Trim(), lastName.ToString().Trim(), userName.ToString().Trim(), int.Parse(age.ToString()));
 
-                string[] sutdentDetails = line.Split(' ');
-                var id = int.Parse(sutdentDetails[0]);
-                var firstName = sutdentDetails[2];
-                var lastName = sutdentDetails[4];
-                var username = sutdentDetails[6];
-                int age = int.Parse(sutdentDetails[8]);
-                var student = new Student(id, firstName, lastName, username, age);
                 students.Add(student);
+
             }
+            connection.Close();
+
             return students;
         }
 
-        public void DeleteStudent(int idToBeDeleted)
+        public void DeleteStudent(int id)
         {
-            List<Student> students = new List<Student>();
-            foreach (string line in File.ReadLines("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text"))
-            {
-                string[] sutdentDetails = line.Split(' ');
-                int id = int.Parse(sutdentDetails[0]);
-                var firstName = sutdentDetails[2];
-                var lastName = sutdentDetails[4];
-                var username = sutdentDetails[6];
-                int age = int.Parse(sutdentDetails[8]);
-                var student = new Student(id, firstName, lastName, username, age);
-                if (id != idToBeDeleted)
-                {
-                    students.Add(student);
-                }
-            }
-            File.Delete("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text");
-            foreach (var student in students)
-            {
-                StreamWriter inFile = new StreamWriter("C:\\Users\\Cristi\\source\\repos\\ThisIs\\Users.Text", true);
-                inFile.WriteLine("{0}  {1}  {2}  {3}  {4}", student.Id.ToString(), student.LastName, student.FirstName, student.Username, student.Age);
-                inFile.Close();
-            }
+            connection.Open();
+            SqlCommand student = new SqlCommand("DELETE FROM Students WHERE IdStudent=@id", connection);
+            student.Parameters.Add("@id", id);
+            student.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void AddGrade(int studentId, int grade, string date)
+        {
+            connection.Open();
+            SqlCommand studentGrade = new SqlCommand("INSERT INTO Grades (Value, Date, IdStudent) VALUES (@value, @date, @studentId)", connection);
+            studentGrade.Parameters.Add("@value", grade);
+            studentGrade.Parameters.Add("@date", date); ;
+            studentGrade.Parameters.Add("@studentId", studentId);
+            studentGrade.ExecuteNonQuery();
+            connection.Close();
         }
     }
 }

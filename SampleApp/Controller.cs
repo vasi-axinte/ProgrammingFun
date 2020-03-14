@@ -4,27 +4,32 @@ namespace SampleApp
 {
     public class Controller
     {
-        private RepositoryDB _repositoryDB;
+        private RepositoryDB _repository;
 
         public Controller()
         {
-            _repositoryDB = new RepositoryDB();
+            _repository = new RepositoryDB();
         }
 
         public void AddStudent(Student s)
         {
-            _repositoryDB.AddStudent(s);
+            _repository.AddStudent(s);
         }
 
         public List<Student> GetAllStudents()
         {
-            List<Student> students = _repositoryDB.GetAllStudents();
+            List<Student> students = _repository.GetAllStudents();
             return students;
         }
 
-        public void DeleteStudent(int idToBeDeleted)
+        public void DeleteStudent(int id)
         {
-            _repositoryDB.DeleteStudent(idToBeDeleted);
+            _repository.DeleteStudent(id);
+        }
+
+        public void AddGrade(int studentId, int grade, string date)
+        {
+            _repository.AddGrade(studentId, grade, date);
         }
     }
 }
