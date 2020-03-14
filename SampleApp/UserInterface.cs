@@ -1,6 +1,5 @@
 using System;
 
-
 namespace SampleApp
 {
     public class UserInterface
@@ -26,16 +25,13 @@ namespace SampleApp
                 }
                 if (command == 2)
                 {
-                    _controller.GetAllStudents();
                     ShowAllStudents();
                     Console.WriteLine();
                 }
                 if (command == 3)
                 {
-                    int idToBeDeleted;
-                    Console.WriteLine("Enter the student id that you want to delete");
-                    idToBeDeleted = int.Parse(Console.ReadLine());
-                    _controller.DeleteStudents(idToBeDeleted);
+                    DeleteStudent();
+                    Console.WriteLine();
                 }
                 if (command == 'x')
                 {
@@ -59,12 +55,12 @@ namespace SampleApp
             Console.Write("Last Name: ");
             var lastName = Console.ReadLine();
             Console.Write("Username: ");
-            var userName = Console.ReadLine();
+            var username = Console.ReadLine();
             Console.Write("Age: ");
             int age = Convert.ToInt32(Console.ReadLine());
             int id = 0;
 
-            var studentToBeAdded = new Student(id, firstName, lastName, userName, age);
+            var studentToBeAdded = new Student(id, firstName, lastName, username, age);
             _controller.AddStudent(studentToBeAdded);
         }
 
@@ -74,6 +70,14 @@ namespace SampleApp
             {
                 Console.WriteLine(studentList.Id + " " + studentList.FirstName + " " + studentList.LastName);
             }
+        }
+
+        public void DeleteStudent()
+        {
+            int idToBeDeleted;
+            Console.WriteLine("Enter the student id that you want to delete");
+            idToBeDeleted = int.Parse(Console.ReadLine());
+            _controller.DeleteStudent(idToBeDeleted);
         }
     }
 }

@@ -1,29 +1,30 @@
 using System.Collections.Generic;
+
 namespace SampleApp
 {
     public class Controller
     {
-        private Repository _repository;
+        private RepositoryDB _repositoryDB;
 
         public Controller()
         {
-            _repository = new Repository();
+            _repositoryDB = new RepositoryDB();
         }
 
         public void AddStudent(Student s)
         {
-            _repository.AddStudent(s);
+            _repositoryDB.AddStudent(s);
         }
 
         public List<Student> GetAllStudents()
         {
-            List<Student> students = _repository.GetAllStudents();
+            List<Student> students = _repositoryDB.GetAllStudents();
             return students;
         }
 
-        public void DeleteStudents(int idToBeDeleted)
+        public void DeleteStudent(int idToBeDeleted)
         {
-            _repository.DeleteStudents(idToBeDeleted);
+            _repositoryDB.DeleteStudent(idToBeDeleted);
         }
     }
 }
