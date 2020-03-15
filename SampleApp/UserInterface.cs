@@ -37,13 +37,19 @@ namespace SampleApp
                 {
                     ShowAllStudents();
                     Console.WriteLine();
-                    ShowGradesMenuCommands();
-                    int gradesCommand = int.Parse(Console.ReadLine());
-                    if (gradesCommand == 1)
+                    while (commandExecution == true)
                     {
-                        AddGrade();
+                        ShowGradesMenuCommands();
+                        int gradesCommand = int.Parse(Console.ReadLine());
+                        if (gradesCommand == 1)
+                        {
+                            AddGrade();
+                        }
+                        if (gradesCommand == 'x')
+                        {
+                            commandExecution = false;
+                        }
                     }
-                    Console.WriteLine();
                 }
                 if (command == 'x')
                 {
@@ -90,7 +96,8 @@ namespace SampleApp
             Console.WriteLine("Insert the grade that you want to be added");
             int grade = (int.Parse(Console.ReadLine()));
             Console.WriteLine("Insert date");
-            string date = Console.ReadLine();
+            DateTime dateReader = DateTime.Parse(Console.ReadLine());
+            string date = dateReader.ToString();
             _controller.AddGrade(studentId, grade, date);
         }
 

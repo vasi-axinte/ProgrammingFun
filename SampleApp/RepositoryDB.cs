@@ -5,7 +5,7 @@ namespace SampleApp
 {
     public class RepositoryDB
     {
-        static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Projects\SampleApp\SampleApp\Students.mdf;Integrated Security=True";
+        static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Cristi\source\repos\ThisIs\ThisIs\Students.mdf;Integrated Security=False";
         SqlConnection connection = new SqlConnection(connectionString);
 
 
@@ -46,12 +46,23 @@ namespace SampleApp
             return students;
         }
 
-        public void DeleteStudent(int idToBeDeleted)
+        public void DeleteStudent(int id)
         {
             connection.Open();
-            SqlCommand studentToBeDeleted = new SqlCommand("DELETE FROM Students WHERE IdStudent=@idToBeDeleted", connection);
-            studentToBeDeleted.Parameters.Add("@idToBeDeleted", idToBeDeleted);
-            studentToBeDeleted.ExecuteNonQuery();
+            SqlCommand student = new SqlCommand("DELETE FROM Students WHERE IdStudent=@id", connection);
+            student.Parameters.Add("@id", id);
+            student.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public void AddGrade(int studentId, int grade, string date)
+        {
+            connection.Open();
+            SqlCommand studentGrade = new SqlCommand("INSERT INTO Grades (Value, Date, IdStudent) VALUES (@value, @date, @studentId)", connection);
+            studentGrade.Parameters.Add("@value", grade);
+            studentGrade.Parameters.Add("@date", date); ;
+            studentGrade.Parameters.Add("@studentId", studentId);
+            studentGrade.ExecuteNonQuery();
             connection.Close();
         }
     }
