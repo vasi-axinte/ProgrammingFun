@@ -55,13 +55,13 @@ namespace SampleApp
             connection.Close();
         }
 
-        public void AddGrade(int studentId, int grade, string date)
+        public void AddGrade(Grade g)
         {
             connection.Open();
             SqlCommand studentGrade = new SqlCommand("INSERT INTO Grades (Value, Date, IdStudent) VALUES (@value, @date, @studentId)", connection);
-            studentGrade.Parameters.Add("@value", grade);
-            studentGrade.Parameters.Add("@date", date); ;
-            studentGrade.Parameters.Add("@studentId", studentId);
+            studentGrade.Parameters.Add("@value", g.Value);
+            studentGrade.Parameters.Add("@date", g.Date); ;
+            studentGrade.Parameters.Add("@studentId", g.IdStudent);
             studentGrade.ExecuteNonQuery();
             connection.Close();
         }

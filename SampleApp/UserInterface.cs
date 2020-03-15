@@ -13,8 +13,8 @@ namespace SampleApp
 
         public void Run()
         {
-            bool commandExecution = true;
-            while (commandExecution == true)
+            bool mainMenu = true;
+            while (mainMenu == true)
             {
                 ShowMainMenuCommands();
                 int command = int.Parse(Console.ReadLine());
@@ -37,7 +37,8 @@ namespace SampleApp
                 {
                     ShowAllStudents();
                     Console.WriteLine();
-                    while (commandExecution == true)
+                    bool gradesMenu = true;
+                    while (gradesMenu == true)
                     {
                         ShowGradesMenuCommands();
                         int gradesCommand = int.Parse(Console.ReadLine());
@@ -47,13 +48,13 @@ namespace SampleApp
                         }
                         if (gradesCommand == 'x')
                         {
-                            commandExecution = false;
+                            gradesMenu = false;
                         }
                     }
                 }
                 if (command == 'x')
                 {
-                    commandExecution = false;
+                    mainMenu = false;
                 }
             }
         }
@@ -92,13 +93,15 @@ namespace SampleApp
         public void AddGrade()
         {
             Console.WriteLine("Insert Student Id");
-            int studentId = (int.Parse(Console.ReadLine()));
+            var studentId = (int.Parse(Console.ReadLine()));
             Console.WriteLine("Insert the grade that you want to be added");
-            int grade = (int.Parse(Console.ReadLine()));
+            var grade = (int.Parse(Console.ReadLine()));
             Console.WriteLine("Insert date");
             DateTime dateReader = DateTime.Parse(Console.ReadLine());
-            string date = dateReader.ToString();
-            _controller.AddGrade(studentId, grade, date);
+            var date = dateReader.ToString();
+
+            var gradeDetails = new Grade(grade, date, studentId);
+            _controller.AddGrade(gradeDetails);
         }
 
         public void ShowAllStudents()

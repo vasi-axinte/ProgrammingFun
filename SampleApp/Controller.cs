@@ -27,9 +27,9 @@ namespace SampleApp
             _repository.DeleteStudent(id);
         }
 
-        public void AddGrade(int studentId, int grade, string date)
+        public void AddGrade(Grade g)
         {
-            _repository.AddGrade(studentId, grade, date);
+            _repository.AddGrade(g);
         }
     }
 }
