@@ -27,22 +27,21 @@ namespace SampleApp
         {
             connection.Open();
             List<Student> students = new List<Student>();
-            SqlCommand getStudent = new SqlCommand("SELECT * FROM Students", connection);
-            SqlDataReader readstudent = getStudent.ExecuteReader();
-            while (readstudent.Read())
+            SqlCommand studentDetails = new SqlCommand("SELECT * FROM Students", connection);
+            SqlDataReader studentReader = studentDetails.ExecuteReader();
+            while (studentReader.Read())
             {
-                var idStudent = readstudent["IdStudent"];
-                var firstName = readstudent["Firstname"];
-                var lastName = readstudent["Lastname"];
-                var userName = readstudent["Username"];
-                var age = readstudent["Age"];
+                var idStudent = studentReader["IdStudent"];
+                var firstName = studentReader["Firstname"];
+                var lastName = studentReader["Lastname"];
+                var userName = studentReader["Username"];
+                var age = studentReader["Age"];
                 Student student = new Student(int.Parse(idStudent.ToString().Trim()), firstName.ToString().Trim(), lastName.ToString().Trim(), userName.ToString().Trim(), int.Parse(age.ToString()));
 
                 students.Add(student);
 
             }
             connection.Close();
-
             return students;
         }
 
@@ -80,13 +79,13 @@ namespace SampleApp
         {
             connection.Open();
             List<Grade> students = new List<Grade>();
-            SqlCommand getStudents = new SqlCommand("SELECT * FROM Grades", connection);
-            SqlDataReader readStudents = getStudents.ExecuteReader();
-            while (readStudents.Read())
+            SqlCommand studentDetails = new SqlCommand("SELECT * FROM Grades", connection);
+            SqlDataReader studentReader = studentDetails.ExecuteReader();
+            while (studentReader.Read())
             {
-                var studentId = readStudents["IdStudent"];
-                var value = readStudents["Value"];
-                var date = readStudents["Date"];
+                var studentId = studentReader["IdStudent"];
+                var value = studentReader["Value"];
+                var date = studentReader["Date"];
 
                 Grade student = new Grade(int.Parse(value.ToString().Trim()), date.ToString().Trim(), int.Parse(studentId.ToString().Trim()));
                 students.Add(student);
