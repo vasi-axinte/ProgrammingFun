@@ -9,7 +9,9 @@
             this.IdStudent = idStudent;
         }
         public int Value { get; set; }
+
         public string Date { get; set; }
+
         public int IdStudent { get; set; }
     }
 }

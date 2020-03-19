@@ -31,5 +31,16 @@ namespace SampleApp
         {
             _repository.AddGrade(g);
         }
+
+        public void DeleteGrade(int studentId, int value)
+        {
+            _repository.DeleteGrade(studentId, value);
+        }
+
+        public List<Grade> ShowStudentsAndGrades()
+        {
+            List<Grade> students = _repository.ShowStudentsAndGrades();
+            return students;
+        }
     }
 }

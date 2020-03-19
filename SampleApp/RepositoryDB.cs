@@ -65,5 +65,35 @@ namespace SampleApp
             studentGrade.ExecuteNonQuery();
             connection.Close();
         }
+
+        public void DeleteGrade(int studentId, int value)
+        {
+            connection.Open();
+            SqlCommand student = new SqlCommand("DELETE FROM Grades WHERE (Value = @value)AND( IdStudent = @studentId)", connection);
+            student.Parameters.Add("@value", value);
+            student.Parameters.Add("@studentId", studentId);
+            student.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        public List<Grade> ShowStudentsAndGrades()
+        {
+            connection.Open();
+            List<Grade> students = new List<Grade>();
+            SqlCommand getStudents = new SqlCommand("SELECT * FROM Grades", connection);
+            SqlDataReader readStudents = getStudents.ExecuteReader();
+            while (readStudents.Read())
+            {
+                var studentId = readStudents["IdStudent"];
+                var value = readStudents["Value"];
+                var date = readStudents["Date"];
+
+                Grade student = new Grade(int.Parse(value.ToString().Trim()), date.ToString().Trim(), int.Parse(studentId.ToString().Trim()));
+                students.Add(student);
+            }
+            connection.Close();
+            return students;
+
+        }
     }
 }

@@ -13,6 +13,11 @@ namespace SampleApp
 
         public void Run()
         {
+            ShowMainMenu();
+        }
+
+        public void ShowMainMenu()
+        {
             bool mainMenu = true;
             while (mainMenu == true)
             {
@@ -35,22 +40,9 @@ namespace SampleApp
                 }
                 if (command == 4)
                 {
+                    Console.WriteLine("Student list:");
                     ShowAllStudents();
-                    Console.WriteLine();
-                    bool gradesMenu = true;
-                    while (gradesMenu == true)
-                    {
-                        ShowGradesMenuCommands();
-                        int gradesCommand = int.Parse(Console.ReadLine());
-                        if (gradesCommand == 1)
-                        {
-                            AddGrade();
-                        }
-                        if (gradesCommand == 'x')
-                        {
-                            gradesMenu = false;
-                        }
-                    }
+                    ShowGradesMenu();
                 }
                 if (command == 'x')
                 {
@@ -58,7 +50,6 @@ namespace SampleApp
                 }
             }
         }
-
         public void ShowMainMenuCommands()
         {
             Console.WriteLine("Main menu:");
@@ -66,12 +57,6 @@ namespace SampleApp
             Console.WriteLine("2.Show all students");
             Console.WriteLine("3.Delete student by id");
             Console.WriteLine("4.Grades");
-        }
-
-        public void ShowGradesMenuCommands()
-        {
-            Console.WriteLine("Grades menu:");
-            Console.WriteLine("1.Add grade");
         }
 
         public void AddStudent()
@@ -90,25 +75,11 @@ namespace SampleApp
             _controller.AddStudent(studentToBeAdded);
         }
 
-        public void AddGrade()
-        {
-            Console.WriteLine("Insert Student Id");
-            var studentId = (int.Parse(Console.ReadLine()));
-            Console.WriteLine("Insert the grade that you want to be added");
-            var grade = (int.Parse(Console.ReadLine()));
-            Console.WriteLine("Insert date");
-            DateTime dateReader = DateTime.Parse(Console.ReadLine());
-            var date = dateReader.ToString();
-
-            var gradeDetails = new Grade(grade, date, studentId);
-            _controller.AddGrade(gradeDetails);
-        }
-
         public void ShowAllStudents()
         {
-            foreach (var studentList in _controller.GetAllStudents())
+            foreach (var student in _controller.GetAllStudents())
             {
-                Console.WriteLine(studentList.Id + " " + studentList.FirstName + " " + studentList.LastName);
+                Console.WriteLine(student.Id + " " + student.FirstName + " " + student.LastName);
             }
         }
 
@@ -118,6 +89,81 @@ namespace SampleApp
             Console.WriteLine("Enter the student id that you want to delete");
             id = int.Parse(Console.ReadLine());
             _controller.DeleteStudent(id);
+        }
+
+        public void ShowGradesMenu()
+        {
+            Console.WriteLine();
+            bool gradesMenu = true;
+            while (gradesMenu == true)
+            {
+                ShowGradesMenuCommands();
+                int gradesCommand = int.Parse(Console.ReadLine());
+                if (gradesCommand == 1)
+                {
+                    AddGrade();
+                    Console.WriteLine();
+                }
+                if (gradesCommand == 2)
+                {
+                    DeleteGrade();
+                    Console.WriteLine();
+                }
+                if (gradesCommand == 3)
+                {
+                    ShowStudentsAndGrades();
+                    Console.WriteLine();
+                }
+                if (gradesCommand == 4)
+                {
+                    ShowMainMenu();
+                    Console.WriteLine();
+                }
+                if (gradesCommand == 'x')
+                {
+                    gradesMenu = false;
+                }
+            }
+        }
+
+        public void ShowGradesMenuCommands()
+        {
+            Console.WriteLine("Grades menu:");
+            Console.WriteLine("1.Add grade");
+            Console.WriteLine("2.Delete grade");
+            Console.WriteLine("3.Show all students");
+            Console.WriteLine("4.Back to main menu");
+        }
+
+        public void AddGrade()
+        {
+            Console.WriteLine("Insert Student Id");
+            var studentId = (int.Parse(Console.ReadLine()));
+            Console.WriteLine("Insert the grade that you want to be added");
+            var value = (int.Parse(Console.ReadLine()));
+            Console.WriteLine("Insert date");
+            DateTime dateReader = DateTime.Parse(Console.ReadLine());
+            var date = dateReader.ToString();
+
+            var gradeDetails = new Grade(value, date, studentId);
+            _controller.AddGrade(gradeDetails);
+        }
+
+        public void DeleteGrade()
+        {
+            Console.WriteLine("Insert student id");
+            int studentId = (int.Parse(Console.ReadLine()));
+            Console.WriteLine("Insert the grade that you want to be delelted");
+            int value = (int.Parse(Console.ReadLine()));
+            _controller.DeleteGrade(studentId, value);
+        }
+
+        public void ShowStudentsAndGrades()
+        {
+            foreach (var student in _controller.ShowStudentsAndGrades())
+            {
+                Console.WriteLine(student.IdStudent + " " + student.Value + " " + student.Date);
+            }
         }
     }
 }
