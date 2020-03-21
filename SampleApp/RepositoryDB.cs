@@ -42,6 +42,7 @@ namespace SampleApp
 
             }
             connection.Close();
+
             return students;
         }
 
@@ -54,45 +55,17 @@ namespace SampleApp
             connection.Close();
         }
 
-        public void AddGrade(Grade g)
+        public void EditStudentDetails(Student s)
         {
             connection.Open();
-            SqlCommand studentGrade = new SqlCommand("INSERT INTO Grades (Value, Date, IdStudent) VALUES (@value, @date, @studentId)", connection);
-            studentGrade.Parameters.Add("@value", g.Value);
-            studentGrade.Parameters.Add("@date", g.Date); ;
-            studentGrade.Parameters.Add("@studentId", g.IdStudent);
-            studentGrade.ExecuteNonQuery();
-            connection.Close();
-        }
-
-        public void DeleteGrade(int studentId, int value)
-        {
-            connection.Open();
-            SqlCommand student = new SqlCommand("DELETE FROM Grades WHERE (Value = @value)AND( IdStudent = @studentId)", connection);
-            student.Parameters.Add("@value", value);
-            student.Parameters.Add("@studentId", studentId);
+            SqlCommand student = new SqlCommand("UPDATE Students SET Firstname=@Firstname, Lastname=@Lastname, Username=@Username, Age=@Age WHERE IdStudent=@IdStudent", connection);
+            student.Parameters.Add("@Firstname", s.FirstName);
+            student.Parameters.Add("@Lastname", s.LastName);
+            student.Parameters.Add("@Username", s.Username);
+            student.Parameters.Add("@Age", s.Age);
+            student.Parameters.Add("@IdStudent", s.Id);
             student.ExecuteNonQuery();
             connection.Close();
-        }
-
-        public List<Grade> ShowStudentsAndGrades()
-        {
-            connection.Open();
-            List<Grade> students = new List<Grade>();
-            SqlCommand studentDetails = new SqlCommand("SELECT * FROM Grades", connection);
-            SqlDataReader studentReader = studentDetails.ExecuteReader();
-            while (studentReader.Read())
-            {
-                var studentId = studentReader["IdStudent"];
-                var value = studentReader["Value"];
-                var date = studentReader["Date"];
-
-                Grade student = new Grade(int.Parse(value.ToString().Trim()), date.ToString().Trim(), int.Parse(studentId.ToString().Trim()));
-                students.Add(student);
-            }
-            connection.Close();
-            return students;
-
         }
     }
 }
