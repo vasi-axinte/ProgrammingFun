@@ -4,13 +4,15 @@ namespace SampleApp
 {
     public class UserInterface
     {
-        private Controller _controller;
-        private ControllerGrades _controllerGrades;
+        private StudentsController _controllerStudents;
+        private GradesController _controllerGrades;
+        private StudentGradesController _controllerStudentGrades;
 
         public UserInterface()
         {
-            _controller = new Controller();
-            _controllerGrades = new ControllerGrades();
+            _controllerStudents = new StudentsController();
+            _controllerGrades = new GradesController();
+            _controllerStudentGrades = new StudentGradesController();
         }
 
         public void Run()
@@ -50,7 +52,7 @@ namespace SampleApp
                 {
                     ShowAllStudents();
                     Console.WriteLine();
-                    EditStudentDetails();
+                    UpdateStudentDetails();
                     Console.WriteLine();
                 }
                 if (command == 'x')
@@ -82,12 +84,12 @@ namespace SampleApp
             int id = 0;
 
             var studentToBeAdded = new Student(id, firstName, lastName, username, age);
-            _controller.AddStudent(studentToBeAdded);
+            _controllerStudents.AddStudent(studentToBeAdded);
         }
 
         public void ShowAllStudents()
         {
-            foreach (var student in _controller.GetAllStudents())
+            foreach (var student in _controllerStudents.GetAllStudents())
             {
                 Console.WriteLine(student.Id + " " + student.FirstName + " " + student.LastName);
             }
@@ -98,10 +100,10 @@ namespace SampleApp
             int id;
             Console.WriteLine("Enter the student id that you want to delete");
             id = int.Parse(Console.ReadLine());
-            _controller.DeleteStudent(id);
+            _controllerStudents.DeleteStudent(id);
         }
 
-        public void EditStudentDetails()
+        public void UpdateStudentDetails()
         {
             Console.WriteLine("Insert student Id");
             int studentId = int.Parse(Console.ReadLine());
@@ -115,8 +117,7 @@ namespace SampleApp
             int age = int.Parse(Console.ReadLine());
 
             var student = new Student(studentId, firstName, lastName, username, age);
-            _controller.EditStudentDetails(student);
-
+            _controllerStudents.UpdateStudentDetails(student);
         }
 
         public void ShowGradesMenu()
@@ -150,6 +151,11 @@ namespace SampleApp
                 }
                 if (gradesCommand == 5)
                 {
+                    ShowStudentsWithGradesBiggerThan();
+                    Console.WriteLine();
+                }
+                if (gradesCommand == 6)
+                {
                     ShowMainMenu();
                     Console.WriteLine();
                 }
@@ -167,7 +173,8 @@ namespace SampleApp
             Console.WriteLine("2.Delete grade");
             Console.WriteLine("3.Show all grades");
             Console.WriteLine("4.Show all grades for student");
-            Console.WriteLine("5.Back to main menu");
+            Console.WriteLine("5.Show all students with grades bigger than");
+            Console.WriteLine("6.Back to main menu");
         }
 
         public void AddGrade()
@@ -209,6 +216,16 @@ namespace SampleApp
                 Console.WriteLine(grade.IdGrade + " " + grade.Value + " " + grade.IdStudent);
             }
 
+        }
+
+        public void ShowStudentsWithGradesBiggerThan()
+        {
+            Console.WriteLine("Insert value");
+            int check = int.Parse(Console.ReadLine());
+            foreach (var studentAndGrade in _controllerStudentGrades.GetStudentsWithGradeBiggerThan(check))
+            {
+                Console.WriteLine(studentAndGrade.IdGrade + " " + studentAndGrade.Value + " " + studentAndGrade.FirstName + " " + studentAndGrade.LastName + " " + studentAndGrade.IdStudent);
+            }
         }
     }
 }

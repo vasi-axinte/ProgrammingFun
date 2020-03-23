@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace SampleApp
 {
-    public class RepositoryGrades
+    public class GradesRepository
     {
         static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Cristi\source\repos\ThisIs\ThisIs\Students.mdf;Integrated Security=False";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -29,7 +29,7 @@ namespace SampleApp
             SqlDataReader gradeReader = gradeDetails.ExecuteReader();
             while (gradeReader.Read())
             {
-                var gradeId = gradeReader["IdGrade"];
+                var gradeId = gradeReader["Id"];
                 var studentId = gradeReader["IdStudent"];
                 var value = gradeReader["Value"];
                 var date = gradeReader["Date"];
@@ -44,7 +44,7 @@ namespace SampleApp
         public void DeleteGrade(int gradeId)
         {
             connection.Open();
-            SqlCommand grade = new SqlCommand("DELETE FROM Grades where IdGrade=@gradeId ", connection);
+            SqlCommand grade = new SqlCommand("DELETE FROM Grades where Id=@gradeId ", connection);
             grade.Parameters.Add("@gradeId", gradeId);
             grade.ExecuteNonQuery();
             connection.Close();
@@ -59,7 +59,7 @@ namespace SampleApp
             SqlDataReader gradeReader = studentSelector.ExecuteReader();
             while (gradeReader.Read())
             {
-                var gradeId = gradeReader["IdGrade"];
+                var gradeId = gradeReader["Id"];
                 var value = gradeReader["Value"];
                 var date = gradeReader["Date"];
                 var idStudent = gradeReader["IdStudent"];

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SampleApp
 {
-    public class RepositoryDB
+    public class StudentsRepository
     {
         static string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Cristi\source\repos\ThisIs\ThisIs\Students.mdf;Integrated Security=False";
         SqlConnection connection = new SqlConnection(connectionString);
@@ -31,7 +31,7 @@ namespace SampleApp
             SqlDataReader studentReader = studentDetails.ExecuteReader();
             while (studentReader.Read())
             {
-                var idStudent = studentReader["IdStudent"];
+                var idStudent = studentReader["Id"];
                 var firstName = studentReader["Firstname"];
                 var lastName = studentReader["Lastname"];
                 var userName = studentReader["Username"];
@@ -49,13 +49,13 @@ namespace SampleApp
         public void DeleteStudent(int id)
         {
             connection.Open();
-            SqlCommand student = new SqlCommand("DELETE FROM Students WHERE IdStudent=@id", connection);
+            SqlCommand student = new SqlCommand("DELETE FROM Students WHERE Id=@id", connection);
             student.Parameters.Add("@id", id);
             student.ExecuteNonQuery();
             connection.Close();
         }
 
-        public void EditStudentDetails(Student s)
+        public void UpdateStudentDetails(Student s)
         {
             connection.Open();
             SqlCommand student = new SqlCommand("UPDATE Students SET Firstname=@Firstname, Lastname=@Lastname, Username=@Username, Age=@Age WHERE IdStudent=@IdStudent", connection);
@@ -63,9 +63,32 @@ namespace SampleApp
             student.Parameters.Add("@Lastname", s.LastName);
             student.Parameters.Add("@Username", s.Username);
             student.Parameters.Add("@Age", s.Age);
-            student.Parameters.Add("@IdStudent", s.Id);
+            student.Parameters.Add("@Id", s.Id);
             student.ExecuteNonQuery();
             connection.Close();
+        }
+
+        public List<StudentWithGrade> GetStudentsWithGradesBiggerThan(int check)
+        {
+            List<StudentWithGrade> students = new List<StudentWithGrade>();
+            connection.Open();
+            SqlCommand studentAndGradeSelector = new SqlCommand("SELECT Grades.Id, Grades.Value, Grades.IdStudent, Students.Firstname, Students.Lastname FROM Grades,Students WHERE (Grades.Value >= @check) AND (Grades.IdStudent = Students.Id)", connection);
+            studentAndGradeSelector.Parameters.Add("@check", check);
+            SqlDataReader studentAndGradeReader = studentAndGradeSelector.ExecuteReader();
+            while (studentAndGradeReader.Read())
+            {
+                var id = studentAndGradeReader["Id"];
+                var value = studentAndGradeReader["Value"];
+                var idStudent = studentAndGradeReader["IdStudent"];
+                var firstName = studentAndGradeReader["Firstname"];
+                var lastName = studentAndGradeReader["Lastname"];
+
+                var student = new StudentWithGrade(int.Parse(id.ToString().Trim()), int.Parse(value.ToString().Trim()), firstName.ToString().Trim(), lastName.ToString().Trim(), int.Parse(idStudent.ToString().Trim()));
+                students.Add(student);
+
+            }
+            connection.Close();
+            return students;
         }
     }
 }

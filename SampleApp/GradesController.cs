@@ -3,13 +3,13 @@
 namespace SampleApp
 {
 
-    public class ControllerGrades
+    public class GradesController
     {
-        private RepositoryGrades _repository;
+        private GradesRepository _repository;
 
-        public ControllerGrades()
+        public GradesController()
         {
-            _repository = new RepositoryGrades();
+            _repository = new GradesRepository();
         }
 
         public void AddGrade(Grade g)

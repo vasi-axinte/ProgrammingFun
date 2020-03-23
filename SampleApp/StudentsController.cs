@@ -2,13 +2,13 @@ using System.Collections.Generic;
 
 namespace SampleApp
 {
-    public class Controller
+    public class StudentsController
     {
-        private RepositoryDB _repository;
+        private StudentsRepository _repository;
 
-        public Controller()
+        public StudentsController()
         {
-            _repository = new RepositoryDB();
+            _repository = new StudentsRepository();
         }
 
         public void AddStudent(Student s)
@@ -27,9 +27,9 @@ namespace SampleApp
             _repository.DeleteStudent(id);
         }
 
-        public void EditStudentDetails(Student s)
+        public void UpdateStudentDetails(Student s)
         {
-            _repository.EditStudentDetails(s);
+            _repository.UpdateStudentDetails(s);
         }
     }
 }
