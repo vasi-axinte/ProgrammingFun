@@ -4,15 +4,15 @@ namespace SampleApp
 {
     public class UserInterface
     {
-        private StudentsController _controllerStudents;
-        private GradesController _controllerGrades;
-        private StudentGradesController _controllerStudentGrades;
+        private StudentsController _studentsController;
+        private GradesController _gradesController;
+        private StudentGradesController _studentGradesController;
 
         public UserInterface()
         {
-            _controllerStudents = new StudentsController();
-            _controllerGrades = new GradesController();
-            _controllerStudentGrades = new StudentGradesController();
+            _studentsController = new StudentsController();
+            _gradesController = new GradesController();
+            _studentGradesController = new StudentGradesController();
         }
 
         public void Run()
@@ -55,6 +55,16 @@ namespace SampleApp
                     UpdateStudentDetails();
                     Console.WriteLine();
                 }
+                if (command == 6)
+                {
+                    ShowStudentsWithGradesBiggerThan();
+                    Console.WriteLine();
+                }
+                if (command == 7)
+                {
+                    ShowStudensSortedByAverage();
+                    Console.WriteLine();
+                }
                 if (command == 'x')
                 {
                     mainMenu = false;
@@ -69,6 +79,8 @@ namespace SampleApp
             Console.WriteLine("3.Delete student by id");
             Console.WriteLine("4.Grades");
             Console.WriteLine("5.Edit student details");
+            Console.WriteLine("6.Show all students with grades bigger than...");
+            Console.WriteLine("7.Show all students sorted by average");
         }
 
         public void AddStudent()
@@ -84,14 +96,14 @@ namespace SampleApp
             int id = 0;
 
             var studentToBeAdded = new Student(id, firstName, lastName, username, age);
-            _controllerStudents.AddStudent(studentToBeAdded);
+            _studentsController.AddStudent(studentToBeAdded);
         }
 
         public void ShowAllStudents()
         {
-            foreach (var student in _controllerStudents.GetAllStudents())
+            foreach (var student in _studentsController.GetAllStudents())
             {
-                Console.WriteLine(student.Id + " " + student.FirstName + " " + student.LastName);
+                Console.WriteLine(student.Id + " " + student.LastName + " " + student.FirstName);
             }
         }
 
@@ -100,7 +112,7 @@ namespace SampleApp
             int id;
             Console.WriteLine("Enter the student id that you want to delete");
             id = int.Parse(Console.ReadLine());
-            _controllerStudents.DeleteStudent(id);
+            _studentsController.DeleteStudent(id);
         }
 
         public void UpdateStudentDetails()
@@ -117,7 +129,15 @@ namespace SampleApp
             int age = int.Parse(Console.ReadLine());
 
             var student = new Student(studentId, firstName, lastName, username, age);
-            _controllerStudents.UpdateStudentDetails(student);
+            _studentsController.UpdateStudentDetails(student);
+        }
+
+        public void ShowStudensSortedByAverage()
+        {
+            foreach (var student in _studentGradesController.GetAllStudents())
+            {
+                Console.WriteLine(student.LastName + " " + student.FirstName + " " + student.Average);
+            }
         }
 
         public void ShowGradesMenu()
@@ -151,11 +171,6 @@ namespace SampleApp
                 }
                 if (gradesCommand == 5)
                 {
-                    ShowStudentsWithGradesBiggerThan();
-                    Console.WriteLine();
-                }
-                if (gradesCommand == 6)
-                {
                     ShowMainMenu();
                     Console.WriteLine();
                 }
@@ -173,8 +188,7 @@ namespace SampleApp
             Console.WriteLine("2.Delete grade");
             Console.WriteLine("3.Show all grades");
             Console.WriteLine("4.Show all grades for student");
-            Console.WriteLine("5.Show all students with grades bigger than");
-            Console.WriteLine("6.Back to main menu");
+            Console.WriteLine("5.Back to main menu");
         }
 
         public void AddGrade()
@@ -189,12 +203,12 @@ namespace SampleApp
             int gradeId = 0;
 
             var gradeDetails = new Grade(gradeId, value, date, studentId);
-            _controllerGrades.AddGrade(gradeDetails);
+            _gradesController.AddGrade(gradeDetails);
         }
 
         public void ShowGrades()
         {
-            foreach (var student in _controllerGrades.GetAllGrades())
+            foreach (var student in _gradesController.GetAllGrades())
             {
                 Console.WriteLine(student.IdGrade + " " + student.Value + " " + student.Date + " " + student.IdStudent);
             }
@@ -204,25 +218,24 @@ namespace SampleApp
         {
             Console.WriteLine("Insert gradeId");
             int gradeId = (int.Parse(Console.ReadLine()));
-            _controllerGrades.DeleteGrade(gradeId);
+            _gradesController.DeleteGrade(gradeId);
         }
 
         public void ShowAllGradesForStudent()
         {
             Console.WriteLine("Insert IdStudent");
             int studentId = int.Parse(Console.ReadLine());
-            foreach (var grade in _controllerGrades.GetAllGradesForStudent(studentId))
+            foreach (var grade in _gradesController.GetAllGradesForStudent(studentId))
             {
                 Console.WriteLine(grade.IdGrade + " " + grade.Value + " " + grade.IdStudent);
             }
-
         }
 
         public void ShowStudentsWithGradesBiggerThan()
         {
             Console.WriteLine("Insert value");
-            int check = int.Parse(Console.ReadLine());
-            foreach (var studentAndGrade in _controllerStudentGrades.GetStudentsWithGradeBiggerThan(check))
+            int limitGrade = int.Parse(Console.ReadLine());
+            foreach (var studentAndGrade in _studentGradesController.GetStudentsWithGradeBiggerThan(limitGrade))
             {
                 Console.WriteLine(studentAndGrade.IdGrade + " " + studentAndGrade.Value + " " + studentAndGrade.FirstName + " " + studentAndGrade.LastName + " " + studentAndGrade.IdStudent);
             }

@@ -5,32 +5,33 @@ namespace SampleApp
 
     public class GradesController
     {
-        private GradesRepository _repository;
+        private GradesRepository _gradesRepository;
 
         public GradesController()
         {
-            _repository = new GradesRepository();
+            _gradesRepository = new GradesRepository();
         }
 
         public void AddGrade(Grade g)
         {
-            _repository.AddGrade(g);
+            _gradesRepository.AddGrade(g);
         }
 
         public void DeleteGrade(int gradeId)
         {
-            _repository.DeleteGrade(gradeId);
+            _gradesRepository.DeleteGrade(gradeId);
         }
 
         public List<Grade> GetAllGrades()
         {
-            List<Grade> grades = _repository.GetAllGrades();
+            List<Grade> grades = _gradesRepository.GetAllGrades();
+            grades.Sort((grade1, grade2) => grade1.Value.CompareTo(grade2.Value));
             return grades;
         }
 
         public List<Grade> GetAllGradesForStudent(int studentId)
         {
-            List<Grade> grades = _repository.GetAllGradesForStudent(studentId);
+            List<Grade> grades = _gradesRepository.GetAllGradesForStudent(studentId);
             return grades;
         }
     }

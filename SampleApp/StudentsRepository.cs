@@ -1,5 +1,6 @@
 ﻿using System.Data.SqlClient;
 using System.Collections.Generic;
+using System;
 
 namespace SampleApp
 {
@@ -39,10 +40,8 @@ namespace SampleApp
                 Student student = new Student(int.Parse(idStudent.ToString().Trim()), firstName.ToString().Trim(), lastName.ToString().Trim(), userName.ToString().Trim(), int.Parse(age.ToString()));
 
                 students.Add(student);
-
             }
             connection.Close();
-
             return students;
         }
 
@@ -68,24 +67,23 @@ namespace SampleApp
             connection.Close();
         }
 
-        public List<StudentWithGrade> GetStudentsWithGradesBiggerThan(int check)
+        public List<StudentWithGrade> GetStudentsWithGradesBiggerThan(int limitGrade)
         {
             List<StudentWithGrade> students = new List<StudentWithGrade>();
             connection.Open();
-            SqlCommand studentAndGradeSelector = new SqlCommand("SELECT Grades.Id, Grades.Value, Grades.IdStudent, Students.Firstname, Students.Lastname FROM Grades,Students WHERE (Grades.Value >= @check) AND (Grades.IdStudent = Students.Id)", connection);
-            studentAndGradeSelector.Parameters.Add("@check", check);
+            SqlCommand studentAndGradeSelector = new SqlCommand("SELECT Grades.Id, Grades.Value, Grades.IdStudent, Students.Firstname, Students.Lastname FROM Grades,Students WHERE (Grades.Value >= @limitGrade) AND (Grades.IdStudent = Students.Id)", connection);
+            studentAndGradeSelector.Parameters.Add("@limitGrade", limitGrade);
             SqlDataReader studentAndGradeReader = studentAndGradeSelector.ExecuteReader();
             while (studentAndGradeReader.Read())
             {
+                var firstName = studentAndGradeReader["Firstname"];
+                var lastName = studentAndGradeReader["Lastname"];
                 var id = studentAndGradeReader["Id"];
                 var value = studentAndGradeReader["Value"];
                 var idStudent = studentAndGradeReader["IdStudent"];
-                var firstName = studentAndGradeReader["Firstname"];
-                var lastName = studentAndGradeReader["Lastname"];
 
                 var student = new StudentWithGrade(int.Parse(id.ToString().Trim()), int.Parse(value.ToString().Trim()), firstName.ToString().Trim(), lastName.ToString().Trim(), int.Parse(idStudent.ToString().Trim()));
                 students.Add(student);
-
             }
             connection.Close();
             return students;

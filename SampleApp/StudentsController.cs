@@ -4,32 +4,33 @@ namespace SampleApp
 {
     public class StudentsController
     {
-        private StudentsRepository _repository;
+        private StudentsRepository _studentsRepository;
 
         public StudentsController()
         {
-            _repository = new StudentsRepository();
+            _studentsRepository = new StudentsRepository();
         }
 
         public void AddStudent(Student s)
         {
-            _repository.AddStudent(s);
+            _studentsRepository.AddStudent(s);
         }
 
         public List<Student> GetAllStudents()
         {
-            List<Student> students = _repository.GetAllStudents();
+            List<Student> students = _studentsRepository.GetAllStudents();
+            students.Sort((student1, student2) => student1.LastName.CompareTo(student2.LastName));
             return students;
         }
 
         public void DeleteStudent(int id)
         {
-            _repository.DeleteStudent(id);
+            _studentsRepository.DeleteStudent(id);
         }
 
         public void UpdateStudentDetails(Student s)
         {
-            _repository.UpdateStudentDetails(s);
+            _studentsRepository.UpdateStudentDetails(s);
         }
     }
 }
