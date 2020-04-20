@@ -76,6 +76,7 @@ namespace SampleApp
             SqlDataReader studentAndGradeReader = studentAndGradeSelector.ExecuteReader();
             while (studentAndGradeReader.Read())
             {
+
                 var firstName = studentAndGradeReader["Firstname"];
                 var lastName = studentAndGradeReader["Lastname"];
                 var id = studentAndGradeReader["Id"];

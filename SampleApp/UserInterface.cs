@@ -132,11 +132,25 @@ namespace SampleApp
             _studentsController.UpdateStudentDetails(student);
         }
 
+        public void ShowStudentsWithGradesBiggerThan()
+        {
+            Console.WriteLine("Insert value");
+            int limitGrade = int.Parse(Console.ReadLine());
+            foreach (var studentAndGrade in _studentGradesController.GetStudentsWithGradeBiggerThan(limitGrade))
+            {
+                Console.WriteLine(studentAndGrade.IdGrade + " " + studentAndGrade.Value + " " + studentAndGrade.FirstName + " " + studentAndGrade.LastName + " " + studentAndGrade.IdStudent);
+            }
+        }
+
         public void ShowStudensSortedByAverage()
         {
-            foreach (var student in _studentGradesController.GetAllStudents())
+            foreach (var student in _studentGradesController.SortStudentsByAverage())
             {
-                Console.WriteLine(student.LastName + " " + student.FirstName + " " + student.Average);
+                if (student.Average == 0)
+                {
+                    Console.WriteLine(student.LastName + " " + student.FirstName);
+                }
+                else Console.WriteLine(student.LastName + " " + student.FirstName + " " + student.Average);
             }
         }
 
@@ -228,16 +242,6 @@ namespace SampleApp
             foreach (var grade in _gradesController.GetAllGradesForStudent(studentId))
             {
                 Console.WriteLine(grade.IdGrade + " " + grade.Value + " " + grade.IdStudent);
-            }
-        }
-
-        public void ShowStudentsWithGradesBiggerThan()
-        {
-            Console.WriteLine("Insert value");
-            int limitGrade = int.Parse(Console.ReadLine());
-            foreach (var studentAndGrade in _studentGradesController.GetStudentsWithGradeBiggerThan(limitGrade))
-            {
-                Console.WriteLine(studentAndGrade.IdGrade + " " + studentAndGrade.Value + " " + studentAndGrade.FirstName + " " + studentAndGrade.LastName + " " + studentAndGrade.IdStudent);
             }
         }
     }

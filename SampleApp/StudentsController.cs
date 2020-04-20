@@ -19,8 +19,17 @@ namespace SampleApp
         public List<Student> GetAllStudents()
         {
             List<Student> students = _studentsRepository.GetAllStudents();
-            students.Sort((student1, student2) => student1.LastName.CompareTo(student2.LastName));
+            SortAllStudents(students);
             return students;
+        }
+
+        public List<Student> SortAllStudents(List<Student> students)
+        {
+            List<Student> sortedStudents = new List<Student>();
+
+            students.Sort((student1, student2) => student1.LastName.CompareTo(student2.LastName));
+            sortedStudents = students;
+            return sortedStudents;
         }
 
         public void DeleteStudent(int id)

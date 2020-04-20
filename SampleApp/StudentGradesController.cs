@@ -20,18 +20,37 @@ namespace SampleApp
             return students;
         }
 
-        public List<StudentAverage> GetAllStudents()
+        public List<Student> GetAllStudents()
         {
             List<Student> students = _studentsRepository.GetAllStudents();
             List<StudentAverage> studentsWithAverage = new List<StudentAverage>();
+            return students;
+        }
+
+        public List<StudentAverage> SortStudentsByAverage()
+        {
+            List<Student> students = GetAllStudents();
+            List<StudentAverage> studentsWithAverage = new List<StudentAverage>();
+            List<StudentAverage> studentsWithoutAverage = new List<StudentAverage>();
+            List<StudentAverage> studentsSortedByAverage = new List<StudentAverage>();
             foreach (var student in students)
             {
                 var average = GetAverageForStudent(student.Id);
                 var studentWithAverage = new StudentAverage(student.LastName, student.FirstName, average);
-                studentsWithAverage.Add(studentWithAverage);
+                if (studentWithAverage.Average == 0)
+                {
+                    studentsWithoutAverage.Add(studentWithAverage);
+                }
+                else studentsWithAverage.Add(studentWithAverage);
             }
             studentsWithAverage.Sort((student1, student2) => student1.Average.CompareTo(student2.Average));
-            return studentsWithAverage;
+            studentsSortedByAverage = studentsWithAverage;
+
+            foreach (var student in studentsWithoutAverage)
+            {
+                studentsSortedByAverage.Add(student);
+            }
+            return studentsSortedByAverage;
         }
 
         public int GetAverageForStudent(int studentId)

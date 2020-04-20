@@ -2,7 +2,6 @@
 
 namespace SampleApp
 {
-
     public class GradesController
     {
         private GradesRepository _gradesRepository;
@@ -25,7 +24,6 @@ namespace SampleApp
         public List<Grade> GetAllGrades()
         {
             List<Grade> grades = _gradesRepository.GetAllGrades();
-            grades.Sort((grade1, grade2) => grade1.Value.CompareTo(grade2.Value));
             return grades;
         }
 
