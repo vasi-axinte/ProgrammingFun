@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Theory.Queue  // Queue represents a first-in, first-out collection.
-                        // Imagine going at McDonalds drive. If you are the first in line, you will get out first 
-{
+{                      // Imagine going at McDonalds drive. If you are the first in line, you will get out first
     public class QueueThoery
     {
         public void Execute()
         {
-            ShoppingList myList = new ShoppingList();
-            myList.List();              
+            Recipe queue = new Recipe();
+            Console.WriteLine(queue);             
         }
     }
 }
+//We use Queue when we want to get things out in the order that we put them in

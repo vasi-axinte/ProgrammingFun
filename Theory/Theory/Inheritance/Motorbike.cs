@@ -8,8 +8,16 @@ namespace Theory.Inheritance
 {
     public class Motorbike : Vehicle // This is the DERIVED class
     {
-        public string model = " Model :S 1000 RR"; 
-        public string topseed = " 303 km/h";  
-        public string price = "10.000 $";
+        public Motorbike(string model, int topSpeed, int price) //Constructor with 3 arguments
+        {
+            this.Model = model;
+            this.TopSpeed = topSpeed;
+            this.Price = price;
+        }
+        public string Model { get; set; }
+
+        public int TopSpeed { get; set; }   //Properties
+
+        public int Price { get; set; }
     }
 }

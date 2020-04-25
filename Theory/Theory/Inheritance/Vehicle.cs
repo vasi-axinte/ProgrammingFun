@@ -8,10 +8,15 @@ namespace Theory.Inheritance
 {
     public class Vehicle       // This is the BASE class
     {
-        public string brand = " BMW ";    //field
+        public Vehicle()
+        {
+            this.Brand = "BMW";
+        }
+
         public void ShowBrandDetails()   //method
         {
-        Console.WriteLine("The company was founded in 1916 as a manufacturer of aircraft engines, which it produced from 1917 until 1918 and again from 1933 to 1945");
+            Console.WriteLine("The company was founded in 1916 as a manufacturer of aircraft engines, which it produced from 1917 until 1918 and again from 1933 to 1945");
         }
-    }
+        public string Brand { get; set; }   //property
+    }  
 }

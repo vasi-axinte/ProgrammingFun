@@ -19,3 +19,4 @@ namespace Theory.Stack
         }
     }
 }
+//We use stack when we want to get things out in the reverse order than we put them in

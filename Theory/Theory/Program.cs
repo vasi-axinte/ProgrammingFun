@@ -7,10 +7,11 @@ namespace Theory
         static void Main(string[] args)
         {
 
-            //   Inheritance.InheritanceTheory ui = new Inheritance.InheritanceTheory();
+            //  Inheritance.InheritanceTheory ui = new Inheritance.InheritanceTheory();
             //   Queue.QueueThoery ui = new Queue.QueueThoery();
             //  Stack.StackTheory ui = new Stack.StackTheory();
-            ClassesAndObjects.ClassesAndObjectsTheory ui = new ClassesAndObjects.ClassesAndObjectsTheory();
+            // ClassesAndObjects.ClassesAndObjectsTheory ui = new ClassesAndObjects.ClassesAndObjectsTheory();
+            Interfaces.InterfacesTheory ui = new Interfaces.InterfacesTheory();
             ui.Execute();
         }
     }

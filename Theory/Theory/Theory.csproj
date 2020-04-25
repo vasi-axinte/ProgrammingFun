@@ -43,16 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassesAndObjects\CarBuilder.cs" />
+    <Compile Include="ClassesAndObjects\Car.cs" />
     <Compile Include="ClassesAndObjects\ClassesAndObjectsTheory.cs" />
     <Compile Include="Inheritance\Car.cs" />
     <Compile Include="Inheritance\InheritanceTheory.cs" />
     <Compile Include="Inheritance\Motorbike.cs" />
     <Compile Include="Inheritance\Vehicle.cs" />
+    <Compile Include="Interfaces\ClassicWatch.cs" />
+    <Compile Include="Interfaces\IAlarmClock.cs" />
+    <Compile Include="Interfaces\InterfacesTheory.cs" />
+    <Compile Include="Interfaces\IWatch.cs" />
+    <Compile Include="Interfaces\SportWatch.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queue\QueueThoery.cs" />
-    <Compile Include="Queue\ShoppingList.cs" />
+    <Compile Include="Queue\Recipe.cs" />
     <Compile Include="Stack\PillarOfBooks.cs" />
     <Compile Include="Stack\StackTheory.cs" />
   </ItemGroup>
