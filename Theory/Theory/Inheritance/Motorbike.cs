@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Theory.Inheritance
+﻿namespace Theory.Inheritance
 {
-    public class Motorbike : Vehicle // This is the DERIVED class
+    /// <summary>
+    ///  Motorbike class inherits from Vehicle class
+    /// </summary>
+    public class Motorbike : Vehicle 
     {
-        public Motorbike(string model, int topSpeed, int price) //Constructor with 3 arguments
+        /// <summary>
+        ///  ///Constructor with 3 arguments
+        /// </summary>
+        public Motorbike(string model, int topSpeed, int price) 
         {
             this.Model = model;
             this.TopSpeed = topSpeed;
@@ -16,7 +16,7 @@ namespace Theory.Inheritance
         }
         public string Model { get; set; }
 
-        public int TopSpeed { get; set; }   //Properties
+        public int TopSpeed { get; set; }   
 
         public int Price { get; set; }
     }

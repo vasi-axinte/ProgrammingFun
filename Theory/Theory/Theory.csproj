@@ -45,6 +45,10 @@
   <ItemGroup>
     <Compile Include="ClassesAndObjects\Car.cs" />
     <Compile Include="ClassesAndObjects\ClassesAndObjectsTheory.cs" />
+    <Compile Include="Constructor\ConstructorTheory.cs" />
+    <Compile Include="Constructor\Person.cs" />
+    <Compile Include="Destructor\Average.cs" />
+    <Compile Include="Destructor\DestructorTheory.cs" />
     <Compile Include="Inheritance\Car.cs" />
     <Compile Include="Inheritance\InheritanceTheory.cs" />
     <Compile Include="Inheritance\Motorbike.cs" />

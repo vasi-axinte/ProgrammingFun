@@ -2,7 +2,10 @@
 
 namespace Theory.Interfaces
 {
-    public class SportWatch : IWatch  //Class SportWatch IMPLEMENTS the IWatch interface
+    /// <summary>
+    /// Class SportWatch IMPLEMENTS the IWatch interface
+    /// </summary>
+    public class SportWatch : IWatch  
     {
         public SportWatch(string brand, string strap, string materials, bool digital, string alarmSong) //Constructor
         {
@@ -17,20 +20,26 @@ namespace Theory.Interfaces
 
             public string Strap { get; set; }
 
-            public string MaterialsQuality { get; set; }  //Properties
+            public string MaterialsQuality { get; set; }  
 
             public bool Digital { get; set; }
 
             public string AlarmSong { get; set; }
 
-            public void ShowTime()   //This is the method from IWatch interface, here provide the method body 
-            {
-                 Console.WriteLine("00:00");
-            }
+        /// <summary>
+        /// This is the method from IWatch interface, here we provide the method body 
+        /// </summary>
+        public void ShowTime()   
+        {
+           Console.WriteLine("00:00");
+        }
 
-            public void AlarmSing()   //This is the method from IAlarmClock interface, here provide the method body 
-            {
-                 Console.WriteLine("Buzz buzz buzz");
-            }  
+        /// <summary>
+        /// This is the method from IAlarmClock interface, we here provide the method body 
+        /// </summary>
+        public void AlarmSing()   
+        {
+           Console.WriteLine("Buzz buzz buzz");
+        }  
     }
 }

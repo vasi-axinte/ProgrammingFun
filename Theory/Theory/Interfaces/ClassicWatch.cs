@@ -2,9 +2,14 @@
 
 namespace Theory.Interfaces
 {
-    public class ClassicWatch : IWatch //Class ClassicWatch IMPLEMENTS the IWatch interface
-  //When a class IMPLEMENTS the interface, the class MUST contain EVERYTHING that the Interface contains
-   //or the program will show an error
+    /// <summary>
+    /// Class ClassicWatch IMPLEMENTS the IWatch interface
+    /// When a class IMPLEMENTS the interface, the class MUST contain EVERYTHING that the Interface contains
+    /// or the program will show an error
+    /// We say that a class IMPLEMENTS the interface not INHERITS the interface because a class can`t have
+    /// multiple inheritances, but it can IMPLEMENT multiple interfaces.
+    /// </summary>
+    public class ClassicWatch : IWatch 
     {
         public ClassicWatch(string brand, string strap, string materials, bool digital, string alarmSong, bool mechanical) //constructor
         {
@@ -20,26 +25,32 @@ namespace Theory.Interfaces
 
       public string Strap { get; set; }
 
-      public string MaterialsQuality { get; set; } //Properties
+      public string MaterialsQuality { get; set; } 
 
       public bool Digital { get; set; }
 
       public string AlarmSong { get; set; }
 
-      public bool Mechanical { get; set; }  //Property that only exists in class ClassicWatch 
+        /// <summary>
+        ///  We can add new properties in our class, and the interface won`t have any problems with that,
+        ///  if the class contain everything that the interface contains
+        /// </summary>
+        public bool Mechanical { get; set; }
 
-        //We can add new properties in our class, and the interface won`t have any problems with that,
-        //if the class contain everything that the interface contains
-
-        public void ShowTime()  //This is the method from IWatch interface, here provide the method body 
-      { 
+        /// <summary>
+        /// This is the method from IWatch interface, here we provide the method body 
+        /// </summary>
+        public void ShowTime()  
+        { 
             Console.WriteLine("13:00");   
-      }
+        }
 
-        public void AlarmSing()      //This is the method from IAlarmClock interface, here provide the method body 
+        /// <summary>
+        /// This is the method from IAlarmClock interface, here we provide the method body 
+        /// </summary>
+        public void AlarmSing()     
         {
             Console.WriteLine("Buzz buzz buzz"); 
         }
     }
-}   //We say that a class IMPLEMENTS the interface not INHERITS the interface because a class can`t have
-    //multiple inheritances, but it can IMPLEMENT multiple interfaces.
+}  

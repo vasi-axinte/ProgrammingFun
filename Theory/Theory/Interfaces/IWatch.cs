@@ -1,20 +1,26 @@
 ﻿namespace Theory.Interfaces
-{    //IWatch is the interface
-    public interface IWatch : IAlarmClock  //IWatch IMPLEMENTS the IAlarmClock interfa
-    //Interfaces can implement from other interfaces too. 
-    //In our case,IWatch interface implements the IAlarmClock interface
+{
+    /// <summary>
+    /// IWatch is the interface
+    /// Interfaces can implement from other interfaces too. 
+    /// In our case,IWatch interface implements the IAlarmClock interface.
+    /// </summary>
+    public interface IWatch : IAlarmClock  
     {
-        //In an interface we can`t have public, because EVERYTHING in an interface is public
+        /// <summary>
+        /// In an interface we can`t have public, because EVERYTHING in an interface is public
+        /// </summary>
         string Brand { get; set; } 
 
         string Strap { get; set; }
 
-        string MaterialsQuality { get; set; }   //properties
+        string MaterialsQuality { get; set; }   
 
-        bool Digital { get; set; } 
+        bool Digital { get; set; }
 
-        void ShowTime();   //interface method ( methods don`t have a body in Interface )
+        /// <summary>
+        /// Interface methods ( methods don`t have a body in Interface )
+        /// </summary>
+        void ShowTime();  
     }
-    //Interfaces contains no implementation. 
-    //Interface is like a contract that says what the class that implements it must contain
 }

@@ -6,31 +6,39 @@ using System.Threading.Tasks;
 
 namespace Theory.ClassesAndObjects
 {
-    public class Car //A class is a reference type. A reference type doesn`t store it`s value directly
-                     //Instead it stores the addres where the value is being stored
+    public class Car
     {
-        // a constructor can take 0 arguments too
-        public Car(string color, string name)  //constructor with 2 arguments
-        {                                             //The constructor will be called when you create an object of a class
+        /// <summary>
+        /// A constructor can take 0 arguments too
+        /// The constructor will be called when you create an object of type Car
+        /// </summary>
+        public Car(string color, string name)  
+        {                                             
             this.Color = color;
             this.Name = name;
-        }   
+        }
 
-        public Car(string color, string name, string engine)  //constructor with 3 arguments. 
-        {                      //The constructor will be called when you create an object of a class
+        /// <summary>
+        /// The constructor will be called when you create an object of type Car
+        /// </summary>
+        public Car(string color, string name, string engine)  
+        {                      
             this.Color = color;
             this.Name = name;
             this.Engine = engine ;
         }
 
-        public void StartEngine()  //classes can contain methods
+        /// <summary>
+        /// //Classes can contain methods
+        /// </summary>
+        public void StartEngine() 
         {
             Console.WriteLine("Wrum wrum");
         }
 
         public string Color { get; set; }
 
-        public string Name { get; set; }       //properties
+        public string Name { get; set; }      
 
         public string Engine { get; set; }
     }

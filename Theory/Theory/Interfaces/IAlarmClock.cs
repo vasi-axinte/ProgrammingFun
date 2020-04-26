@@ -1,9 +1,12 @@
 ﻿namespace Theory.Interfaces
 {
-    public interface IAlarmClock  //Interface
+    /// <summary>
+    /// This is our Interface
+    /// </summary>
+    public interface IAlarmClock  
     {
-        string AlarmSong { get; set; }   //property
+        string AlarmSong { get; set; }   
 
-        void AlarmSing(); //interface method
+        void AlarmSing(); 
     }
 }

@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Theory.Inheritance
 {
-    public class Car : Vehicle  // This is the DERIVED Class(child class)
-                            // To inherit from a class, we use the ":" symbol. 
-                             //In our case we have the class Car( child class ) who inherit from 
-                             //class Vehicle( parent class )
+    /// <summary>
+    /// Class Car inherit from class Vehicle. 
+    /// Class Car will be called Child Class and Class Vehicle will be called Parent Class
+    /// To inherit from a class we use ":" symbol
+    /// </summary>
+    public class Car : Vehicle  
     {
-        public Car(string model, string gearBox, int price)  //Constructor with 3 arguments
+        /// <summary>
+        /// Constructor with 3 arguments
+        /// </summary>
+        public Car(string model, string gearBox, int price)  
         {
             this.Model = model;
             this.GearBox = gearBox;
@@ -20,7 +25,7 @@ namespace Theory.Inheritance
 
         public string Model { get; set; }
 
-        public string GearBox { get; set; }   //Properties
+        public string GearBox { get; set; }  
 
         public int Price { get; set; }
     }
