@@ -58,6 +58,16 @@
     <Compile Include="Interfaces\InterfacesTheory.cs" />
     <Compile Include="Interfaces\IWatch.cs" />
     <Compile Include="Interfaces\SportWatch.cs" />
+    <Compile Include="OOPPrinciples\Abstraction\AbstractionTheory.cs" />
+    <Compile Include="OOPPrinciples\Abstraction\Calculator.cs" />
+    <Compile Include="OOPPrinciples\Abstraction\Operations.cs" />
+    <Compile Include="OOPPrinciples\Encapsulation\CompanyCEO.cs" />
+    <Compile Include="OOPPrinciples\Encapsulation\Employee.cs" />
+    <Compile Include="OOPPrinciples\Encapsulation\EncapsulationTheory.cs" />
+    <Compile Include="OOPPrinciples\Encapsulation\Stranger.cs" />
+    <Compile Include="OOPPrinciples\Polymorphism\Email.cs" />
+    <Compile Include="OOPPrinciples\Polymorphism\PolymorphismTheory.cs" />
+    <Compile Include="OOPPrinciples\Polymorphism\PrivateEmail.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queue\QueueThoery.cs" />
