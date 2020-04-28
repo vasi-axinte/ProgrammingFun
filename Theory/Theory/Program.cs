@@ -15,7 +15,8 @@ namespace Theory
             //Destructor.DestructorTheory ui = new Destructor.DestructorTheory();
             //OOPPrinciples.Abstraction.AbstractionTheory ui = new OOPPrinciples.Abstraction.AbstractionTheory();  
             //OOPPrinciples.Encapsulation.EncapsulationTheory ui = new OOPPrinciples.Encapsulation.EncapsulationTheory();
-            OOPPrinciples.Polymorphism.PolymorphismTheory ui = new OOPPrinciples.Polymorphism.PolymorphismTheory();
+            //OOPPrinciples.Polymorphism.PolymorphismTheory ui = new OOPPrinciples.Polymorphism.PolymorphismTheory();
+            OOPPrinciples.Inheritance.InheritanceThoery ui = new OOPPrinciples.Inheritance.InheritanceThoery();
             ui.Execute();
 
         }

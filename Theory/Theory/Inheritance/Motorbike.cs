@@ -6,7 +6,7 @@
     public class Motorbike : Vehicle 
     {
         /// <summary>
-        ///  ///Constructor with 3 arguments
+        ///  Constructor with 3 arguments
         /// </summary>
         public Motorbike(string model, int topSpeed, int price) 
         {

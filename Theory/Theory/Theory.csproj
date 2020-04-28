@@ -65,6 +65,10 @@
     <Compile Include="OOPPrinciples\Encapsulation\Employee.cs" />
     <Compile Include="OOPPrinciples\Encapsulation\EncapsulationTheory.cs" />
     <Compile Include="OOPPrinciples\Encapsulation\Stranger.cs" />
+    <Compile Include="OOPPrinciples\Inheritance\EarthquakeAlert.cs" />
+    <Compile Include="OOPPrinciples\Inheritance\EmergencyAlert.cs" />
+    <Compile Include="OOPPrinciples\Inheritance\InheritanceThoery.cs" />
+    <Compile Include="OOPPrinciples\Inheritance\TsunamiAlert.cs" />
     <Compile Include="OOPPrinciples\Polymorphism\Email.cs" />
     <Compile Include="OOPPrinciples\Polymorphism\PolymorphismTheory.cs" />
     <Compile Include="OOPPrinciples\Polymorphism\PrivateEmail.cs" />

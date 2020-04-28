@@ -7,7 +7,6 @@ namespace Theory.Inheritance
     /// that allows us to define a base class that provides specific functionality
     /// and to define derived classes that can inherit or override that functionality
     /// </summary>
- 
     public class InheritanceTheory
     {
         public void Execute()  
