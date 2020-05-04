@@ -17,6 +17,4 @@ namespace Theory.OOPPrinciples
 
         public abstract void Square(int number);
     }
-
-   
 }

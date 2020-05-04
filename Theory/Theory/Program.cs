@@ -16,7 +16,9 @@ namespace Theory
             //OOPPrinciples.Abstraction.AbstractionTheory ui = new OOPPrinciples.Abstraction.AbstractionTheory();  
             //OOPPrinciples.Encapsulation.EncapsulationTheory ui = new OOPPrinciples.Encapsulation.EncapsulationTheory();
             //OOPPrinciples.Polymorphism.PolymorphismTheory ui = new OOPPrinciples.Polymorphism.PolymorphismTheory();
-            OOPPrinciples.Inheritance.InheritanceThoery ui = new OOPPrinciples.Inheritance.InheritanceThoery();
+            //OOPPrinciples.Inheritance.InheritanceThoery ui = new OOPPrinciples.Inheritance.InheritanceThoery();
+            //Abstract_Classes_VS_Interfaces.AbstractClassesTheory ui = new Abstract_Classes_VS_Interfaces.AbstractClassesTheory();
+            Abstract_Classes_VS_Interfaces.InterfacesTheory ui = new Abstract_Classes_VS_Interfaces.InterfacesTheory();
             ui.Execute();
 
         }

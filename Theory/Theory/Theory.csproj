@@ -43,6 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract Classes VS Interfaces\AbstractClassesTheory.cs" />
+    <Compile Include="Abstract Classes VS Interfaces\IBooks.cs" />
+    <Compile Include="Abstract Classes VS Interfaces\ILibrary.cs" />
+    <Compile Include="Abstract Classes VS Interfaces\InterfacesTheory.cs" />
+    <Compile Include="Abstract Classes VS Interfaces\KitchenRobot.cs" />
+    <Compile Include="Abstract Classes VS Interfaces\Robot.cs" />
+    <Compile Include="Abstract Classes VS Interfaces\Library.cs" />
     <Compile Include="ClassesAndObjects\Car.cs" />
     <Compile Include="ClassesAndObjects\ClassesAndObjectsTheory.cs" />
     <Compile Include="Constructor\ConstructorTheory.cs" />

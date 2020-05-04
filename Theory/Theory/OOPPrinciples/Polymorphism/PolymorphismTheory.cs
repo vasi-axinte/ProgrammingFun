@@ -10,9 +10,8 @@ namespace Theory.OOPPrinciples.Polymorphism
     /// The word polymorphism means having many form.
     /// In simple words, we can describe polymorphis as the ability of a message to 
     /// be desplayed in more than one form
-    /// Polymorphis is usefull when we have  multiple classes who inherits
+    /// Polymorphis is usefull when we have multiple classes who inherits from the same parent
     /// Overriding is a type of polymorphism
-    /// from the same parent
     /// </summary>
     public class PolymorphismTheory
     {
