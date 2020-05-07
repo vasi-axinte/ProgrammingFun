@@ -18,7 +18,7 @@ namespace Theory.Abstract_Classes_VS_Interfaces
         {
             Library myLibrary = new Library();
             Console.WriteLine("Our Library name is:" + " " +myLibrary.LibraryName);
-            Console.WriteLine("Our Librarianis:" + myLibrary.Librarian);
+            Console.WriteLine("Our Librarian is:" + myLibrary.Librarian);
             Console.WriteLine(myLibrary.BookType + " " + myLibrary.Author);
             myLibrary.SortBooks();
 
