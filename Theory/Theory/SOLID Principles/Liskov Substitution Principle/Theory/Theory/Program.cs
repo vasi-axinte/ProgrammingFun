@@ -22,9 +22,7 @@ namespace Theory
             //Abstract_Classes_VS_Interfaces.InterfacesTheory ui = new Abstract_Classes_VS_Interfaces.InterfacesTheory();
             //SOLID_Principles.Single_Responsability_Principle.SingleResponsabilityTheory ui = new SOLID_Principles.Single_Responsability_Principle.SingleResponsabilityTheory();
             //SOLID_Principles.Interface_Segregation_Principle.Interface_Segregation_Principle_Theory ui = new SOLID_Principles.Interface_Segregation_Principle.Interface_Segregation_Principle_Theory();
-            //SOLID_Principles.Open_Closed_Principle.OpenClosedPrincipleTheory ui = new SOLID_Principles.Open_Closed_Principle.OpenClosedPrincipleTheory();
-            // SOLID_Principles.Liskov_Substitution_Principle.LiskovSubstitutionTheory ui = new SOLID_Principles.Liskov_Substitution_Principle.LiskovSubstitutionTheory();
-            SOLID_Principles.Dependency_Inversion_Principle.DependencyInversionTheory ui = new SOLID_Principles.Dependency_Inversion_Principle.DependencyInversionTheory();
+            SOLID_Principles.Open_Closed_Principle.OpenClosedPrincipleTheory ui = new SOLID_Principles.Open_Closed_Principle.OpenClosedPrincipleTheory();
             ui.Execute();
 
         }

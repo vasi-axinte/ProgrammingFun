@@ -83,29 +83,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queue\QueueThoery.cs" />
     <Compile Include="Queue\Recipe.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\ConfirmationEmail.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\DependencyInversionTheory.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\Factory.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\IEmail.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\IPerson.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\IProduct.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\IShipping.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\Person.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\Product.cs" />
-    <Compile Include="SOLID Principles\Dependency Inversion Principle\Shipping.cs" />
     <Compile Include="SOLID Principles\Interface Segregation Principle\IModeratorCommands.cs" />
     <Compile Include="SOLID Principles\Interface Segregation Principle\InterfaceSegregationPrincipleTheory.cs" />
     <Compile Include="SOLID Principles\Interface Segregation Principle\IUserCommands.cs" />
     <Compile Include="SOLID Principles\Interface Segregation Principle\Moderator.cs" />
     <Compile Include="SOLID Principles\Interface Segregation Principle\User.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\BaseSoldier.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\Captain.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\Commander.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\ICommander.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\IRecived.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\ISoldier.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\LiskovSubstitutionTheory.cs" />
-    <Compile Include="SOLID Principles\Liskov Substitution Principle\Soldier.cs" />
     <Compile Include="SOLID Principles\Open Closed Principle\Employee.cs" />
     <Compile Include="SOLID Principles\Open Closed Principle\InternshipEmployee.cs" />
     <Compile Include="SOLID Principles\Open Closed Principle\OpenClosedPrincipleTheory.cs" />
@@ -119,6 +101,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="SOLID Principles\Dependency Inversion Principle\" />
+    <Folder Include="SOLID Principles\Liskov Substitution Principle\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
