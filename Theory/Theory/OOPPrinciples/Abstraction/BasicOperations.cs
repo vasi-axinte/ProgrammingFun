@@ -11,7 +11,7 @@ namespace Theory.OOPPrinciples.Abstraction
     /// To acces the abstract class we have to use inheritance
     /// /// In our case, class Calculator inherits abstract class Operations
     /// </summary>
-    public class Calculator : Operations
+    public class BasicOperations : Operations
     {
         /// <summary>
         /// Overriding the abstract method Multiplication, using the override keyword 

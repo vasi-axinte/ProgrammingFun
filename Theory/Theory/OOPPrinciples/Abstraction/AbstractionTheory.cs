@@ -18,9 +18,9 @@ namespace Theory.OOPPrinciples.Abstraction
     {
         public void Execute()
         {
-            Calculator myCalculator = new Calculator();
-            myCalculator.Multiplicate(4, 5);
-            myCalculator.Square(5);
+            BasicOperations myOperation = new BasicOperations();
+            myOperation.Multiplicate(4, 5);
+            myOperation.Square(5);
             Console.ReadLine();
         }
     }
