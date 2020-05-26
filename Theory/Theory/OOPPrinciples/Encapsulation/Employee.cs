@@ -26,7 +26,7 @@ namespace Theory.OOPPrinciples.Encapsulation
         }
 
         /// <summary>
-        /// Method that will show what only our employe knows about himself
+        /// Method that will show what only our employee knows about himself
         /// </summary>
         public void DisplayWhatOnlyEmployeeKnows()
         {

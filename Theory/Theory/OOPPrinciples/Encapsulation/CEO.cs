@@ -11,7 +11,7 @@ namespace Theory.OOPPrinciples.Encapsulation
     /// Like this, CompanyCEO class will have access to Employee class protected and 
     /// public access spcifiers
     /// </summary>
-    public class CompanyCEO : Employee
+    public class CEO : Employee
     {
         /// <summary>
         /// Method that will display what company knows about his employee

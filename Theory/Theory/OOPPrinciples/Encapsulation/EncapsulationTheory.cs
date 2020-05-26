@@ -21,7 +21,7 @@ namespace Theory.OOPPrinciples.Encapsulation
             newEmployee.DisplayWhatEmployeeKnows();
             newEmployee.DisplayWhatOnlyEmployeeKnows();
 
-            CompanyCEO newCompanyCEO = new CompanyCEO();
+            CEO newCompanyCEO = new CEO();
             newCompanyCEO.DisplayWhatCompanyKnows();
 
             Stranger stranger = new Stranger();

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Theory.OOPPrinciples.Encapsulation
 {
     public class Stranger
-    {
+{ 
+        
         Employee newEmployee = new Employee();
         /// <summary>
         /// Method that will display what everyone knows about our employee
