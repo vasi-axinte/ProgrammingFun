@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Theory.Design_Patterns.Factory_Method
 {
+    /// <summary>
+    /// This is our "ConcreteProduct", this is a class that implements the Product Interface
+    /// </summary>
     public class Husky : DogBreed
     {
         private string _breedType;

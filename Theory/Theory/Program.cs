@@ -27,7 +27,9 @@ namespace Theory
             //SOLID_Principles.Dependency_Inversion_Principle.DependencyInversionTheory ui = new SOLID_Principles.Dependency_Inversion_Principle.DependencyInversionTheory();
             //DRY_Principle.DRYPrincipleTheory ui = new DRY_Principle.DRYPrincipleTheory();
             // Design_Patterns.Abstract_Factory.AbstractFactoryTheory ui = new Design_Patterns.Abstract_Factory.AbstractFactoryTheory();
-            Design_Patterns.Factory_Method.FactoryMethodThoery ui = new Design_Patterns.Factory_Method.FactoryMethodThoery();
+            // Design_Patterns.Factory_Method.FactoryMethodThoery ui = new Design_Patterns.Factory_Method.FactoryMethodThoery();
+            //Design_Patterns.Singleton.SingletonTheory ui = new Design_Patterns.Singleton.SingletonTheory();
+            BuilderDesignPattern.BuilderTheory ui = new BuilderDesignPattern.BuilderTheory();
             ui.Execute();
 
         }

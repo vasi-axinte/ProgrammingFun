@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Theory.Design_Patterns.Factory_Method
 {
+    /// <summary>
+    /// This is our "Creator" class.This class will override the factory method to return an
+    /// instance of ConcreteProduct (Husky or Pitbull or Dalmatian in our case)
+    /// </summary>
     public class PitbullFactory : HuskyFactory
     {
         public override DogBreed GetDogBreed()
