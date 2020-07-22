@@ -13,10 +13,10 @@ namespace Theory.BuilderDesignPattern
     /// </summary>
     public interface ICarBuilder
     {
-        void Model();
+        void AddModel();
         void AddDoors();
         void AddEngine();
-        void AddTiers();
-        void GetCar();
+        void AddWheels();
+        Car GetCar();
     }
 }

@@ -54,7 +54,7 @@
     <Compile Include="BuilderDesignPattern\Car.cs" />
     <Compile Include="BuilderDesignPattern\CarCreator.cs" />
     <Compile Include="BuilderDesignPattern\ICarBuilder.cs" />
-    <Compile Include="BuilderDesignPattern\Mercedes.cs" />
+    <Compile Include="BuilderDesignPattern\CarBuilder.cs" />
     <Compile Include="ClassesAndObjects\Car.cs" />
     <Compile Include="ClassesAndObjects\ClassesAndObjectsTheory.cs" />
     <Compile Include="Constructor\ConstructorTheory.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Design Patterns\Factory Method\HuskyFactory.cs" />
     <Compile Include="Design Patterns\Factory Method\Pitbull.cs" />
     <Compile Include="Design Patterns\Factory Method\PitbullFactory.cs" />
-    <Compile Include="Design Patterns\Singleton\Product.cs" />
+    <Compile Include="Design Patterns\Singleton\ShoppingList.cs" />
     <Compile Include="Design Patterns\Singleton\SingletonTheory.cs" />
     <Compile Include="Destructor\Average.cs" />
     <Compile Include="Destructor\DestructorTheory.cs" />

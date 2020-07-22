@@ -14,11 +14,11 @@ namespace Theory.Inheritance
             //Declaring new object myCar of type Car
             Car myCar = new Car("m4" , "automatic" , 100000);
 
-            //Calling the ShowBrandDetails() from VehicleBrand class ( The BASE class ) on object myBike
+            //Calling the ShowBrandDetails() from Vehicle class (The BASE class) on object myBike
             myCar.ShowBrandDetails();
 
-            //Display the value of the Brand ( from Vehicle class) and the value of Mode, Price and GearBox( from Car class) 
-            Console.WriteLine( myCar.Brand +" Model: "+ myCar.Model +" Price: "+ myCar.Price + " Gearbox: " + myCar.GearBox);
+            //Display the value of the Brand (from Vehicle class) and the value of Mode, Price and GearBox(from Car class) 
+            Console.WriteLine( myCar.Brand+ " " +"Model:"+ myCar.Model+ " " +"Price:"+ myCar.Price+ " " +"Gearbox:"+ myCar.GearBox);
             Console.WriteLine();
 
 

@@ -22,14 +22,14 @@ namespace Theory.BuilderDesignPattern
         public void CreateCar()
         {
             _carBuilder.AddEngine();
-            _carBuilder.AddTiers();
+            _carBuilder.AddWheels();
             _carBuilder.AddDoors();
-            _carBuilder.Model();
+            _carBuilder.AddModel();
         }
 
-        public void GetCar()
+        public Car GetCar()
         {
-             _carBuilder.GetCar();
+            return _carBuilder.GetCar();
         }
     }
 }

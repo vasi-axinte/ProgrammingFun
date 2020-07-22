@@ -12,7 +12,7 @@ namespace Theory.Design_Patterns.Factory_Method
     /// In our example we have 3 different dog breeds(Husky, Dalmatian, Pitbull) all of them 
     /// implement the abstract class DogBreed. We need to instantiate one of those classes, but
     /// we don`t know which one, because it depends on the user, on the client that wants to
-    /// know more about those breeds.
+    /// know more about one of those breeds.
     /// </summary>
     public class FactoryMethodThoery
     {

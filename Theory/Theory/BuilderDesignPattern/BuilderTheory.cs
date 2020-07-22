@@ -14,9 +14,9 @@ namespace Theory.BuilderDesignPattern
     {
         public void Execute()
         {
-            var BuildMercedes = new CarCreator(new Mercedes());
-            BuildMercedes.CreateCar();
-            BuildMercedes.GetCar();
+            var myCar = new CarCreator(new CarBuilder());
+            myCar.CreateCar();
+            Console.WriteLine(myCar.GetCar().Model +" "+ myCar.GetCar().Engine +" "+ myCar.GetCar().Doors +" "+ myCar.GetCar().Wheels);
             Console.ReadLine();
         }
     }

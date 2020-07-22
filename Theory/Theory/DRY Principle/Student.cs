@@ -34,7 +34,7 @@ namespace Theory.DRY_Principle
         /// </summary>
         public void WriteAllStudentDetails(string firstName, string lastName)
         {
-            Console.WriteLine(firstName + " " + lastName + " " + Univeristy + " " + Specialization);
+            Console.WriteLine(firstName +" "+ lastName +" "+ Univeristy +" "+ Specialization);
         }
     }
 }

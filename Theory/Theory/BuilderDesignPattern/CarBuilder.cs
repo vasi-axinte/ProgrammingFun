@@ -11,11 +11,11 @@ namespace Theory.BuilderDesignPattern
     ///Concrete Builder is a class which implements the Builder (ICarBuilder)
     ///to create the product
     /// </summary>
-    public class Mercedes : ICarBuilder
+    public class CarBuilder : ICarBuilder
     {
-        Car car = new Car();
+        Car car = new Car(); 
 
-        public void Model()
+        public void AddModel()
         {
             car.Model = "CLA 200";
         }
@@ -25,20 +25,19 @@ namespace Theory.BuilderDesignPattern
             car.Engine = "V8";
         }
 
-        public void AddTiers()
+        public void AddWheels()
         {
-            car.Tiers = "Sport";
+            car.Wheels = "Sport";
         }
 
         public void AddDoors()
         {
-            car.Doors = "4";
+            car.Doors = 4;
         }
 
-        public void GetCar()
+        public Car GetCar()
         {
-            Console.WriteLine(car.Engine + " " + car.Model + " " + car.Doors + " " + car.Tiers);
-
+            return car;
         }
     }
 }

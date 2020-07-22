@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// Singleton esures a class has only one instance and provides a global point of acces to it
-/// In our example we have our singleton class Product. Singleton class ensures that this class has
-/// only one instance, like this when we create another object of type Product, class Product 
-/// won`t have an instance because it already had one when we created our first product.
+/// In our example we have our singleton class ShoppingList. Singleton ensures that this class has
+/// only one instance, like this when we create another object of type ShoppingList, class ShoppingList
+/// won`t have an instance because it already had one when we created our first ShoppingList.
 /// </summary>
 namespace Theory.Design_Patterns.Singleton
 {
@@ -16,11 +16,11 @@ namespace Theory.Design_Patterns.Singleton
     {
         public void Execute()
         {
-            Product firstProduct = Product.GetInstance;
-            firstProduct.DisplayProduct("bread");
+            ShoppingList listFromMom = ShoppingList.Instance;
+            listFromMom.AddProduct("bread");
 
-            Product secondProduct = Product.GetInstance;
-            secondProduct.DisplayProduct("coke");
+            ShoppingList listFromFather = ShoppingList.Instance;
+            listFromFather.AddProduct("coke");
             Console.ReadLine();
         }
     }
