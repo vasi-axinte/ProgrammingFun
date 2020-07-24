@@ -29,7 +29,8 @@ namespace Theory
             // Design_Patterns.Abstract_Factory.AbstractFactoryTheory ui = new Design_Patterns.Abstract_Factory.AbstractFactoryTheory();
             // Design_Patterns.Factory_Method.FactoryMethodThoery ui = new Design_Patterns.Factory_Method.FactoryMethodThoery();
             //Design_Patterns.Singleton.SingletonTheory ui = new Design_Patterns.Singleton.SingletonTheory();
-            BuilderDesignPattern.BuilderTheory ui = new BuilderDesignPattern.BuilderTheory();
+            //BuilderDesignPattern.BuilderTheory ui = new BuilderDesignPattern.BuilderTheory();
+            Threads_Multithreading.Threads_MultithreadingTheory ui = new Threads_Multithreading.Threads_MultithreadingTheory();
             ui.Execute();
 
         }

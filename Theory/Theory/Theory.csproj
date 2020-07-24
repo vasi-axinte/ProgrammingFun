@@ -144,6 +144,8 @@
     <Compile Include="SOLID Principles\Single Responsability Principle\User.cs" />
     <Compile Include="Stack\PillarOfBooks.cs" />
     <Compile Include="Stack\StackTheory.cs" />
+    <Compile Include="Threads_Multithreading\Shop.cs" />
+    <Compile Include="Threads_Multithreading\Threads_MultithreadingTheory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
