@@ -112,6 +112,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queue\QueueThoery.cs" />
     <Compile Include="Queue\Recipe.cs" />
+    <Compile Include="RegexTheory\RegexTheory.cs" />
     <Compile Include="SOLID Principles\Dependency Inversion Principle\ConfirmationEmail.cs" />
     <Compile Include="SOLID Principles\Dependency Inversion Principle\DependencyInversionTheory.cs" />
     <Compile Include="SOLID Principles\Dependency Inversion Principle\Factory.cs" />

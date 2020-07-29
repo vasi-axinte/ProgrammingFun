@@ -33,15 +33,15 @@ namespace Theory.Threads_Multithreading
                 Console.WriteLine("we don`t have so many shirts on stock");
             }
 
-         //   lock (stockLock)
-           // {
+            lock (stockLock)
+            {
                 if(Stock >= order)
                 {
                     Console.WriteLine("Your order has been accepted");
                     Console.WriteLine("We have removed {0} from our stock and we have {1} left", order, (Stock-order));
                     Stock = Stock - order;
                 }
-           // }       
+            }       
         }
 
         public void Order()

@@ -30,7 +30,8 @@ namespace Theory
             // Design_Patterns.Factory_Method.FactoryMethodThoery ui = new Design_Patterns.Factory_Method.FactoryMethodThoery();
             //Design_Patterns.Singleton.SingletonTheory ui = new Design_Patterns.Singleton.SingletonTheory();
             //BuilderDesignPattern.BuilderTheory ui = new BuilderDesignPattern.BuilderTheory();
-            Threads_Multithreading.Threads_MultithreadingTheory ui = new Threads_Multithreading.Threads_MultithreadingTheory();
+            //Threads_Multithreading.Threads_MultithreadingTheory ui = new Threads_Multithreading.Threads_MultithreadingTheory();
+            RegexTheory.RegexTheory ui = new RegexTheory.RegexTheory();
             ui.Execute();
 
         }
