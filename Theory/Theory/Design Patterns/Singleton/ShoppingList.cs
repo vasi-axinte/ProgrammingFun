@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Theory.Design_Patterns.Singleton
 {
-    public sealed class ShoppingList
+    public class ShoppingList
     {
         private static string title = "Shopping List:";
         private static ShoppingList instance = null;

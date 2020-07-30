@@ -15,98 +15,86 @@ namespace Theory.RegexTheory
     {
         public void Execute()
         {
-            Console.WriteLine(CheckIfNumber(20));
-            SearchForMatchAtBeggining();
-            SearchForMatchAtTheEnd();
-            SearchForMatchNonWords();
-            SearchForMatchInRange();
-            SearchForMatchWord("Cristi is cool Cristi is dumb too:");
+            string text = "Extended kindness kindness trifling 55 remember he confined outlived if. Assistance sentiments yet unpleasing say. Open they an busy they my such high. An active dinner wishes at unable hardly no talked on." +
+                " Immediate him her resolving his favourite.Wished denote  += abroad at branch at.Delightful remarkably mr on announcing themselves entreaties favourable. About to in so terms voice at. Equal an would is found seems of." +
+                "The the particular friendship friendship one sufficient ++ terminated frequently 43 themselves.It more shed went up is roof if loud case. Delay music in lived noise an.Beyond genius really enough passed is up.";
+
+            SearchForNumbers(text);
+            SearchForSpecificWord(text);
+            SearchForRepeatedWords(text);
+            SearchForWordsThatStartWith(text);
+            SearcForNonWords(text);
             Console.ReadLine();
         }
 
-        public bool CheckIfNumber(int number)
-        {
-            Regex numberPattern = new Regex("[^0-9]");
-            return !numberPattern.IsMatch(number.ToString());
-        }
-
         /// <summary>
-        /// "^" this element search if the word(after this element)  
-        /// is at the beggining of the line
-        /// Here it will return Administrator if the method finds the word
+        /// This method is looking for numbers in our text
         /// </summary>
-        public void SearchForMatchAtBeggining()
+        /// <param name="text"></param>
+        public void SearchForNumbers(string text)
         {
-            Regex patternBeggining = new Regex(@"^Administrator");
-            Match text = patternBeggining.Match("Administrator has full access");
-            if (text.Success)
+            Regex numberPattern = new Regex(@"\d+");
+            MatchCollection found = numberPattern.Matches(text);
+            Console.WriteLine("we found {0} numbers in your text", found.Count);
+            Console.WriteLine("The numbers are:");
+            foreach (var number in found)
             {
-                Console.WriteLine(text.Value);
+                Console.WriteLine(number);
             }
         }
 
         /// <summary>
-        /// "$" element search if the word (before this element) is at the
-        /// end of the line
-        /// here it will return Email if the methods finds the word
+        /// This method is looking for a specified word in our text
         /// </summary>
-        public void SearchForMatchAtTheEnd()
+        public void SearchForSpecificWord(string text)
         {
-            Regex patternEnd = new Regex(@"Email$");
-            Match text = patternEnd.Match("This is your Email");
-            if (text.Success)
+            Regex specificWordPattern = new Regex(@"\bEmail");
+            Match found = specificWordPattern.Match(text);
+            if (found.Success)
             {
-                 Console.WriteLine(text.Value);
+                Console.WriteLine("We found Email in your text!");
+            }
+            else Console.WriteLine("We couldn`t find Email in our text"); 
+        }
+
+        /// <summary>
+        /// This method is looking for 2 words that are repeated one after another
+        /// (Example: I have a car car)
+        /// </summary>
+        public void SearchForRepeatedWords(string text)
+        {
+            Regex repeatedWordsPattern = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.IgnoreCase);
+            MatchCollection found = repeatedWordsPattern.Matches(text);
+            Console.WriteLine("{0} repeated words in your text", found.Count);
+            foreach(Match repeatedWord in found)
+            {
+                GroupCollection repeatedWords = repeatedWord.Groups;
+                Console.WriteLine("{0} is repeated", repeatedWords["word"].Value);
+            }
+        }
+
+        /// <summary>
+        /// This method is looking for any word that starts with C 
+        /// </summary>
+        public void SearchForWordsThatStartWith(string text)
+        {
+            Regex wordsThatStartWithPattern = new Regex(@"\b[C]\w+", RegexOptions.IgnoreCase);
+            MatchCollection found = wordsThatStartWithPattern.Matches(text);
+            Console.WriteLine("We found {0} words that start with C", found.Count);
+        }
+
+        /// <summary>
+        /// This method is looking for some special characters ( we decided which )
+        /// </summary>
+        /// <param name="text"></param>
+        public void SearcForNonWords(string text)
+        {
+            Regex nonWordsPattern = new Regex(@"[$&+:;=#<>^%-]", RegexOptions.IgnorePatternWhitespace);
+            MatchCollection found = nonWordsPattern.Matches(text);
+            foreach(var nonWord in found)
+            {
+                Console.WriteLine("{0} is a nonword that has been found in your text", nonWord);  
             } 
-        }
-        /// <summary>
-        /// "\W" is used to match any non-word character
-        /// here it will return "+"
-        /// </summary>
-        public void SearchForMatchNonWords()
-        {
-            Regex nonWordPattern = new Regex(@"\W");
-            Match text = nonWordPattern.Match("Te+st");
-            if (text.Success)
-            {
-                Console.WriteLine(text.Value);
-            }
-        }
-
-        /// <summary>
-        /// "[]" it is used to match the range of character
-        /// This will return one character (a or b or c or d)
-        /// "[a-z] it is used to match any character in the range of a-z
-        /// </summary>
-        public void SearchForMatchInRange()
-        {
-            Regex inRangePattern = new Regex(@"[abcd]");
-            Match text = inRangePattern.Match("zzzzzzzbcdxxxx");
-            if (text.Success)
-            {
-                Console.WriteLine(text.Value);
-            }
-
-            Regex inSpecifiedRange = new Regex(@"[c-j]");
-            Match text2 = inSpecifiedRange.Match("Acristi");
-            if (text2.Success)
-            {
-                Console.WriteLine(text2.Value);
-            }
-        }
-
-        /// <summary>
-        /// \b element match a word boundary
-        /// </summary>
-        public void SearchForMatchWord(string text)
-        {
-            int i = 0;
-            MatchCollection match = Regex.Matches(text, @"\bCristi");
-            foreach (Match find in match)
-            {  
-                i++;
-                Console.WriteLine(find + " " + "has been found:" + " " + i + " " + "times");
-            }
         }
     }
 }

@@ -15,10 +15,10 @@ namespace Theory.BuilderDesignPattern
     {
        public string Model { get; set; }
 
-       public int Doors { get; set; }
+       public int NumberOfDoors { get; set; }
 
        public string Engine { get; set; }
 
-       public string Wheels { get; set; }
+       public WheelsType Wheels { get; set; }
     }
 }

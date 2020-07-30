@@ -27,12 +27,12 @@ namespace Theory.BuilderDesignPattern
 
         public void AddWheels()
         {
-            car.Wheels = "Sport";
+            car.Wheels = WheelsType.OffRoad;
         }
 
         public void AddDoors()
         {
-            car.Doors = 4;
+            car.NumberOfDoors = 4;
         }
 
         public Car GetCar()

@@ -18,7 +18,7 @@ namespace Theory.Inheritance
             myCar.ShowBrandDetails();
 
             //Display the value of the Brand (from Vehicle class) and the value of Mode, Price and GearBox(from Car class) 
-            Console.WriteLine( myCar.Brand+ " " +"Model:"+ myCar.Model+ " " +"Price:"+ myCar.Price+ " " +"Gearbox:"+ myCar.GearBox);
+            Console.WriteLine( myCar.Brand + " " + "Model:" + myCar.Model + " " + "Price:" + myCar.Price + " " + "Gearbox:" + myCar.GearBox);
             Console.WriteLine();
 
 

@@ -55,6 +55,7 @@
     <Compile Include="BuilderDesignPattern\CarCreator.cs" />
     <Compile Include="BuilderDesignPattern\ICarBuilder.cs" />
     <Compile Include="BuilderDesignPattern\CarBuilder.cs" />
+    <Compile Include="BuilderDesignPattern\WheelsType.cs" />
     <Compile Include="ClassesAndObjects\Car.cs" />
     <Compile Include="ClassesAndObjects\ClassesAndObjectsTheory.cs" />
     <Compile Include="Constructor\ConstructorTheory.cs" />
