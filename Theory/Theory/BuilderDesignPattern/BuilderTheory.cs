@@ -17,7 +17,7 @@ namespace Theory.BuilderDesignPattern
             var Company = new CarCreator(new CarBuilder());
             Company.CreateCar();
             Car myCar = Company.GetCar();
-            Console.WriteLine(myCar.Model + " " + myCar.Engine + " " + myCar.NumberOfDoors + " " + myCar.Wheels);
+            Console.WriteLine(myCar.Model + " " + myCar.Engine + " " + myCar.NumberOfDoors + " " + myCar.WheelsType);
             Console.ReadLine();
         }
     }

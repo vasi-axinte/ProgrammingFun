@@ -25,9 +25,9 @@ namespace Theory.BuilderDesignPattern
             car.Engine = "V8";
         }
 
-        public void AddWheels()
+        public void AddWheelsType()
         {
-            car.Wheels = WheelsType.OffRoad;
+            car.WheelsType = WheelsType.OffRoad;
         }
 
         public void AddDoors()

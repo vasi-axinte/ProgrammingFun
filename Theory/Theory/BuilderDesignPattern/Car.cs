@@ -19,6 +19,6 @@ namespace Theory.BuilderDesignPattern
 
        public string Engine { get; set; }
 
-       public WheelsType Wheels { get; set; }
+       public WheelsType WheelsType { get; set; }
     }
 }

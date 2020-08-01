@@ -16,7 +16,7 @@ namespace Theory.BuilderDesignPattern
         void AddModel();
         void AddDoors();
         void AddEngine();
-        void AddWheels();
+        void AddWheelsType();
         Car GetCar();
     }
 }

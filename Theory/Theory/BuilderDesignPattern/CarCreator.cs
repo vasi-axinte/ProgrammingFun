@@ -22,7 +22,7 @@ namespace Theory.BuilderDesignPattern
         public void CreateCar()
         {
             _carBuilder.AddEngine();
-            _carBuilder.AddWheels();
+            _carBuilder.AddWheelsType();
             _carBuilder.AddDoors();
             _carBuilder.AddModel();
         }
