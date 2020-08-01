@@ -146,8 +146,13 @@
     <Compile Include="SOLID Principles\Single Responsability Principle\User.cs" />
     <Compile Include="Stack\PillarOfBooks.cs" />
     <Compile Include="Stack\StackTheory.cs" />
-    <Compile Include="Threads_Multithreading\Shop.cs" />
-    <Compile Include="Threads_Multithreading\Threads_MultithreadingTheory.cs" />
+    <Compile Include="ThreadsDeadlock\DeadlockTheory.cs" />
+    <Compile Include="ThreadsDeadlock\Deal.cs" />
+    <Compile Include="ThreadsDeadlock\Person.cs" />
+    <Compile Include="ThreadsWithLock\Shop.cs" />
+    <Compile Include="ThreadsWithLock\ThreadsTheory.cs" />
+    <Compile Include="ThreadsWithoutLock\Shop.cs" />
+    <Compile Include="ThreadsWithoutLock\ThreadsTheory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

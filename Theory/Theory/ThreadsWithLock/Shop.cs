@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
-namespace Theory.Threads_Multithreading
+namespace Theory.ThreadsWithLock
 {
     public class Shop
     {
@@ -13,9 +13,10 @@ namespace Theory.Threads_Multithreading
         /// We are using this object to lock the Stock, so the stock wont go under 0
         /// </summary>
         private Object stockLock = new Object();
-        int Stock { get; set; }
 
-        string Name { get; set; }
+        public int Stock { get; set; }
+
+        public string Name { get; set; }
 
         public Shop(int stock)
         {
@@ -28,20 +29,21 @@ namespace Theory.Threads_Multithreading
         /// </summary>
         public void BuyShirts(int order)
         {
+            
             if ((Stock - order) < 0)
             {
-                Console.WriteLine("we don`t have so many shirts on stock");
+                    Console.WriteLine("we don`t have so many shirts on stock");
             }
 
             lock (stockLock)
             {
-                if(Stock >= order)
+                if (Stock >= order)
                 {
                     Console.WriteLine("Your order has been accepted");
-                    Console.WriteLine("We have removed {0} from our stock and we have {1} left", order, (Stock-order));
+                    Console.WriteLine("We have removed {0} from our stock and we have {1} left", order, (Stock - order));
                     Stock = Stock - order;
                 }
-            }       
+            }    
         }
 
         public void Order()

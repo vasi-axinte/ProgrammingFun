@@ -28,10 +28,12 @@ namespace Theory
             //DRY_Principle.DRYPrincipleTheory ui = new DRY_Principle.DRYPrincipleTheory();
             // Design_Patterns.Abstract_Factory.AbstractFactoryTheory ui = new Design_Patterns.Abstract_Factory.AbstractFactoryTheory();
             // Design_Patterns.Factory_Method.FactoryMethodThoery ui = new Design_Patterns.Factory_Method.FactoryMethodThoery();
-            Design_Patterns.Singleton.SingletonTheory ui = new Design_Patterns.Singleton.SingletonTheory();
+            //Design_Patterns.Singleton.SingletonTheory ui = new Design_Patterns.Singleton.SingletonTheory();
             //BuilderDesignPattern.BuilderTheory ui = new BuilderDesignPattern.BuilderTheory();
-            //Threads_Multithreading.Threads_MultithreadingTheory ui = new Threads_Multithreading.Threads_MultithreadingTheory();
+            //ThreadsWithLock.ThreadsTheory ui = new ThreadsWithLock.ThreadsTheory();
+            //ThreadsWithoutLock.ThreadsTheory ui = new ThreadsWithoutLock.ThreadsTheory();
             //RegexTheory.RegexTheory ui = new RegexTheory.RegexTheory();
+            ThreadsDeadlock.DeadlockTheory ui = new ThreadsDeadlock.DeadlockTheory();
             ui.Execute();
 
         }

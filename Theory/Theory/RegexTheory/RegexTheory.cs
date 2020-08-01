@@ -49,8 +49,8 @@ namespace Theory.RegexTheory
         public void SearchForSpecificWord(string text)
         {
             Regex specificWordPattern = new Regex(@"\bEmail");
-            Match found = specificWordPattern.Match(text);
-            if (found.Success)
+            Match matchFound = specificWordPattern.Match(text);
+            if (matchFound.Success)
             {
                 Console.WriteLine("We found Email in your text!");
             }
@@ -64,9 +64,9 @@ namespace Theory.RegexTheory
         public void SearchForRepeatedWords(string text)
         {
             Regex repeatedWordsPattern = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.IgnoreCase);
-            MatchCollection found = repeatedWordsPattern.Matches(text);
-            Console.WriteLine("{0} repeated words in your text", found.Count);
-            foreach(Match repeatedWord in found)
+            MatchCollection matchFound = repeatedWordsPattern.Matches(text);
+            Console.WriteLine("{0} repeated words in your text", matchFound.Count);
+            foreach(Match repeatedWord in matchFound)
             {
                 GroupCollection repeatedWords = repeatedWord.Groups;
                 Console.WriteLine("{0} is repeated", repeatedWords["word"].Value);
@@ -79,8 +79,8 @@ namespace Theory.RegexTheory
         public void SearchForWordsThatStartWith(string text)
         {
             Regex wordsThatStartWithPattern = new Regex(@"\b[C]\w+", RegexOptions.IgnoreCase);
-            MatchCollection found = wordsThatStartWithPattern.Matches(text);
-            Console.WriteLine("We found {0} words that start with C", found.Count);
+            MatchCollection matchFound = wordsThatStartWithPattern.Matches(text);
+            Console.WriteLine("We found {0} words that start with C", matchFound.Count);
         }
 
         /// <summary>
@@ -90,8 +90,8 @@ namespace Theory.RegexTheory
         public void SearcForNonWords(string text)
         {
             Regex nonWordsPattern = new Regex(@"[$&+:;=#<>^%-]", RegexOptions.IgnorePatternWhitespace);
-            MatchCollection found = nonWordsPattern.Matches(text);
-            foreach(var nonWord in found)
+            MatchCollection matchFound = nonWordsPattern.Matches(text);
+            foreach(var nonWord in matchFound)
             {
                 Console.WriteLine("{0} is a nonword that has been found in your text", nonWord);  
             } 
