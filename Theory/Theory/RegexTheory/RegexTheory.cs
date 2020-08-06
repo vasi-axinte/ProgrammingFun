@@ -34,10 +34,10 @@ namespace Theory.RegexTheory
         public void SearchForNumbers(string text)
         {
             Regex numberPattern = new Regex(@"\d+");
-            MatchCollection found = numberPattern.Matches(text);
-            Console.WriteLine("we found {0} numbers in your text", found.Count);
+            MatchCollection matchResult = numberPattern.Matches(text);
+            Console.WriteLine("we found {0} numbers in your text", matchResult.Count);
             Console.WriteLine("The numbers are:");
-            foreach (var number in found)
+            foreach (var number in matchResult)
             {
                 Console.WriteLine(number);
             }
@@ -49,8 +49,8 @@ namespace Theory.RegexTheory
         public void SearchForSpecificWord(string text)
         {
             Regex specificWordPattern = new Regex(@"\bEmail");
-            Match matchFound = specificWordPattern.Match(text);
-            if (matchFound.Success)
+            Match matchResult = specificWordPattern.Match(text);
+            if (matchResult.Success)
             {
                 Console.WriteLine("We found Email in your text!");
             }
@@ -64,9 +64,9 @@ namespace Theory.RegexTheory
         public void SearchForRepeatedWords(string text)
         {
             Regex repeatedWordsPattern = new Regex(@"\b(?<word>\w+)\s+(\k<word>)\b", RegexOptions.IgnoreCase);
-            MatchCollection matchFound = repeatedWordsPattern.Matches(text);
-            Console.WriteLine("{0} repeated words in your text", matchFound.Count);
-            foreach(Match repeatedWord in matchFound)
+            MatchCollection matchResult = repeatedWordsPattern.Matches(text);
+            Console.WriteLine("{0} repeated words in your text", matchResult.Count);
+            foreach(Match repeatedWord in matchResult)
             {
                 GroupCollection repeatedWords = repeatedWord.Groups;
                 Console.WriteLine("{0} is repeated", repeatedWords["word"].Value);
@@ -79,8 +79,8 @@ namespace Theory.RegexTheory
         public void SearchForWordsThatStartWith(string text)
         {
             Regex wordsThatStartWithPattern = new Regex(@"\b[C]\w+", RegexOptions.IgnoreCase);
-            MatchCollection matchFound = wordsThatStartWithPattern.Matches(text);
-            Console.WriteLine("We found {0} words that start with C", matchFound.Count);
+            MatchCollection matchResult = wordsThatStartWithPattern.Matches(text);
+            Console.WriteLine("We found {0} words that start with C", matchResult.Count);
         }
 
         /// <summary>
@@ -90,8 +90,8 @@ namespace Theory.RegexTheory
         public void SearcForNonWords(string text)
         {
             Regex nonWordsPattern = new Regex(@"[$&+:;=#<>^%-]", RegexOptions.IgnorePatternWhitespace);
-            MatchCollection matchFound = nonWordsPattern.Matches(text);
-            foreach(var nonWord in matchFound)
+            MatchCollection matchResult = nonWordsPattern.Matches(text);
+            foreach(var nonWord in matchResult)
             {
                 Console.WriteLine("{0} is a nonword that has been found in your text", nonWord);  
             } 

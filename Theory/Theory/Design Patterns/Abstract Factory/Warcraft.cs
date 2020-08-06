@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Design_Patterns.Abstract_Factory
+namespace Theory.DesignPatterns.Abstract_Factory
 {
     /// <summary>
     /// Prodcut

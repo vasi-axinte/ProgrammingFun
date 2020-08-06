@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Design_Patterns.Factory_Method
+namespace Theory.DesignPatterns.FactoryMethod
 {
     /// <summary>
     /// This is our "ConcreteProduct", this is a class that implements the Product Interface

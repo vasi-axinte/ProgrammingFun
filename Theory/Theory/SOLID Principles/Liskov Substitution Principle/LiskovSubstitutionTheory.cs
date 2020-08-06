@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// LSP says: If S is subtype of T, then object of type T can be replaced with an object
 /// of type S without breaking the program
 /// </summary>
-namespace Theory.SOLID_Principles.Liskov_Substitution_Principle
+namespace Theory.SOLIDPrinciples.LiskovSubstitutionPrinciple
 {
     public class LiskovSubstitutionTheory
     {

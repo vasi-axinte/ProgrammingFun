@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// Solid Principles are playing a key role in parallel development, flexibility,
 /// and testability.
 /// </summary>
-namespace Theory.SOLID_Principles.Interface_Segregation_Principle
+namespace Theory.SOLIDPrinciples.InterfaceSegregationPrinciple
 {
     /// <summary>
     /// I from SOLID stands for Interface Segregation Principle

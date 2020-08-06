@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Theory.DRY_Principle
+namespace Theory.DRYPrinciple
 {
     /// <summary>
     /// DRY - Don`t repeat yourself 

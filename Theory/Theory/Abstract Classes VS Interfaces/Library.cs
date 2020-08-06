@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Abstract_Classes_VS_Interfaces
+namespace Theory.AbstractClassesVSInterfaces
 {
     /// <summary>
     /// One class can implement from multiple interfaces, but if we use abstract calsses

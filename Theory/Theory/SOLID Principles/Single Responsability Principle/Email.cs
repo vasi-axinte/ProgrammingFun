@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.SOLID_Principles.Single_Responsability_Principle
+namespace Theory.SOLIDPrinciples.SingleResponsabilityPrinciple
 {
     /// <summary>
     /// Email class performs ONLY email related tasks/responsabilites

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Design_Patterns.Factory_Method
+namespace Theory.DesignPatterns.FactoryMethod
 {
     /// <summary>
     /// This is our "Product", this will define the interface of objects the factory method crates

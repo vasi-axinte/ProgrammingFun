@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /// Solid Principles are playing a key role in parallel development, flexibility,
 /// and testability.
 /// </summary>
-namespace Theory.SOLID_Principles.Single_Responsability_Principle
+namespace Theory.SOLIDPrinciples.SingleResponsabilityPrinciple
 {
     /// <summary>
     /// S from SOLID stands for Single Responsability Principle

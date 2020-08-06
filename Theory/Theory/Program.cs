@@ -17,24 +17,25 @@ namespace Theory
             //OOPPrinciples.Encapsulation.EncapsulationTheory ui = new OOPPrinciples.Encapsulation.EncapsulationTheory();
             //OOPPrinciples.Polymorphism.PolymorphismTheory ui = new OOPPrinciples.Polymorphism.PolymorphismTheory();
             //OOPPrinciples.Inheritance.InheritanceThoery ui = new OOPPrinciples.Inheritance.InheritanceThoery();
-            //Abstract_Classes_VS_Interfaces.AbstractClassesTheory ui = new Abstract_Classes_VS_Interfaces.AbstractClassesTheory();
-            //Abstract_Classes_VS_Interfaces.InterfacesTheory ui = new Abstract_Classes_VS_Interfaces.InterfacesTheory();
-            //Abstract_Classes_VS_Interfaces.InterfacesTheory ui = new Abstract_Classes_VS_Interfaces.InterfacesTheory();
-            //SOLID_Principles.Single_Responsability_Principle.SingleResponsabilityTheory ui = new SOLID_Principles.Single_Responsability_Principle.SingleResponsabilityTheory();
-            //SOLID_Principles.Interface_Segregation_Principle.Interface_Segregation_Principle_Theory ui = new SOLID_Principles.Interface_Segregation_Principle.Interface_Segregation_Principle_Theory();
-            //SOLID_Principles.Open_Closed_Principle.OpenClosedPrincipleTheory ui = new SOLID_Principles.Open_Closed_Principle.OpenClosedPrincipleTheory();
-            //SOLID_Principles.Liskov_Substitution_Principle.LiskovSubstitutionTheory ui = new SOLID_Principles.Liskov_Substitution_Principle.LiskovSubstitutionTheory();
-            //SOLID_Principles.Dependency_Inversion_Principle.DependencyInversionTheory ui = new SOLID_Principles.Dependency_Inversion_Principle.DependencyInversionTheory();
-            //DRY_Principle.DRYPrincipleTheory ui = new DRY_Principle.DRYPrincipleTheory();
-            //Design_Patterns.Abstract_Factory.AbstractFactoryTheory ui = new Design_Patterns.Abstract_Factory.AbstractFactoryTheory();
-            //Design_Patterns.Factory_Method.FactoryMethodThoery ui = new Design_Patterns.Factory_Method.FactoryMethodThoery();
-            Design_Patterns.Singleton.SingletonTheory ui = new Design_Patterns.Singleton.SingletonTheory();
+            //AbstractClassesVSInterfaces.AbstractClassesTheory ui = new AbstractClassesVSInterfaces.AbstractClassesTheory();
+            //AbstractClassesVSInterfaces.InterfacesTheory ui = new AbstractClassesVSInterfaces.InterfacesTheory();
+            //AbstractClassesVSInterfaces.InterfacesTheory ui = new AbstractClassesVSInterfaces.InterfacesTheory();
+            //SOLIDPrinciples.SingleResponsabilityPrinciple.SingleResponsabilityTheory ui = new SOLID_Principles.SingleResponsability_Principle.SingleResponsabilityTheory();
+            //SOLIDPrinciples.InterfaceSegregationPrinciple.InterfaceSegregationPrincipleTheory ui = new SOLIDPrinciples.InterfaceSegregationPrinciple.InterfaceSegregationPrincipleTheory();
+            //SOLIDPrinciples.OpenClosedPrinciple.OpenClosedPrincipleTheory ui = new SOLIDPrinciples.OpenClosedPrinciple.OpenClosedPrincipleTheory();
+            //SOLIDPrinciples.LiskovSubstitutionPrinciple.LiskovSubstitutionTheory ui = new SOLIDPrinciples.LiskovSubstitutionPrinciple.LiskovSubstitutionTheory();
+            //SOLIDPrinciples.DependencyInversionPrinciple.DependencyInversionTheory ui = new SOLIDPrinciples.DependencyInversionPrinciple.DependencyInversionTheory();
+            //DRYPrinciple.DRYPrincipleTheory ui = new DRYPrinciple.DRYPrincipleTheory();
+            //DesignPatterns.AbstractFactory.AbstractFactoryTheory ui = new DesignPatterns.AbstractFactory.AbstractFactoryTheory();
+            //DesignPatterns.FactoryMethod.FactoryMethodThoery ui = new DesignPatterns.FactoryMethod.FactoryMethodThoery();
+            //DesignPatterns.Singleton.SingletonTheory ui = new DesignPatterns.Singleton.SingletonTheory();
             //BuilderDesignPattern.BuilderTheory ui = new BuilderDesignPattern.BuilderTheory();
             //ThreadsWithLock.ThreadsTheory ui = new ThreadsWithLock.ThreadsTheory();
             //ThreadsWithoutLock.ThreadsTheory ui = new ThreadsWithoutLock.ThreadsTheory();
             //RegexTheory.RegexTheory ui = new RegexTheory.RegexTheory();
             //ThreadsDeadlock.DeadlockTheory ui = new ThreadsDeadlock.DeadlockTheory();
             //SealedClass.SealedTheory ui = new SealedClass.SealedTheory();
+            TaskAndThreads.TaskTheory ui = new TaskAndThreads.TaskTheory();
             ui.Execute();
 
         }

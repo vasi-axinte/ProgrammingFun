@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 /// We can say that it is an object maker which can create more than one type of object
 /// In our case, we have IVideoGamesCompany interface who can create objects of type Blizzard and EA
 /// </summary>
-namespace Theory.Design_Patterns.Abstract_Factory
+namespace Theory.DesignPatterns.Abstract_Factory
 {
     public class AbstractFactoryTheory
     {

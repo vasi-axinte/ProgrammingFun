@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Design_Patterns.Factory_Method
+namespace Theory.DesignPatterns.FactoryMethod
 {
     /// <summary>
     /// Factory method is a design Pattern which defines an interface for creating an

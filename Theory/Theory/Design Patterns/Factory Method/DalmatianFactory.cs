@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Design_Patterns.Factory_Method
+namespace Theory.DesignPatterns.FactoryMethod
 {
     /// <summary>
     /// This is our "Creator" class.This class will override the factory method to return an

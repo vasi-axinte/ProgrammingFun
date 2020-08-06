@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 /// only one instance, like this when we create another object of type ShoppingList, class ShoppingList
 /// won`t have an instance because it already had one when we created our first ShoppingList.
 /// </summary>
-namespace Theory.Design_Patterns.Singleton
+namespace Theory.DesignPatterns.Singleton
 {
     public class SingletonTheory
     {

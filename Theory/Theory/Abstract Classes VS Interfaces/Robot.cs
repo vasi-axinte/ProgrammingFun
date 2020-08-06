@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.Abstract_Classes_VS_Interfaces
+namespace Theory.AbstractClassesVSInterfaces
 {
     /// <summary>
     /// I want this class to be only a base class for other classes so,

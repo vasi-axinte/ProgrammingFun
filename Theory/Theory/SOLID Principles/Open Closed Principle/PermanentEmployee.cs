@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.SOLID_Principles.Open_Closed_Principle
-{
+namespace Theory.SOLIDPrinciples.OpenClosedPrinciple
+{ 
     /// <summary>
     /// Class PermanentEmplyee inherits base class Emplyee, like this when add our new
     /// functionality that calculates the salary of the employee, we won`t modify the

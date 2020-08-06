@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.SOLID_Principles.Dependency_Inversion_Principle
+namespace Theory.SOLIDPrinciples.DependencyInversionPrinciple
 {
     public class Product : IProduct
     {

@@ -149,6 +149,7 @@
     <Compile Include="SOLID Principles\Single Responsability Principle\User.cs" />
     <Compile Include="Stack\PillarOfBooks.cs" />
     <Compile Include="Stack\StackTheory.cs" />
+    <Compile Include="TaskAndThreads\TaskTheory.cs" />
     <Compile Include="ThreadsDeadlock\DeadlockTheory.cs" />
     <Compile Include="ThreadsDeadlock\Deal.cs" />
     <Compile Include="ThreadsDeadlock\Person.cs" />

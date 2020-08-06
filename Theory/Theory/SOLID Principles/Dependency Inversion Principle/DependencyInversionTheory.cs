@@ -4,7 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.SOLID_Principles.Dependency_Inversion_Principle
+/// <summary>
+/// Dependency Inversion Principle says that high-level classes should not depend
+/// on low level classes
+/// </summary>
+namespace Theory.SOLIDPrinciples.DependencyInversionPrinciple
 {
     public class DependencyInversionTheory
     {

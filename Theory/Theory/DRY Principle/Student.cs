@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Theory.DRY_Principle
+namespace Theory.DRYPrinciple
 {
     public class Student
     {
