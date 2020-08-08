@@ -35,7 +35,8 @@ namespace Theory
             //RegexTheory.RegexTheory ui = new RegexTheory.RegexTheory();
             //ThreadsDeadlock.DeadlockTheory ui = new ThreadsDeadlock.DeadlockTheory();
             //SealedClass.SealedTheory ui = new SealedClass.SealedTheory();
-            TaskAndThreads.TaskTheory ui = new TaskAndThreads.TaskTheory();
+            //TaskAndThreads.TaskTheory ui = new TaskAndThreads.TaskTheory();
+            Threadpool.ThreadpoolTheory ui = new Threadpool.ThreadpoolTheory();
             ui.Execute();
 
         }
