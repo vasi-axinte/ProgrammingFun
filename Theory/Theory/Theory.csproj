@@ -113,6 +113,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queue\QueueThoery.cs" />
     <Compile Include="Queue\Recipe.cs" />
+    <Compile Include="RecursiveFunction\RecursiveTheory.cs" />
     <Compile Include="RegexTheory\RegexTheory.cs" />
     <Compile Include="SealedClass\Manager.cs" />
     <Compile Include="SealedClass\SealedTheory.cs" />
