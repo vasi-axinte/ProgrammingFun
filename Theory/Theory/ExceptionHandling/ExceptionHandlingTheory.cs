@@ -43,6 +43,7 @@ namespace Theory.ExceptionHandling
 
         public void DivideNumbers()
         {
+            Console.WriteLine("Divide 2 numbers");
             int firstNumber = Convert.ToInt32(Console.ReadLine());
             int secondNumber = Convert.ToInt32(Console.ReadLine());
             int result;
