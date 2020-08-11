@@ -37,7 +37,8 @@ namespace Theory
             //SealedClass.SealedTheory ui = new SealedClass.SealedTheory();
             //TaskAndThreads.TaskTheory ui = new TaskAndThreads.TaskTheory();
             //Threadpool.ThreadpoolTheory ui = new Threadpool.ThreadpoolTheory();
-            RecursiveFunction.RecursiveTheory ui = new RecursiveFunction.RecursiveTheory();
+            //RecursiveFunction.RecursiveTheory ui = new RecursiveFunction.RecursiveTheory();
+            ExceptionHandling.ExceptionHandlingTheory ui = new ExceptionHandling.ExceptionHandlingTheory();
             ui.Execute();
 
         }

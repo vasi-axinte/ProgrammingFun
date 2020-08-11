@@ -86,6 +86,8 @@
     <Compile Include="Destructor\DestructorTheory.cs" />
     <Compile Include="DRY Principle\DRYPrincipleTheory.cs" />
     <Compile Include="DRY Principle\Student.cs" />
+    <Compile Include="ExceptionHandling\EvenNumberException.cs" />
+    <Compile Include="ExceptionHandling\ExceptionHandlingTheory.cs" />
     <Compile Include="Inheritance\Car.cs" />
     <Compile Include="Inheritance\InheritanceTheory.cs" />
     <Compile Include="Inheritance\Motorbike.cs" />
