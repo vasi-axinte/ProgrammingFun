@@ -97,6 +97,9 @@
     <Compile Include="Interfaces\InterfacesTheory.cs" />
     <Compile Include="Interfaces\IWatch.cs" />
     <Compile Include="Interfaces\SportWatch.cs" />
+    <Compile Include="ListAndDictionary\DictionaryTheory.cs" />
+    <Compile Include="ListAndDictionary\Employee.cs" />
+    <Compile Include="ListAndDictionary\ListTheory.cs" />
     <Compile Include="OOPPrinciples\Abstraction\AbstractionTheory.cs" />
     <Compile Include="OOPPrinciples\Abstraction\BasicOperations.cs" />
     <Compile Include="OOPPrinciples\Abstraction\Operations.cs" />

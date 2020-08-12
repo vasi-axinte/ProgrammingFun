@@ -38,7 +38,9 @@ namespace Theory
             //TaskAndThreads.TaskTheory ui = new TaskAndThreads.TaskTheory();
             //Threadpool.ThreadpoolTheory ui = new Threadpool.ThreadpoolTheory();
             //RecursiveFunction.RecursiveTheory ui = new RecursiveFunction.RecursiveTheory();
-            ExceptionHandling.ExceptionHandlingTheory ui = new ExceptionHandling.ExceptionHandlingTheory();
+            //ExceptionHandling.ExceptionHandlingTheory ui = new ExceptionHandling.ExceptionHandlingTheory();
+            //ListAndDictionary.ListTheory ui = new ListAndDictionary.ListTheory();
+            ListAndDictionary.DictionaryTheory ui = new ListAndDictionary.DictionaryTheory();
             ui.Execute();
 
         }
