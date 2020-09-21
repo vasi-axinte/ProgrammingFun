@@ -1,0 +1,32 @@
+<div>
+    <h2>User Registration</h2>
+   <div class="row">
+        <form  #userRegistrationForm="ngForm" (ngSubmit)="Register(userRegistrationForm)">
+            <div class="input-field col s6">
+                <input class="validate" type ="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
+                <label>FirstName</label>
+            </div>
+        
+            <div class="input-field col s6">
+                <input class="validate" type ="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" required>
+                <label>LastName</label>
+            </div>
+       
+            <div class="input-field col s6">
+                <input class="validate" type ="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern" required>
+                <label>Email</label>
+            </div>
+            
+            <div class="input-field col s6">
+                <input class="validate" type ="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" requiared>
+                <label>Password</label>
+            </div>
+            
+           <div>
+                   <button [disabled]="userRegistrationForm.invalid" type="submit"> Register </button>  
+            </div> 
+        </form>
+    </div>
+</div>
+<button routerLink=''>Back</button>
+
