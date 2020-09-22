@@ -25,6 +25,7 @@ export class SignUpComponent implements OnInit {
     if(form != null)
     form.reset();
     this.user = {
+      UserId: 0,
       FirstName: '',
       LastName: '',
       Email: '',

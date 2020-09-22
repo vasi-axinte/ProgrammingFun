@@ -1,7 +1,12 @@
 <div>
-    <h2>User Registration</h2>
+   <h2>User Registration</h2>
    <div class="row">
         <form  #userRegistrationForm="ngForm" (ngSubmit)="Register(userRegistrationForm)">
+            <div class="input-field col s6">
+                <input class="validate" type ="number" name="UserId" #UserId="ngModel" [(ngModel)]="user.UserId" required>
+                <label>UserId</label>
+            </div>
+
             <div class="input-field col s6">
                 <input class="validate" type ="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
                 <label>FirstName</label>
@@ -23,8 +28,8 @@
             </div>
             
            <div>
-                   <button [disabled]="userRegistrationForm.invalid" type="submit"> Register </button>  
-            </div> 
+                <button [disabled]="userRegistrationForm.invalid" type="submit"> Register </button>  
+           </div> 
         </form>
     </div>
 </div>

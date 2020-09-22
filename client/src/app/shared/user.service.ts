@@ -7,17 +7,18 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class UserService {
-  readonly rootUrl = 'http://localhost:60735';
+  readonly rootUrl = 'https://localhost:57094/api';
   constructor(private http: HttpClient) { }
 
   registerUser(user : User) {
     const body: User = {
+      UserId: user.UserId,
       FirstName: user.FirstName,
       LastName: user.LastName,
       Email: user.Email,
       Password: user.Password,
     }
-    return this.http.post(this.rootUrl + '/api/User/Register', body);
+    return this.http.post(this.rootUrl + '/Users', body);
   }
 
   loginUser(userLogin : UserLoginCredentials)
@@ -26,6 +27,6 @@ export class UserService {
       Email: userLogin.Email,
       Password: userLogin.Password,
     }
-   return this.http.post(this.rootUrl+ '/api/User/Login', body)
+   return this.http.post(this.rootUrl + '/api/User/Login', body)
   }
 }
