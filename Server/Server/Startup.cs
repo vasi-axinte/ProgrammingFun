@@ -10,9 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using WebAPIServer.Models;
+using Server.Models;
 
-namespace WebAPIServer
+namespace Server
 {
     public class Startup
     {
@@ -29,8 +29,10 @@ namespace WebAPIServer
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<UserContext>(options =>
-            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=UsersDB;Integrated Security=True;"));
-            services.AddCors();
+            options.UseSqlServer(Configuration.GetConnectionString("Connection")));
+
+            services.AddDefaultIdentity<ApplicationUser>()
+                .AddEntityFrameworkStores<UserContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +43,8 @@ namespace WebAPIServer
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseCors(options =>
-            options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader());
+            app.UseAuthentication();
+
             app.UseMvc();
         }
     }
