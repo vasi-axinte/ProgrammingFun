@@ -32,6 +32,7 @@ namespace Server.Controllers
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 Email = user.Email,
+                UserName = user.UserName,
             };
 
             try

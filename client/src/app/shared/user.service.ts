@@ -1,32 +1,32 @@
-import { Injectable, Testability } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { User } from './user.model';
-import { UserLoginCredentials } from './user-login-credentials.model';
-import { NgIf } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserService {
-  readonly rootUrl = 'https://localhost:57094/api';
-  constructor(private http: HttpClient) { }
 
-  registerUser(user : User) {
-    const body: User = {
-      UserId: user.UserId,
-      FirstName: user.FirstName,
-      LastName: user.LastName,
-      Email: user.Email,
-      Password: user.Password,
-    }
-    return this.http.post(this.rootUrl + '/Users', body);
-  }
+  constructor(private formBuilder : FormBuilder,
+    private http:HttpClient) { }
+    readonly rootUrl = 'http://localhost:51301/api';
 
-  loginUser(userLogin : UserLoginCredentials)
-  {
-    const body: UserLoginCredentials = {
-      Email: userLogin.Email,
-      Password: userLogin.Password,
-    }
-   return this.http.post(this.rootUrl + '/api/User/Login', body)
+  formModel = this.formBuilder.group({
+    UserName : ['',Validators.required],
+    FirstName: ['',Validators.required],
+    LastName: ['',Validators.required],
+    Email: ['',Validators.email],
+    Password: ['',Validators.required],
+  });
+
+  register(){
+    var body = {
+      UserName: this.formModel.value.UserName,
+      FirstName: this.formModel.value.FirstName,
+      LastName: this.formModel.value.LastName,
+      Email: this.formModel.value.Email,
+      Password: this.formModel.value.Password,
+    };
+    return this.http.post(this.rootUrl + '/User/Register', body);
   }
 }

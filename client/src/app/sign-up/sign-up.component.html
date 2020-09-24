@@ -1,37 +1,35 @@
-<div>
-   <h2>User Registration</h2>
-   <div class="row">
-        <form  #userRegistrationForm="ngForm" (ngSubmit)="Register(userRegistrationForm)">
-            <div class="input-field col s6">
-                <input class="validate" type ="number" name="UserId" #UserId="ngModel" [(ngModel)]="user.UserId" required>
-                <label>UserId</label>
-            </div>
-
-            <div class="input-field col s6">
-                <input class="validate" type ="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" required>
-                <label>FirstName</label>
-            </div>
-        
-            <div class="input-field col s6">
-                <input class="validate" type ="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" required>
-                <label>LastName</label>
-            </div>
-       
-            <div class="input-field col s6">
-                <input class="validate" type ="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern" required>
-                <label>Email</label>
-            </div>
-            
-            <div class="input-field col s6">
-                <input class="validate" type ="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password" requiared>
-                <label>Password</label>
-            </div>
-            
-           <div>
-                <button [disabled]="userRegistrationForm.invalid" type="submit"> Register </button>  
-           </div> 
-        </form>
+<h2>User Registration</h2>
+<div class="row">
+   <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+    <div class="form-group required">
+      <label>Username</label>
+      <input class="from-control" formControlName="UserName">
     </div>
-</div>
-<button routerLink=''>Back</button>
 
+    <div class="form-group required">
+      <label>FirstName</label>
+      <input class="from-control" formControlName="FirstName">
+    </div>
+
+    <div class="form-group required">
+      <label>LastName</label>
+      <input class="from-control" formControlName="LastName">
+    </div>
+
+    <div class="form-group required">
+      <label>Email</label>
+      <input class="from-control" formControlName="Email">
+      <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email</label>
+    </div>
+
+    <div class="form-group required">
+      <label>Password</label>
+      <input type="password" class="from-control" formControlName="Password">
+    </div>
+    <p>(*) - required </p>
+
+    <div class ="form-row">
+      <button type="submit" [disabled]="service.formModel.invalid">Register</button>
+    </div>
+   </form>
+</div>
