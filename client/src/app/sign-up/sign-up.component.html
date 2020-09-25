@@ -1,6 +1,6 @@
 <h2>User Registration</h2>
-<div class="row">
-   <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+<div class="form-group required">
+   <form [formGroup]="service.formModel" class="mb-4" autocomplete="off" (submit)="onSubmit()">
     <div class="form-group required">
       <label>Username</label>
       <input class="from-control" formControlName="UserName">
@@ -27,9 +27,6 @@
       <input type="password" class="from-control" formControlName="Password">
     </div>
     <p>(*) - required </p>
-
-    <div class ="form-row">
-      <button type="submit" [disabled]="service.formModel.invalid">Register</button>
-    </div>
+       <button type="submit" [disabled]="service.formModel.invalid" class="btn btn-lg btn-block">Register</button>
    </form>
 </div>

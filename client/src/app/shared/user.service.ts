@@ -29,4 +29,9 @@ export class UserService {
     };
     return this.http.post(this.rootUrl + '/User/Register', body);
   }
+
+  login(formData){
+    return this.http.post(this.rootUrl + '/User/Login', formData);
+
+  }
 }

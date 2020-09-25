@@ -12629,11 +12629,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Cristi\\Project\\Server\\Server.csproj",
+      "projectUniqueName": "C:\\Users\\Cristi\\Projects\\Server\\Server\\Server.csproj",
       "projectName": "Server",
-      "projectPath": "C:\\Users\\Cristi\\Project\\Server\\Server.csproj",
+      "projectPath": "C:\\Users\\Cristi\\Projects\\Server\\Server\\Server.csproj",
       "packagesPath": "C:\\Users\\Cristi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Cristi\\Project\\Server\\obj\\",
+      "outputPath": "C:\\Users\\Cristi\\Projects\\Server\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Cristi\\AppData\\Roaming\\NuGet\\NuGet.Config",
