@@ -8,7 +8,7 @@ import { UserService } from './shared/user.service';
 import {  HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-
+import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
     SignUpComponent,
     LoginComponent,
     HomeComponent,
+    WelcomepageComponent,
   ],
   imports: [
     BrowserModule,

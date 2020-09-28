@@ -1,32 +1,35 @@
-<h2>User Registration</h2>
-<div class="form-group required">
-   <form [formGroup]="service.formModel" class="mb-4" autocomplete="off" (submit)="onSubmit()">
+<div class="registerForm">
+  <h2>User Registration</h2>
+  <form [formGroup]="service.formModel" class="form-horizontal" autocomplete="off" (submit)="onSubmit()">
     <div class="form-group required">
-      <label>Username</label>
+      <label class="col-sm-1 ">Username</label>
       <input class="from-control" formControlName="UserName">
     </div>
 
     <div class="form-group required">
-      <label>FirstName</label>
+      <label class="col-sm-1 ">FirstName</label>
       <input class="from-control" formControlName="FirstName">
     </div>
 
     <div class="form-group required">
-      <label>LastName</label>
+      <label class="col-sm-1">LastName</label>
       <input class="from-control" formControlName="LastName">
     </div>
 
     <div class="form-group required">
-      <label>Email</label>
+      <label class="col-sm-1 ">Email</label>
       <input class="from-control" formControlName="Email">
-      <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email</label>
+      <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email!</label>
     </div>
 
     <div class="form-group required">
-      <label>Password</label>
+      <label class="col-sm-1">Password</label>
       <input type="password" class="from-control" formControlName="Password">
     </div>
     <p>(*) - required </p>
-       <button type="submit" [disabled]="service.formModel.invalid" class="btn btn-lg btn-block">Register</button>
-   </form>
+    
+    <div class="form-group" class="form-group col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-lg btn-block" [disabled]="!service.formModel.valid">Register</button>
+    </div>
+ </form>
 </div>
