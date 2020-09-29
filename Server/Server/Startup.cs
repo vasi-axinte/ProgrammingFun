@@ -39,6 +39,7 @@ namespace Server
             options.UseSqlServer(Configuration.GetConnectionString("Connection")));
 
             services.AddDefaultIdentity<ApplicationUser>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<UserContext>();
 
             services.Configure<IdentityOptions>(options =>

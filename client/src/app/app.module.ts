@@ -9,6 +9,7 @@ import {  HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
     LoginComponent,
     HomeComponent,
     WelcomepageComponent,
+    AdminPanelComponent,
   ],
   imports: [
     BrowserModule,

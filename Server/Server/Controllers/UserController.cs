@@ -32,8 +32,9 @@ namespace Server.Controllers
         [HttpPost]
         [Route("Register")]
         //POST : /api/User/Register
-        public async Task<ActionResult> PostUser([FromBody] UserModel user)
+        public async Task<ActionResult> PostUser(UserModel user)
         {
+            user.Role = "User";
             var applicationUser = new ApplicationUser()
             {
                 FirstName = user.FirstName,
@@ -45,9 +46,10 @@ namespace Server.Controllers
             try
             {
                 var result =await _userManager.CreateAsync(applicationUser, user.Password);
+                await _userManager.AddToRoleAsync(applicationUser, user.Role);
                 return Ok(result);
             }
-            catch( Exception ex)
+            catch(Exception ex)
             {
                 throw ex;
             }
@@ -61,11 +63,16 @@ namespace Server.Controllers
             var user = await _userManager.FindByNameAsync(userModel.UserName);
             if (user != null && await _userManager.CheckPasswordAsync(user, userModel.Password))
             {
+                //Get role assigned to the user
+                var role = await _userManager.GetRolesAsync(user);
+                IdentityOptions _options = new IdentityOptions();
+
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim("UserID", user.Id.ToString())
+                        new Claim("UserID", user.Id.ToString()), 
+                        new Claim(_options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault())
                     }),
                     Expires = DateTime.UtcNow.AddMinutes(60),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
