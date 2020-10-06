@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { QuizService } from './shared/quiz.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { QuizComponent } from './quiz/quiz.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService, QuizService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

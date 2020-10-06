@@ -32,7 +32,7 @@ namespace Server.Controllers
         //POST : /api/User/Register
         public async Task<ActionResult> PostUser(UserModel user)
         {
-            user.Role = "User";
+            user.Role = "Admin";
             var applicationUser = new ApplicationUser()
             {
                 FirstName = user.FirstName,
