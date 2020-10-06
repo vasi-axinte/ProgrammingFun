@@ -11,7 +11,7 @@ namespace Server.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public ValuesController(UserContext context )
+        public ValuesController(ApplicationDbContext context )
         {
 
         }

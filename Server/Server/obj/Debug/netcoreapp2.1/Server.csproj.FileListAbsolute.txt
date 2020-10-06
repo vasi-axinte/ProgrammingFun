@@ -45,7 +45,6 @@ C:\Users\Cristi\Projects\Server\Server\bin\Debug\netcoreapp2.1\Server.pdb
 C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.csprojAssemblyReference.cache
 C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfoInputs.cache
 C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfo.cs
-C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.csproj.CoreCompileInputs.cache
 C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.RazorAssemblyInfo.cache
 C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.RazorAssemblyInfo.cs
 C:\Users\Cristi\Projects\Server\Server\obj\Debug\netcoreapp2.1\Server.RazorTargetAssemblyInfo.cache
