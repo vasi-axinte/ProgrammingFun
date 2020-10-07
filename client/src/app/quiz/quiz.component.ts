@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from '../shared/quiz.service';
+import { Question } from '../question';
+
 
 @Component({
   selector: 'app-quiz',
@@ -9,14 +11,18 @@ import { QuizService } from '../shared/quiz.service';
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private router:Router,
-    private quizService: QuizService) { }
+  constructor(public router:Router,
+    public quizService: QuizService) { }
+    questions: Question[];
 
   ngOnInit(): void {
-    this.quizService.getQuestions().subscribe((data:any) => {
-      this.quizService.questions = data;
-      console.log(this.quizService.questions);
-    });
+    this.getQuestions();
+  }
+
+  getQuestions() {
+    this.quizService.getQuestions().subscribe((questions) => {
+      this.questions = questions;
+     });
   }
 
   onLogout()

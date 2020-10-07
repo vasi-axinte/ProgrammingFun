@@ -5,6 +5,42 @@
     <a class="nav-link" routerLink="/home">Home</a>
     <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>    
 </nav>  
-<li>
-    <p>{{ quizService.questions | json}}</p>
-</li>
+<div >
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-10 col-lg-10">
+                <div class="border">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div class="d-flex flex-row justify-content-between align-items-center mcq">
+                            <h4>Quiz</h4>
+                        </div>
+                    </div>
+                    <div class="question bg-white p-3 border-bottom">
+                       <div *ngFor="let question of questions">
+                        <div class="d-flex flex-row align-items-center question-title">
+                            <h3 class="text-danger">Question:</h3>
+                            <h5 class="mt-1 ml-2">{{question.text}}</h5>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input type="radio" name="option" value="{{question.option1}}"> <span>{{question.option1}}</span>
+                            </label>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input type="radio" name="option" value="{{question.option2}}"> <span>{{question.option2}}</span>
+                            </label>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input type="radio" name="option" value="{{question.option3}}"> <span>{{question.option3}}</span>
+                            </label>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input type="radio" name="option" value="{{question.option4}}"> <span>{{question.option4}}</span>
+                            </label>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
