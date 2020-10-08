@@ -13,5 +13,7 @@ namespace Server.Models
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public DbSet<Question> Questions { get; set; }
+
+        public DbSet<UserScore> Scores { get; set; }
     }
 }

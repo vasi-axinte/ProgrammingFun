@@ -24,5 +24,13 @@ namespace Server.Controllers
             
            return questions;
         }
+
+        [HttpPost]
+        public async Task PostScore()
+        {
+
+        }
+
+        
     }
 }

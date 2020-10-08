@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Server.Models
 {
@@ -21,6 +17,6 @@ namespace Server.Models
 
         public string Option4 { get; set; }
 
-        public int CorrectAnswer { get; set; }
+        public string CorrectAnswer { get; set; }
     }
 }
