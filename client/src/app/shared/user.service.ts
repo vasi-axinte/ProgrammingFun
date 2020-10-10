@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
   constructor(private formBuilder : FormBuilder,
-    private http:HttpClient) { }
+    private http:HttpClient,
+    public router:Router) { }
     readonly rootUrl = 'http://localhost:51301/api';
 
   formModel = this.formBuilder.group({

@@ -12,6 +12,7 @@ import { WelcomepageComponent } from './welcomepage/welcomepage.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizService } from './shared/quiz.service';
+import { NavbarComponent } from './shared/nav-bar/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { QuizService } from './shared/quiz.service';
     WelcomepageComponent,
     AdminPanelComponent,
     QuizComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

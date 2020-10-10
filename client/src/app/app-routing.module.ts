@@ -10,12 +10,12 @@ import { WelcomepageComponent} from './welcomepage/welcomepage.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'welcome', pathMatch:'full'},
-  { path: 'welcome', component: WelcomepageComponent},
-  { path: 'sign-up', component: SignUpComponent },
+  { path: 'welcome', component: WelcomepageComponent, canActivate:[AuthGuard]},
+  { path: 'sign-up', component: SignUpComponent},
   { path: 'login', component: LoginComponent},
   { path: 'home', component: HomeComponent, canActivate:[AuthGuard]},
   { path: 'admin', component: AdminPanelComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
-  { path: 'quiz', component: QuizComponent}
+  { path: 'quiz', component: QuizComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({

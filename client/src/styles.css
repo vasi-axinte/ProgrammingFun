@@ -20,8 +20,19 @@ button[type=submit].btn {
     border-radius: 10px;
     background-color: grey;
     color: black;
-    width: auto; 
+    width: 150px; 
     margin: auto;    
+    padding: 5px;
+}
+
+button[type=simple].btn {
+     display: inline-table;
+    border-radius: 10px;
+    background-color: grey;
+    color: black;
+    width: 150px; 
+    margin: 10px;;    
+    padding: 5px;
 }
 
 .wrapper {

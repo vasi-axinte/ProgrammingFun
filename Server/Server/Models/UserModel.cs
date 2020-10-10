@@ -1,7 +1,10 @@
-﻿namespace Server.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Server.Models
 {
     public class UserModel
     {
+        [Key]
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

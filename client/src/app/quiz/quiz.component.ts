@@ -15,32 +15,15 @@ export class QuizComponent implements OnInit {
   constructor(public router:Router,
     public quizService: QuizService) { }
     questions: Question[];
-    correctAnswers: string[];
     answerPicked: string[];
-    correctAnswer: string;
 
   ngOnInit(): void {
     this.getQuestions();
   }
 
   getQuestions() {
-    this.quizService.getQuestions().subscribe((questions) => {
-      this.questions = questions;
-      this.getAnswers();
+    this.quizService.getQuestions().subscribe((question) => {
+      this.questions = question;
      });
   }
-
-  getAnswers() {
-    this.questions.forEach(question => 
-      this.correctAnswer = question.correctAnswer
-    )
-  }
-
-
-  onLogout()
-  {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
-
 }

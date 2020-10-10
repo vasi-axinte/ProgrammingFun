@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Models
 {
     public class Question
     {
         [Key]
-        public int Id { get; set; }
+        public int QuestionId { get; set; }
          
         public string Text { get; set; }
 
@@ -17,6 +19,9 @@ namespace Server.Models
 
         public string Option4 { get; set; }
 
-        public string CorrectAnswer { get; set; }
+        public int CorrectAnswer { get; set; }
+
+        [ForeignKey("QuestionId")]
+        public virtual ICollection<QuizQuestions> QuizQuestions { get; set; }
     }
 }

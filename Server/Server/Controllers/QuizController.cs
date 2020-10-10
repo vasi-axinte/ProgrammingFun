@@ -18,11 +18,29 @@ namespace Server.Controllers
         }
 
         [HttpGet]
-        public async Task<List<Question>> GetQuestions()
+        public async Task<List<QuestionDTO>> GetQuestions()
         {
-           var questions = await _dbContext.Questions.ToListAsync();
+            //var questions = from question in _dbContext.Questions
+            //               select new QuestionDTO()
+            //                {
+            //                    Text = question.Text,
+            //                    Option1 = question.Option1,
+            //                    Option2 = question.Option2,
+            //                    Option3 = question.Option3,
+            //                    Option4 = question.Option4,
+            //                };
+
+            var questions = _dbContext.Questions
+                .Select(q => new QuestionDTO
+                {
+                    Text = q.Text,
+                    Option1 = q.Option1,
+                    Option2 = q.Option2,
+                    Option3 = q.Option3,
+                    Option4 = q.Option4,
+                });
             
-           return questions;
+            return await questions.ToListAsync();
         }
 
         [HttpPost]

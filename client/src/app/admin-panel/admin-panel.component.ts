@@ -12,11 +12,4 @@ export class AdminPanelComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  onLogout()
-  {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
-
 }
