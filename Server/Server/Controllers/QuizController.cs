@@ -95,14 +95,6 @@ namespace Server.Controllers
             };
 
             return result;
-        }
-
-        [HttpPost]
-        public async Task PostScore()
-        {
-
-        }
-
-        
+        }        
     }
 }

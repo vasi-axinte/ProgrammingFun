@@ -13,6 +13,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizService } from './shared/quiz.service';
 import { NavbarComponent } from './shared/nav-bar/navbar/navbar.component';
+import { QuizzesComponent } from './quizzes/quizzes.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NavbarComponent } from './shared/nav-bar/navbar/navbar.component';
     AdminPanelComponent,
     QuizComponent,
     NavbarComponent,
+    QuizzesComponent,
   ],
   imports: [
     BrowserModule,
