@@ -13,7 +13,7 @@ namespace Server.Models
         public string QuizName { get; set; }
 
         [ForeignKey("QuizId")]
-        public virtual ICollection<QuizQuestions> QuizQuestions { get; set; }
 
+        public virtual ICollection<QuizQuestions> QuizQuestions { get; set; }
     }
 }

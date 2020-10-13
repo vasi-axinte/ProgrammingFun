@@ -11,6 +11,7 @@ namespace Server.Models
     {
         [Key]
         public int Id {get; set;}
+
         public int QuizId { get; set; }
 
         public int QuestionId { get; set; }

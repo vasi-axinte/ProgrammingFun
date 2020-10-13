@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { QuizService } from '../shared/quiz.service';
-import { Question } from '../question';
-import { NgIf } from '@angular/common';
-
+import { Quiz } from '../quiz';
 
 @Component({
   selector: 'app-quiz',
@@ -12,18 +9,21 @@ import { NgIf } from '@angular/common';
 })
 export class QuizComponent implements OnInit {
 
-  constructor(public router:Router,
-    public quizService: QuizService) { }
-    questions: Question[];
+  constructor(private quizService: QuizService) { }
+    quiz: Quiz;
     answerPicked: string[];
 
   ngOnInit(): void {
-    this.getQuestions();
+    this.getQuiz();
   }
 
-  getQuestions() {
-    this.quizService.getQuestions().subscribe((question) => {
-      this.questions = question;
-     });
+  getQuiz() {
+    //   this.quizService.getQuizzes().subscribe((quiz) => {
+    //   this.quizzes = quiz;
+    // });
+    this.quizService.getQuiz(1).subscribe((quiz) => {
+      this.quiz = quiz;
+    })
   }
 }
+
