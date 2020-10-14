@@ -1,0 +1,36 @@
+<div class="questionCreator">
+    <h2>Create new question</h2>
+    <form [formGroup]="service.questionForm" autocomplete="off" (submit)="onSubmit()">
+        
+        <div class="form-group question">
+            <label class="col-sm-1 ">Question Text</label>
+            <input class="from-control" formControlName="text">
+          </div>
+      
+          <div class="form-group question">
+            <label class="col-sm-1 ">Answer Option 1</label>
+            <input class="from-control" formControlName="option1">
+          </div>
+      
+          <div class="form-group question">
+            <label class="col-sm-1">Answer Option 2</label>
+            <input class="from-control" formControlName="option2">
+          </div>
+      
+          <div class="form-group question">
+            <label class="col-sm-1 ">Answer Option 3</label>
+            <input class="from-control" formControlName="option3">
+          </div>
+
+          <div class="form-group question">
+            <label class="col-sm-1 ">Answer Option 4</label>
+            <input class="from-control" formControlName="option4">
+          </div>
+      
+          <div class="form-group question">
+            <label class="col-sm-1 ">Correct answer</label>
+            <input class="from-control" type="number" formControlName="correctAnswer">
+          </div>
+          <button type="submit" class="btn btn-lg btn-block" [disabled]="service.questionForm.invalid">Submit</button>
+    </form>
+</div>
