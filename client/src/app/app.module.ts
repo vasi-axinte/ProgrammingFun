@@ -16,6 +16,7 @@ import { NavbarComponent } from './shared/nav-bar/navbar/navbar.component';
 import { QuizzesComponent } from './quizzes/quizzes.component';
 import { QuestionCreatorComponent } from './question-creator/question-creator.component';
 import { QuestionService } from './shared/question.service';
+import { QuizCreatorComponent } from './quiz-creator/quiz-creator.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { QuestionService } from './shared/question.service';
     NavbarComponent,
     QuizzesComponent,
     QuestionCreatorComponent,
+    QuizCreatorComponent,
   ],
   imports: [
     BrowserModule,

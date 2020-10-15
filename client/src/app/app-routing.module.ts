@@ -5,6 +5,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { QuestionCreatorComponent } from './question-creator/question-creator.component';
+import { QuizCreatorComponent } from './quiz-creator/quiz-creator.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizzesComponent } from './quizzes/quizzes.component';
 import { SignUpComponent} from './sign-up/sign-up.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'quiz/:quizId', component: QuizComponent, canActivate:[AuthGuard]},
   { path: 'quiz', component: QuizzesComponent, canActivate:[AuthGuard], data :{permittedRoles:['Admin']}},
   { path: 'questionCreator', component:QuestionCreatorComponent, canActivate:[AuthGuard], data:{permittedRoles:['Admin']}},
+  { path: 'quizCreator', component:QuizCreatorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
 ];
 
 @NgModule({

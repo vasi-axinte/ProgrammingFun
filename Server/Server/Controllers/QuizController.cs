@@ -95,6 +95,19 @@ namespace Server.Controllers
             };
 
             return result;
-        }        
+        }
+
+
+        [HttpPost]
+        public void PostQuiz(Quiz quiz)
+        {
+            var quizSent = new Quiz()
+            {
+                QuizName = quiz.QuizName,
+              
+            };
+            _dbContext.Quiz.Add(quizSent);
+            _dbContext.SaveChanges();
+        }
     }
 }

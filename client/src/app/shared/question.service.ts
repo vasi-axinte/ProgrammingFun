@@ -28,7 +28,7 @@ export class QuestionService {
       option2: this.questionForm.value.option2,
       option3: this.questionForm.value.option3,
       option4: this.questionForm.value.option4,
-      correctAnswer: this.questionForm.value.correctAnswer,
+      correctAnswer: this.questionForm.value.correctAnswer
     };
     return this.http.post(this.rootUrl + '/question', questionBody);
   }

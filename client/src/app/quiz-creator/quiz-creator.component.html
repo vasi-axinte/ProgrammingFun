@@ -1,0 +1,10 @@
+<div class="quizCreator">
+    <h2>Create new quiz</h2>
+    <form [formGroup]="service.quizForm" autocomplete="off" (submit)="onSubmit()">
+        <div class="form-group quiz">
+            <label class="col-sm-1 ">Quiz Name</label>
+            <input class="from-control" formControlName="quizName">
+        </div>
+        <button type="submit" class="btn btn-lg btn-block" [disabled]="service.quizForm.invalid">Submit</button>
+    </form>
+</div>
