@@ -60,6 +60,7 @@ namespace Server.Controllers
                 .ThenInclude(qq => qq.Question)
                 .Select(x => new QuizDTO
                 {
+                    QuizId = x.QuizId,
                     QuizName = x.QuizName,
                     Questions = x.QuizQuestions.Select(qq => qq.Question).Select(q => new QuestionDTO 
                     {
@@ -83,6 +84,7 @@ namespace Server.Controllers
 
             var result = new QuizDTO
             {
+                QuizId = quiz.QuizId,
                 QuizName = quiz.QuizName,
                 Questions = quiz.QuizQuestions.Select(qq => new QuestionDTO 
                 {

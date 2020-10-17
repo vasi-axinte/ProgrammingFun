@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { Quiz } from '../quiz';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-quizzes',
@@ -9,16 +10,17 @@ import { Quiz } from '../quiz';
 })
 export class QuizzesComponent implements OnInit {
 
-  constructor(private quizService: QuizService) { }
+  constructor(private quizService: QuizService,
+    private route: ActivatedRoute) { }
   quizzes: Quiz;
+
   ngOnInit(): void {
    this.getQuizzes()
   }
-   
-  
+     
   getQuizzes(){
   this.quizService.getQuizzes().subscribe((quiz) => {
   this.quizzes = quiz;
   });
-  }
+}
 }

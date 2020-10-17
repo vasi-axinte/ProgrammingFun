@@ -1,6 +1,8 @@
 <app-navbar></app-navbar>
 <div  *ngFor="let quiz of quizzes">
    <form>
+       <span>{{quiz.quizId}}</span>
        <span>{{quiz.quizName}}</span>
+       <button routerLink="/editQuiz/{{quiz.quizId}}">Edit Quiz</button>
    </form>
 </div>
