@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Server.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Server.Controllers
@@ -29,6 +32,22 @@ namespace Server.Controllers
             };
             _dbContext.Questions.Add(questionSent);
             _dbContext.SaveChanges();
+        }
+
+        [HttpGet]
+        public async Task<List<Question>> GetQuestions()
+        {
+            var questions = _dbContext.Questions
+                .Select(q => new Question
+                {
+                    QuestionId = q.QuestionId,
+                    Text = q.Text,
+                    Option1 = q.Option1,
+                    Option2 = q.Option2,
+                    Option3 = q.Option3,
+                    Option4 = q.Option4,
+                });
+            return await questions.ToListAsync();
         }
 
     }

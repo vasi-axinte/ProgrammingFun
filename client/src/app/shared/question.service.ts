@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Question } from '../question';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,11 @@ export class QuestionService {
       correctAnswer: this.questionForm.value.correctAnswer
     };
     return this.http.post(this.rootUrl + '/question', questionBody);
+  }
+
+  getQuestions(): Observable<Question>{
+    {
+      return this.http.get<Question>(this.rootUrl + '/Question');
+    }
   }
 }

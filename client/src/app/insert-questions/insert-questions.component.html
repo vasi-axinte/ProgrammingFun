@@ -1,0 +1,24 @@
+<div *ngFor="let question of questions">
+    <form >
+        <div class="d-flex flex-row align-items-center question-title">
+            <h3 class="text-danger">Question:</h3>
+            <h5 class="mt-1 ml-2">{{question.text}}</h5>
+        </div>
+        <div class="ans ml-2">
+            <label class="checkbox"> <input type="checkbox" name="option1" value=1> <span>{{question.option1}}</span>
+            </label>
+        </div>
+        <div class="ans ml-2">
+            <label class="checkbox"> <input type="checkbox" name="option2" value=2> <span>{{question.option2}}</span>
+            </label>
+        </div>
+        <div class="ans ml-2">
+            <label class="checkbox"> <input type="checkbox" name="option3" value=3> <span>{{question.option3}}</span>
+            </label>
+        </div>
+        <div class="ans ml-2">
+            <label class="checkbox"> <input type="checkbox" name="option4" value=4> <span>{{question.option4}}</span>
+            </label>
+        </div>
+    </form>
+</div> 

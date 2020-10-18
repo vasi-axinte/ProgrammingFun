@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
-<div  *ngFor="let quiz of quizzes">
+<div class="quizEditor" *ngFor="let quiz of quizzes">
    <form>
-       <span>{{quiz.quizId}}</span>
-       <span>{{quiz.quizName}}</span>
+       <span class="col-sm-1">{{quiz.quizId}}</span>
+       <span class="col-sm-1">{{quiz.quizName}}</span>
        <button routerLink="/editQuiz/{{quiz.quizId}}">Edit Quiz</button>
    </form>
 </div>
