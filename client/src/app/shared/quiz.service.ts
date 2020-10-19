@@ -34,6 +34,5 @@ export class QuizService {
   getQuizzes(): Observable<Quiz> {
     return this.http.get<Quiz>(this.rootUrl + '/Quiz');
   }
-
   
 }

@@ -106,9 +106,21 @@ namespace Server.Controllers
             var quizSent = new Quiz()
             {
                 QuizName = quiz.QuizName,
-              
             };
             _dbContext.Quiz.Add(quizSent);
+            _dbContext.SaveChanges();
+        }
+
+        [HttpPost]
+        [Route("InsertQuestion")]
+        public void PostQuestionId(QuizQuestions newQuizQuestion)
+        {
+            var questionToInsert = new QuizQuestions()
+            {
+                QuizId = newQuizQuestion.QuizId,
+                QuestionId = newQuizQuestion.QuestionId,
+            };
+            _dbContext.QuizQuestions.Add(questionToInsert);
             _dbContext.SaveChanges();
         }
     }

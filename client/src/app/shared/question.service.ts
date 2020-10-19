@@ -39,4 +39,12 @@ export class QuestionService {
       return this.http.get<Question>(this.rootUrl + '/Question');
     }
   }
+
+  insertQuestionInQuiz(questionId, quizId){
+    var quizQuestion = {
+      quizId: quizId,
+      questionId: questionId
+    }
+    return this.http.post(this.rootUrl + '/Quiz/InsertQuestion', quizQuestion);
+  }
 }

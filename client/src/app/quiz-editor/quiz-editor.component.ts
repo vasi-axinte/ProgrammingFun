@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Question } from '../question';
 import { Quiz } from '../quiz';
 import { QuizService } from '../shared/quiz.service';
 
@@ -15,10 +16,11 @@ export class QuizEditorComponent implements OnInit {
     private quizService: QuizService) { }
     quizId: number;
     quiz:Quiz;
-
-  ngOnInit(): void {
+    questions = {};
+ 
+    ngOnInit(): void {
     this.getQuiz();
-  }
+    }
 
   getQuiz() {
     this.quizId = +this.route.snapshot.paramMap.get('quizId');

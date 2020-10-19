@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { Quiz } from '../quiz';
 import { ActivatedRoute } from '@angular/router';
+import { Question } from '../question';
 
 @Component({
   selector: 'app-quiz',
@@ -14,6 +15,7 @@ export class QuizComponent implements OnInit {
     private route: ActivatedRoute) { }
     quiz: Quiz;
     quizId: number;
+    questions: Question;
 
   ngOnInit(): void {
     this.getQuiz();
