@@ -10,6 +10,13 @@ namespace Server.Models
 
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<QuizQuestions>()
+                .HasKey(q => new { q.QuizId, q.QuestionId });
+             base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public DbSet<Question> Questions { get; set; }

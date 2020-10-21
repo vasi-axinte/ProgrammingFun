@@ -75,3 +75,7 @@ div.quizEditor {
 div.questionInsert {
     text-align: center;
 }
+
+div.questionDelete {
+    text-align: center;
+}

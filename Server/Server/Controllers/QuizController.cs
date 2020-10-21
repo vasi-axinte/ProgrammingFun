@@ -123,5 +123,18 @@ namespace Server.Controllers
             _dbContext.QuizQuestions.Add(questionToInsert);
             _dbContext.SaveChanges();
         }
+
+        [HttpPost]
+        [Route("DeleteQuestion")]
+        public void DeleteQuestionFromQuiz(QuizQuestions questionSent)
+        {
+            var questionToDelete = new QuizQuestions()
+            {
+                QuizId = questionSent.QuizId,
+                QuestionId = questionSent.QuestionId,
+            };
+            _dbContext.QuizQuestions.Remove(questionToDelete);
+            _dbContext.SaveChanges();
+        }
     }
 }

@@ -1,0 +1,10 @@
+button[type=submit].btn {
+    width: 200px;
+    height: 10px;
+    line-height: 20px;
+    min-height: 30px;
+    vertical-align: top;
+    font-size: 15px;
+    padding: 150;
+    margin: 100;
+}

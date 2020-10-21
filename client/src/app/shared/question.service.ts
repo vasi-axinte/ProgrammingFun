@@ -47,4 +47,12 @@ export class QuestionService {
     }
     return this.http.post(this.rootUrl + '/Quiz/InsertQuestion', quizQuestion);
   }
+
+  deleteQuestionFromQuiz(questionId, quizId){
+    var quizQuestion = {
+      quizId: quizId,
+      questionId: questionId
+    }
+    return this.http.post(this.rootUrl + '/Quiz/DeleteQuestion', quizQuestion);
+  }
 }

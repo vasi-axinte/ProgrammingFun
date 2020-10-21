@@ -17,7 +17,6 @@ export class InsertQuestionsComponent implements OnInit {
     this.getQuestions();
   }
   questions: Question;
-  questionId: number
   quizId: number
  
   getQuestions()
@@ -29,7 +28,6 @@ export class InsertQuestionsComponent implements OnInit {
   insertQuestionInQuiz(questionId)
   {
     this.quizId = +this.route.snapshot.paramMap.get('quizId');
-    this.questionId=questionId;
-    this.service.insertQuestionInQuiz(this.questionId, this.quizId).subscribe();
+    this.service.insertQuestionInQuiz(questionId, this.quizId).subscribe();
   }
 }

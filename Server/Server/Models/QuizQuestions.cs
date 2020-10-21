@@ -9,9 +9,6 @@ namespace Server.Models
 {
     public class QuizQuestions
     {
-        [Key]
-        public int Id {get; set;}
-
         public int QuizId { get; set; }
 
         public int QuestionId { get; set; }
