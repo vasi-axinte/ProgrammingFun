@@ -16,6 +16,9 @@ export class QuizComponent implements OnInit {
     quiz: Quiz;
     quizId: number;
     questions: Question;
+    question: Question;
+    option:number;
+
 
   ngOnInit(): void {
     this.getQuiz();
@@ -26,6 +29,11 @@ export class QuizComponent implements OnInit {
     this.quizService.getQuiz(this.quizId).subscribe((quiz) => {
       this.quiz = quiz;
     })
+  }
+
+  onSelect(question, option) {
+    this.question = question;
+    this.option = option;
   }
 }
 
