@@ -18,7 +18,9 @@ export class QuizComponent implements OnInit {
     questions: Question;
     question: Question;
     option:number;
-
+    form: HTMLFormElement = document.querySelector("#quiz")
+    selectedAnswer: number;
+    questionText: string;
 
   ngOnInit(): void {
     this.getQuiz();
@@ -31,9 +33,10 @@ export class QuizComponent implements OnInit {
     })
   }
 
-  onSelect(question, option) {
-    this.question = question;
-    this.option = option;
+  onRadioChange(event: any, question) {
+    this.selectedAnswer = event.target.value;
+    this.questionText = question;
+    this.quizService.SendAnswer(this.selectedAnswer, this.questionText).subscribe();
   }
 }
 
