@@ -1,0 +1,14 @@
+button[type=admin-panel].btn {
+    width: 200px;
+    height: 10px;
+    line-height: 20px;
+    min-height: 30px;
+    font-size: 15px;
+    padding: 5px;
+    margin: auto;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+
+

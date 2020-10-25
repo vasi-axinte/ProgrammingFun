@@ -55,4 +55,12 @@ export class QuestionService {
     }
     return this.http.post(this.rootUrl + '/Quiz/DeleteQuestion', quizQuestion);
   }
+
+  sendAnswer(selectedAnswer, questionText) {
+    var questionAndAnswer = {
+      selectedAnswer: selectedAnswer,
+      questionText: questionText
+    }
+    return this.http.post(this.rootUrl + '/Question/Check', questionAndAnswer);
+  } 
 }

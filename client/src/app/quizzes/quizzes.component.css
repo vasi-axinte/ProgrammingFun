@@ -1,0 +1,18 @@
+button[type=edit-quiz].btn {
+    width: 150px;
+    height: 10px;
+    line-height: 10px;
+    min-height: 30px;
+    font-size: 15px;
+    padding: 150;
+    margin: 100;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.badge-pill {
+   height: 30px;
+   font-size: 15px;
+   margin-left: 5px;
+   margin-top: 5px;
+}

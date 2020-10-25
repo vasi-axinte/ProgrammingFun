@@ -1,8 +1,11 @@
 <app-navbar></app-navbar>
 <div class="quizEditor" *ngFor="let quiz of quizzes">
-   <form>
-       <span class="col-sm-1">{{quiz.quizId}}</span>
-       <span class="col-sm-1">{{quiz.quizName}}</span>
-       <button routerLink="/editQuiz/{{quiz.quizId}}">Edit Quiz</button>
+   <form name="quizzes-editor">
+       <span class="badge badge-pill badge-light">{{quiz.quizId}}</span>
+       <span class="badge badge-pill badge-light">{{quiz.quizName}}:</span>
+       <button type="edit-quiz" class="btn btn-light" routerLink="/editQuiz/{{quiz.quizId}}">Edit Quiz</button>
    </form>
+</div>
+<div class="center">
+<button type="simple" class="btn btn-light" routerLink="/admin">Go Back</button> 
 </div>

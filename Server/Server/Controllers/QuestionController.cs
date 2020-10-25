@@ -50,5 +50,22 @@ namespace Server.Controllers
             return await questions.ToListAsync();
         }
 
+        [HttpPost]
+        [Route("Check")]
+        public bool CheckSelectedAnswers(Question questionAndAnswer)
+        {
+            var questionToCheck = new Question()
+            {
+                Text = questionAndAnswer.Text,
+                CorrectAnswer = questionAndAnswer.CorrectAnswer
+            };
+
+            if (_dbContext.Questions.Select(q => q).Where(q => (q.Text == questionToCheck.Text) && (q.CorrectAnswer == questionToCheck.CorrectAnswer)).Count() > 0)
+            {
+                return true;
+            }
+            else return false;
+        }
+
     }
 }

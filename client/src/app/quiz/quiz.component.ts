@@ -3,6 +3,7 @@ import { QuizService } from '../shared/quiz.service';
 import { Quiz } from '../quiz';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
+import { QuestionService } from '../shared/question.service';
 
 @Component({
   selector: 'app-quiz',
@@ -11,14 +12,11 @@ import { Question } from '../question';
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private quizService: QuizService,
+  constructor(private questionService: QuestionService,
+        private quizService: QuizService,
     private route: ActivatedRoute) { }
     quiz: Quiz;
     quizId: number;
-    questions: Question;
-    question: Question;
-    option:number;
-    form: HTMLFormElement = document.querySelector("#quiz")
     selectedAnswer: number;
     questionText: string;
 
@@ -33,10 +31,10 @@ export class QuizComponent implements OnInit {
     })
   }
 
-  onRadioChange(event: any, question) {
+  onRadioChange(event, question) {
     this.selectedAnswer = event.target.value;
     this.questionText = question;
-    this.quizService.SendAnswer(this.selectedAnswer, this.questionText).subscribe();
+    this.questionService.sendAnswer(this.selectedAnswer, this.questionText).subscribe();
   }
 }
 

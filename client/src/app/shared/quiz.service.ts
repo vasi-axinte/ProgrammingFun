@@ -34,12 +34,4 @@ export class QuizService {
   getQuizzes(): Observable<Quiz> {
     return this.http.get<Quiz>(this.rootUrl + '/Quiz');
   }
-
-  SendAnswer(selectedAnswer, questionText) {
-    var questionAndAnswer = {
-      selectedAnswer: selectedAnswer,
-      questionText: questionText
-    }
-    return this.http.post(this.rootUrl + '/Quiz/SentAnswers', questionAndAnswer);
-  } 
 }
