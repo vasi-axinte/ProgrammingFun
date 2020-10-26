@@ -32,7 +32,7 @@ export class QuizComponent implements OnInit {
   }
 
   onRadioChange(event, question) {
-    this.selectedAnswer = event.target.value;
+    this.selectedAnswer = +event.target.value;
     this.questionText = question;
     this.questionService.sendAnswer(this.selectedAnswer, this.questionText).subscribe();
   }

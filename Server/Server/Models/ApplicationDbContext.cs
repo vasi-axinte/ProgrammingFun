@@ -12,7 +12,7 @@ namespace Server.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<QuizQuestions>()
+            modelBuilder.Entity<QuizQuestion>()
                 .HasKey(q => new { q.QuizId, q.QuestionId });
              base.OnModelCreating(modelBuilder);
         }
@@ -23,7 +23,7 @@ namespace Server.Models
 
         public DbSet<UserScore> Scores { get; set; }
 
-        public DbSet<QuizQuestions> QuizQuestions { get; set; }
+        public DbSet<QuizQuestion> QuizQuestions { get; set; }
 
         public DbSet<Quiz> Quiz { get; set; }
     }

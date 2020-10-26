@@ -52,19 +52,9 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("Check")]
-        public bool CheckSelectedAnswers(Question questionAndAnswer)
+        public bool CheckSelectedAnswers(QuestionDTO questionAndAnswer)
         {
-            var questionToCheck = new Question()
-            {
-                Text = questionAndAnswer.Text,
-                CorrectAnswer = questionAndAnswer.CorrectAnswer
-            };
-
-            if (_dbContext.Questions.Select(q => q).Where(q => (q.Text == questionToCheck.Text) && (q.CorrectAnswer == questionToCheck.CorrectAnswer)).Count() > 0)
-            {
-                return true;
-            }
-            else return false;
+            return _dbContext.Questions.Any(q => (q.Text == questionAndAnswer.Text) && (q.CorrectAnswer == questionAndAnswer.SelectedAnswer));
         }
 
     }

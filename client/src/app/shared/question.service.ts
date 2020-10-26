@@ -59,7 +59,7 @@ export class QuestionService {
   sendAnswer(selectedAnswer, questionText) {
     var questionAndAnswer = {
       selectedAnswer: selectedAnswer,
-      questionText: questionText
+      text: questionText
     }
     return this.http.post(this.rootUrl + '/Question/Check', questionAndAnswer);
   } 

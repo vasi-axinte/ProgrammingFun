@@ -26,6 +26,9 @@ export class DeleteQuestionComponent implements OnInit {
     this.service.deleteQuestionFromQuiz(questionId, this.quizId).subscribe();
   }
 
-  
+  goPervious()
+  {
+    window.history.back();
+  }
 
 }

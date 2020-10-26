@@ -30,4 +30,9 @@ export class InsertQuestionsComponent implements OnInit {
     this.quizId = +this.route.snapshot.paramMap.get('quizId');
     this.service.insertQuestionInQuiz(questionId, this.quizId).subscribe();
   }
+  
+  goPervious()
+  {
+    window.history.back();
+  }
 }

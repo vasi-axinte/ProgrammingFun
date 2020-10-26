@@ -99,44 +99,44 @@ namespace Server.Controllers
             return result;
         }
 
-
         [HttpPost]
-        public void PostQuiz(Quiz quiz)
+        public void PostQuiz(QuizDTO quiz)
         {
-            var quizSent = new Quiz()
+            var quizSent = new Quiz
             {
                 QuizName = quiz.QuizName,
             };
+
             _dbContext.Quiz.Add(quizSent);
             _dbContext.SaveChanges();
         }
 
         [HttpPost]
         [Route("InsertQuestion")]
-        public void PostQuestionId(QuizQuestions newQuizQuestion)
+        public void PostQuestionId(QuizQuestionDTO newQuizQuestion)
         {
-            var questionToInsert = new QuizQuestions()
+            var questionToInsert = new QuizQuestion
             {
                 QuizId = newQuizQuestion.QuizId,
                 QuestionId = newQuizQuestion.QuestionId,
             };
+
             _dbContext.QuizQuestions.Add(questionToInsert);
             _dbContext.SaveChanges();
         }
 
         [HttpPost]
         [Route("DeleteQuestion")]
-        public void DeleteQuestionFromQuiz(QuizQuestions questionSent)
+        public void DeleteQuestionFromQuiz(QuizQuestionDTO questionSent)
         {
-            var questionToDelete = new QuizQuestions()
+            var questionToDelete = new QuizQuestion
             {
                 QuizId = questionSent.QuizId,
                 QuestionId = questionSent.QuestionId,
             };
+
             _dbContext.QuizQuestions.Remove(questionToDelete);
             _dbContext.SaveChanges();
         }
-
     }
 }
-

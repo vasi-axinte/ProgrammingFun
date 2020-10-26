@@ -22,6 +22,6 @@ namespace Server.Models
         public int CorrectAnswer { get; set; }
 
         [ForeignKey("QuestionId")]
-        public virtual ICollection<QuizQuestions> QuizQuestions { get; set; }
+        public virtual ICollection<QuizQuestion> QuizQuestions { get; set; }
     }
 }
