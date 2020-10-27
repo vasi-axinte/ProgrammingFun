@@ -3,6 +3,7 @@ import { Question } from '../question';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { selectedAnswer } from '../selectedAnswer';
 
 @Injectable({
   providedIn: 'root'
@@ -56,11 +57,8 @@ export class QuestionService {
     return this.http.post(this.rootUrl + '/Quiz/DeleteQuestion', quizQuestion);
   }
 
-  sendAnswer(selectedAnswer, questionText) {
-    var questionAndAnswer = {
-      selectedAnswer: selectedAnswer,
-      text: questionText
-    }
-    return this.http.post(this.rootUrl + '/Question/Check', questionAndAnswer);
+  sendAnswers(selectedAnswers) {
+  
+    return this.http.post<selectedAnswer[]>(this.rootUrl + '/Question/Check', selectedAnswers);
   } 
 }

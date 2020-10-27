@@ -4,6 +4,7 @@ import { Quiz } from '../quiz';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { QuestionService } from '../shared/question.service';
+import { selectedAnswer } from '../selectedAnswer';
 
 @Component({
   selector: 'app-quiz',
@@ -17,8 +18,10 @@ export class QuizComponent implements OnInit {
     private route: ActivatedRoute) { }
     quiz: Quiz;
     quizId: number;
-    selectedAnswer: number;
-    questionText: string;
+   // selectedAnswer: number;
+   // questionText: string;
+    selectedAnswer : selectedAnswer;
+    listofAnswers : selectedAnswer[] = [];
 
   ngOnInit(): void {
     this.getQuiz();
@@ -31,10 +34,22 @@ export class QuizComponent implements OnInit {
     })
   }
 
-  onRadioChange(event, question) {
-    this.selectedAnswer = +event.target.value;
-    this.questionText = question;
-    this.questionService.sendAnswer(this.selectedAnswer, this.questionText).subscribe();
+  onRadioChange(event, question) 
+  {
+    this.selectedAnswer = {
+        selectedAnswer : +event.target.value,
+        Text : question,
+    }  
+  //  this.selectedAnswer = +event.target.value,
+  //  this.questionText = question,
+
+    this.listofAnswers.push({selectedAnswer: this.selectedAnswer.selectedAnswer, Text: this.selectedAnswer.Text});
   }
+
+  onSubmit()
+  {
+    this.questionService.sendAnswers(this.listofAnswers).subscribe();
+  }
+
 }
 
