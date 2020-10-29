@@ -10,31 +10,39 @@
                         </div>
                     </div>
                     <div class="question bg-white p-3 border-bottom">
-                       <div *ngFor="let question of quiz?.questions">
+                        <div *ngFor="let question of quiz?.questions">
                             <form name="quiz">
-                                <div class="d-flex flex-row align-items-center question-title">
-                                    <h3 class="text-danger">Question:</h3>
-                                    <h5 class="mt-1 ml-2">{{question.text}}</h5>
-                                </div>
-                                <div class="ans ml-2">
-                                    <label class="radio"> <input type="radio" (change)="onRadioChange($event, question.text)" name="option" value=1> <span>{{question.option1}}</span>
-                                    </label>
-                                </div>
-                                <div class="ans ml-2">
-                                    <label class="radio"> <input type="radio" (change)="onRadioChange($event, question.text)" name="option" value=2> <span>{{question.option2}}</span>
-                                    </label>
-                                </div>
-                                <div class="ans ml-2">
-                                    <label class="radio"> <input type="radio" (change)="onRadioChange($event, question.text)" name="option" value=3> <span>{{question.option3}}</span>
-                                    </label>
-                                </div>
-                                <div class="ans ml-2">
-                                    <label class="radio"> <input type="radio" (change)="onRadioChange($event, question.text)" name="option" value=4> <span>{{question.option4}}</span>
-                                    </label>
-                                </div>
+                            <div class="d-flex flex-row align-items-center question-title">
+                                <h3 class="text-danger">Question:</h3>
+                                <h5 class="mt-1 ml-2">{{question.text}}</h5>
+                            </div>
+                            <div class="ans ml-2">
+                                <label class="radio"> <input type="radio"
+                                        (change)="onRadioChange($event, question.questionId)" name="option" value=1>
+                                    <span>{{question.option1}}</span>
+                                </label>
+                            </div>
+                            <div class="ans ml-2">
+                                <label class="radio"> <input type="radio"
+                                        (change)="onRadioChange($event, question.questionId)" name="option" value=2>
+                                    <span>{{question.option2}}</span>
+                                </label>
+                            </div>
+                            <div class="ans ml-2">
+                                <label class="radio"> <input type="radio"
+                                        (change)="onRadioChange($event, question.questionId)" name="option" value=3>
+                                    <span>{{question.option3}}</span>
+                                </label>
+                            </div>
+                            <div class="ans ml-2">
+                                <label class="radio"> <input type="radio"
+                                        (change)="onRadioChange($event, question.questionId)" name="option" value=4>
+                                    <span>{{question.option4}}</span>
+                                </label>
+                            </div>
                             </form>
-                       </div>
-                       <button class="btn btn-lg btn-block" type="submit" (click)="onSubmit()">Submit</button>
+                        </div>
+                        <button class="btn btn-lg btn-block" type="submit" (click)="onSubmit()">Submit</button>
                     </div>
                 </div>
             </div>

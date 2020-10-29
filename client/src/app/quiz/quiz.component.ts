@@ -4,7 +4,7 @@ import { Quiz } from '../quiz';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { QuestionService } from '../shared/question.service';
-import { selectedAnswer } from '../selectedAnswer';
+import { UserAnswer } from '../userAnswer';
 
 @Component({
   selector: 'app-quiz',
@@ -13,16 +13,14 @@ import { selectedAnswer } from '../selectedAnswer';
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private questionService: QuestionService,
-        private quizService: QuizService,
-    private route: ActivatedRoute) { }
-    quiz: Quiz;
-    quizId: number;
-   // selectedAnswer: number;
-   // questionText: string;
-    selectedAnswer : selectedAnswer;
-    listofAnswers : selectedAnswer[] = [];
+  quiz: Quiz;
+  quizId: number;
+  answers: UserAnswer[] = [];
 
+  constructor(private questionService: QuestionService,
+    private quizService: QuizService,
+    private route: ActivatedRoute) { }
+    
   ngOnInit(): void {
     this.getQuiz();
   }
@@ -34,22 +32,22 @@ export class QuizComponent implements OnInit {
     })
   }
 
-  onRadioChange(event, question) 
-  {
-    this.selectedAnswer = {
-        selectedAnswer : +event.target.value,
-        Text : question,
-    }  
-  //  this.selectedAnswer = +event.target.value,
-  //  this.questionText = question,
-
-    this.listofAnswers.push({selectedAnswer: this.selectedAnswer.selectedAnswer, Text: this.selectedAnswer.Text});
+  onRadioChange(event, questionId) {
+    let questionWithAnswerIndex = this.answers.findIndex(q => q.questionId === questionId);
+    
+    if(questionWithAnswerIndex != -1) {
+       this.answers[questionWithAnswerIndex].selectedAnswer = +event.target.value;
+    } else {
+      let questionWithAnswer = {
+        selectedAnswer: +event.target.value,
+        questionId: questionId
+      }
+      this.answers.push(questionWithAnswer);
+    }
   }
 
-  onSubmit()
-  {
-    this.questionService.sendAnswers(this.listofAnswers).subscribe();
+  onSubmit() {
+    this.questionService.sendAnswers(this.answers);
   }
-
 }
 

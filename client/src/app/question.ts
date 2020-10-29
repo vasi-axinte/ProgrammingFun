@@ -1,4 +1,5 @@
 export interface Question {
+    questionId: number,
     text: string;
     option1: string;
     option2: string;

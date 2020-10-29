@@ -23,7 +23,7 @@ namespace Server.Controllers
         {
             var questionSent =  new Question()
             {
-                 Text = question.Text,
+                Text = question.Text,
                 Option1 = question.Option1,
                 Option2 = question.Option2,
                 Option3 = question.Option3,
@@ -52,16 +52,19 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("Check")]
-        public bool CheckSelectedAnswers(List<AnswersCheckDTO> questionAndAnswers)
+        public int CheckSelectedAnswers(List<AnswersCheckDTO> questionAndAnswers)
         {
-           // List<AnswersCheckDTO> answers = new List<AnswersCheckDTO>();
-           // answers.Add(questionAndAnswers);
-           
+            // List<AnswersCheckDTO> answers = new List<AnswersCheckDTO>();
+            // answers.Add(questionAndAnswers);
+            int scoreTest = 0;
             foreach (var answer in questionAndAnswers)
             {
-                return _dbContext.Questions.Any(q => (q.Text == answer.Text) && (q.CorrectAnswer == answer.SelectedAnswer));
+               if (_dbContext.Questions.Any(q => (q.Text == answer.Text) && (q.CorrectAnswer == answer.SelectedAnswer)))
+                   {
+                     scoreTest = scoreTest++;
+                   }
             }
-            return false;
+            return scoreTest;
         }
 
     }

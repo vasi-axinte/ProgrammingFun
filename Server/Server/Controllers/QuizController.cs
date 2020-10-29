@@ -64,6 +64,7 @@ namespace Server.Controllers
                     QuizName = x.QuizName,
                     Questions = x.QuizQuestions.Select(qq => qq.Question).Select(q => new QuestionDTO
                     {
+                        QuestionId = q.QuestionId,
                         Text = q.Text,
                         Option1 = q.Option1,
                         Option2 = q.Option2,
@@ -88,6 +89,7 @@ namespace Server.Controllers
                 QuizName = quiz.QuizName,
                 Questions = quiz.QuizQuestions.Select(qq => new QuestionDTO
                 {
+                    QuestionId = qq.QuestionId,
                     Text = qq.Question.Text,
                     Option1 = qq.Question.Option1,
                     Option2 = qq.Question.Option2,

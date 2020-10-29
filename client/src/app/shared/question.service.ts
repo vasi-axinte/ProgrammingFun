@@ -3,7 +3,7 @@ import { Question } from '../question';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { selectedAnswer } from '../selectedAnswer';
+import { UserAnswer } from '../userAnswer';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +59,6 @@ export class QuestionService {
 
   sendAnswers(selectedAnswers) {
   
-    return this.http.post<selectedAnswer[]>(this.rootUrl + '/Question/Check', selectedAnswers);
+    return this.http.post<UserAnswer[]>(this.rootUrl + '/Question/Check', selectedAnswers);
   } 
 }
