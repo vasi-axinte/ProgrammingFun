@@ -9,10 +9,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./quizzes.component.css']
 })
 export class QuizzesComponent implements OnInit {
+  
+  quizzes: Quiz;
 
   constructor(private quizService: QuizService,
     private route: ActivatedRoute) { }
-  quizzes: Quiz;
 
   ngOnInit(): void {
    this.getQuizzes()

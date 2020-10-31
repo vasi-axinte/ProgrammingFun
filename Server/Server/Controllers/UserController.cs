@@ -65,7 +65,7 @@ namespace Server.Controllers
                 var role = await _userManager.GetRolesAsync(user);
                 IdentityOptions _options = new IdentityOptions();
 
-                var tokenDescriptor = new SecurityTokenDescriptor
+                   var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {

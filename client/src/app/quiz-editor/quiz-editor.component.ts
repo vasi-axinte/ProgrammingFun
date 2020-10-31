@@ -10,13 +10,14 @@ import { QuizService } from '../shared/quiz.service';
   styleUrls: ['./quiz-editor.component.css']
 })
 export class QuizEditorComponent implements OnInit {
+  
+  quizId: number;
+  quiz:Quiz;
+  questions = {};
 
   constructor(private router:Router,
     private route: ActivatedRoute,
     private quizService: QuizService) { }
-    quizId: number;
-    quiz:Quiz;
-    questions = {};
  
     ngOnInit(): void {
     this.getQuiz();

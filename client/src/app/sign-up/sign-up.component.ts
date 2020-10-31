@@ -8,9 +8,7 @@ import { UserService } from '../shared/user.service';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(public service: UserService) { 
-
-  }
+  constructor(public service: UserService) {}
 
   ngOnInit(): void {
     this.service.formModel.reset();

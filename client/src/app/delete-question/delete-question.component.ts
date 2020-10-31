@@ -9,12 +9,13 @@ import { QuestionService } from '../shared/question.service';
   styleUrls: ['./delete-question.component.css']
 })
 export class DeleteQuestionComponent implements OnInit {
-
-  constructor(private service: QuestionService,
-    private route: ActivatedRoute) { }
+  
   questions: Question;
   quizId: number
 
+  constructor(private service: QuestionService,
+    private route: ActivatedRoute) { }
+ 
   ngOnInit(): void {
     this.service.getQuestions().subscribe((question) => 
     {this.questions= question;})

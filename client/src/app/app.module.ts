@@ -20,6 +20,8 @@ import { QuizCreatorComponent } from './quiz-creator/quiz-creator.component';
 import { InsertQuestionsComponent } from './insert-questions/insert-questions.component';
 import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
 import { DeleteQuestionComponent } from './delete-question/delete-question.component';
+import { QuizSentConfirmationComponent } from './quiz-sent-confirmation/quiz-sent-confirmation.component';
+import { QuizzesTakenComponent } from './quizzes-taken/quizzes-taken.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { DeleteQuestionComponent } from './delete-question/delete-question.compo
     InsertQuestionsComponent,
     QuizEditorComponent,
     DeleteQuestionComponent,
+    QuizSentConfirmationComponent,
+    QuizzesTakenComponent,
   ],
   imports: [
     BrowserModule,

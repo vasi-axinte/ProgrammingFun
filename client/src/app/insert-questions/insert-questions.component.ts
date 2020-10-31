@@ -10,15 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InsertQuestionsComponent implements OnInit {
 
+  questions: Question;
+  quizId: number
+ 
   constructor(private service: QuestionService,
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getQuestions();
   }
-  questions: Question;
-  quizId: number
- 
+
   getQuestions()
   {
     this.service.getQuestions().subscribe((question) => 

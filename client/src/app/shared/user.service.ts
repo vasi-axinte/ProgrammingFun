@@ -8,10 +8,7 @@ import { Router } from '@angular/router';
 })
 export class UserService {
 
-  constructor(private formBuilder : FormBuilder,
-    private http:HttpClient,
-    public router:Router) { }
-    readonly rootUrl = 'http://localhost:51301/api';
+  readonly rootUrl = 'http://localhost:51301/api';
 
   formModel = this.formBuilder.group({
     UserName : ['',Validators.required],
@@ -21,6 +18,10 @@ export class UserService {
     Password: ['',Validators.required],
   });
 
+  constructor(private formBuilder : FormBuilder,
+    private http:HttpClient,
+    public router:Router) { }
+ 
   register(){
     var body = {
       UserName: this.formModel.value.UserName,
@@ -43,9 +44,19 @@ export class UserService {
     allowedRoles.forEach(element => {
       if(userRole == element) {
         isMatch = true;
-        return false;
       }
+      else isMatch = false;
     });
     return isMatch;
+  }
+
+  checkIfAdmin(allowedRole): boolean {
+    var payLoad = JSON.parse(window.atob(localStorage.getItem('token').split('.')[1]));
+    var userRole = payLoad.role;
+    if(userRole == allowedRole)
+    {
+      return true;
+    }
+    return false;
   }
 }

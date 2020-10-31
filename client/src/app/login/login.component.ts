@@ -9,10 +9,12 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  
   formModel ={
     UserName: '',
     Password: '',
   }
+  
   constructor(private service:UserService,
     private router: Router) { }
 

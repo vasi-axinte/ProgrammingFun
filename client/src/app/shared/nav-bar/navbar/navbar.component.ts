@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthGuard } from 'src/app/auth/auth.guard';
+import { UserService } from '../../user.service';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +12,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public router:Router) { }
+  permittedRole = 'Admin';
+  public userRole;
+  constructor(public router:Router,
+    public service: UserService) { }
 
+  
   ngOnInit(): void {
+    this.userRole = this.service.checkIfAdmin(this.permittedRole);
   }
   
   onLogout()
@@ -18,5 +27,6 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
+
 
 }

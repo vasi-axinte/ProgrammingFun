@@ -9,14 +9,15 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class QuizService {
 
-  constructor(private http: HttpClient,
-    private formBuilder : FormBuilder) { }
   readonly rootUrl = 'http://localhost:51301/api';
-  
+
   quizForm = this.formBuilder.group({
     quizName : ['',Validators.required]
   });
 
+  constructor(private http: HttpClient,
+    private formBuilder : FormBuilder) { }
+  
   postQuiz()
   {
     var quizName = { 
@@ -24,9 +25,7 @@ export class QuizService {
     };
     return this.http.post(this.rootUrl + '/Quiz', quizName);
   }
-  // getQuizzes():Observable<Quiz[]> {
-  //   return this.http.get<Quiz[]>(this.rootUrl + '/Quiz');
-  // }
+ 
   getQuiz(quizId : number): Observable<Quiz> { 
     return this.http.get<Quiz>(this.rootUrl + '/Quiz/' + quizId);
   }

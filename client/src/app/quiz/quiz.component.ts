@@ -47,7 +47,7 @@ export class QuizComponent implements OnInit {
   }
 
   onSubmit() {
-    this.questionService.sendAnswers(this.answers);
+    this.questionService.sendAnswers(this.answers).subscribe();
   }
 }
 

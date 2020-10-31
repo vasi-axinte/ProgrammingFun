@@ -7,7 +7,7 @@ namespace Server.Models
 {
     public class AnswersCheckDTO
     {
-        public string Text { get; set; }
+        public int QuestionId { get; set; }
 
         public int SelectedAnswer { get; set; }
     }

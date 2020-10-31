@@ -10,8 +10,6 @@ import { UserAnswer } from '../userAnswer';
 })
 export class QuestionService {
 
-  constructor(private http: HttpClient,
-    private formBuilder : FormBuilder) { }
   readonly rootUrl = 'http://localhost:51301/api';
 
   questionForm = this.formBuilder.group({
@@ -22,6 +20,9 @@ export class QuestionService {
     option4: ['',Validators.required],
     correctAnswer: ['',Validators.required],
   });
+
+  constructor(private http: HttpClient,
+    private formBuilder : FormBuilder) { }
 
   postQuestion(){
     var questionBody = {
@@ -57,8 +58,7 @@ export class QuestionService {
     return this.http.post(this.rootUrl + '/Quiz/DeleteQuestion', quizQuestion);
   }
 
-  sendAnswers(selectedAnswers) {
-  
-    return this.http.post<UserAnswer[]>(this.rootUrl + '/Question/Check', selectedAnswers);
+  sendAnswers(answers) { 
+    return this.http.post(this.rootUrl + '/Question/Check', answers);
   } 
 }

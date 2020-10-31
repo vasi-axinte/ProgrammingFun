@@ -15,7 +15,6 @@ export class QuestionCreatorComponent implements OnInit {
     this.service.questionForm.reset();
   }
   
-
   onSubmit(){
     this.service.postQuestion().subscribe((res:any) => { this.service.questionForm.reset();});
   }

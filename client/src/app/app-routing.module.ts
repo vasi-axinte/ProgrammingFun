@@ -11,8 +11,10 @@ import { QuizCreatorComponent } from './quiz-creator/quiz-creator.component';
 import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizzesComponent } from './quizzes/quizzes.component';
+import { QuizSentConfirmationComponent } from './quiz-sent-confirmation/quiz-sent-confirmation.component'
 import { SignUpComponent} from './sign-up/sign-up.component';
 import { WelcomepageComponent} from './welcomepage/welcomepage.component';
+import { QuizzesTakenComponent } from './quizzes-taken/quizzes-taken.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
   { path: 'insertQuestion/:quizId', component:InsertQuestionsComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'editQuiz/:quizId', component:QuizEditorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'deleteQuestion/:quizId', component:DeleteQuestionComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
+  { path: 'quizConfirmation', component: QuizSentConfirmationComponent, canActivate:[AuthGuard]},
+  { path: 'quizzesTaken', component: QuizzesTakenComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}}
 ];
 
 @NgModule({
