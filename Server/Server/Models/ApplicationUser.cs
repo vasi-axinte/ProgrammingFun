@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Models
@@ -10,5 +11,8 @@ namespace Server.Models
 
         [Column(TypeName="nvarchar(100)")]
         public string LastName { get; set; }
+
+        [ForeignKey("Id")]
+        public virtual ICollection<UserScore> UserScore { get; set; }
     }
 }

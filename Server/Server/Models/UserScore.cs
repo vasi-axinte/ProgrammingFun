@@ -1,17 +1,20 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Server.Models
 {
     public class UserScore
     {
-        [Key]
-        public int Id { get; set; }
+      
+        public string UserId { get; set; }
 
-        public int UserId { get; set; }
-
-        public string UserName { get; set; }
+        public int QuizId{ get; set; }
 
         public int Score { get; set; }
+
+        public Quiz Quiz { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

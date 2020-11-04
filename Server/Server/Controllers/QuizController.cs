@@ -140,5 +140,20 @@ namespace Server.Controllers
             _dbContext.QuizQuestions.Remove(questionToDelete);
             _dbContext.SaveChanges();
         }
+
+        [HttpGet]
+        [Route("QuizScores")]
+        public void GetQuizScores()
+        {
+
+            var user = _dbContext.ApplicationUsers.Include(u => u.UserScore)
+                 .ThenInclude(us => us.Quiz)
+             .Select(x => new UserScoreDTO
+             {
+                  FirstName = x.FirstName,
+                  LastName = x.LastName,
+             });
+
+        }
     }
 }

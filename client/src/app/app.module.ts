@@ -22,6 +22,8 @@ import { QuizEditorComponent } from './quiz-editor/quiz-editor.component';
 import { DeleteQuestionComponent } from './delete-question/delete-question.component';
 import { QuizSentConfirmationComponent } from './quiz-sent-confirmation/quiz-sent-confirmation.component';
 import { QuizzesTakenComponent } from './quizzes-taken/quizzes-taken.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { QuizzesTakenComponent } from './quizzes-taken/quizzes-taken.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [UserService, QuizService, QuestionService],
   bootstrap: [AppComponent]
