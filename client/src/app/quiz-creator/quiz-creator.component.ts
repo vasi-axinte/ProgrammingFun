@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-quiz-creator',
@@ -8,13 +10,19 @@ import { QuizService } from '../shared/quiz.service';
 })
 export class QuizCreatorComponent implements OnInit {
 
-  constructor(public service: QuizService) { }
+  constructor(public service: QuizService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.service.quizForm.reset();
   }
 
   onSubmit(){
-    this.service.postQuiz().subscribe((res:any) => {this.service.quizForm.reset();});
+    this.service.postQuiz().subscribe(
+      (res:any) => 
+      { 
+        this.service.quizForm.reset();
+        this.toastr.success('Quiz was created');
+      });
   }
 }

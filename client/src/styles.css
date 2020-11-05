@@ -83,3 +83,12 @@ div.questionDelete {
 div.center {
     text-align: center;
 }
+
+.toast-error {
+    background-color:red;
+}
+
+.toast-success {
+    background-color: #51a351;
+  }
+
