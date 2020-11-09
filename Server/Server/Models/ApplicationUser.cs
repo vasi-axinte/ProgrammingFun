@@ -12,7 +12,7 @@ namespace Server.Models
         [Column(TypeName="nvarchar(100)")]
         public string LastName { get; set; }
 
-        [ForeignKey("Id")]
+        [ForeignKey("UserId")]
         public virtual ICollection<UserScore> UserScore { get; set; }
     }
 }

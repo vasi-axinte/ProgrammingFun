@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -143,17 +144,21 @@ namespace Server.Controllers
 
         [HttpGet]
         [Route("QuizScores")]
-        public void GetQuizScores()
+        public async Task<List<UserScoreDTO>> GetQuizScores()
         {
+            var user = _dbContext.ApplicationUsers.Include(ap => ap.UserScore)
+                .ThenInclude(us => us.Quiz)
+                .Select(x => new UserScoreDTO
+                {
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    QuizDetails = x.UserScore.Select(us => us.Quiz).Select(q => new QuizDetailsDTO
+                    {
+                        QuizName = q.QuizName,
+                    }).ToList()
+                }); ;
 
-            var user = _dbContext.ApplicationUsers.Include(u => u.UserScore)
-                 .ThenInclude(us => us.Quiz)
-             .Select(x => new UserScoreDTO
-             {
-                  FirstName = x.FirstName,
-                  LastName = x.LastName,
-             });
-
+            return await user.ToListAsync();
         }
     }
 }

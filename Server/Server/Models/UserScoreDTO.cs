@@ -11,8 +11,6 @@ namespace Server.Models
 
         public string FirstName { get; set; }
 
-        public string QuizName { get; set; }
-
-        public int Score { get; set; }
+        public List<QuizDetailsDTO> QuizDetails { get; set; }
     }
 }

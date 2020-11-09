@@ -15,7 +15,11 @@ namespace Server.Models
         {
             modelBuilder.Entity<QuizQuestion>()
                 .HasKey(q => new { q.QuizId, q.QuestionId });
-             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<UserScore>()
+                .HasKey(q => new { q.UserId, q.QuizId });
+
+            base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
