@@ -152,12 +152,12 @@ namespace Server.Controllers
                 {
                     FirstName = x.FirstName,
                     LastName = x.LastName,
-                    QuizDetails = x.UserScore.Select(us => us.Quiz).Select(q => new QuizDetailsDTO
+                    QuizDetails = x.UserScore.Select(q => new QuizDetailsDTO
                     {
-                        QuizName = q.QuizName,
+                        Score = q.Score,
+                        QuizName = q.Quiz.QuizName,
                     }).ToList()
                 }); ;
-
             return await user.ToListAsync();
         }
     }
