@@ -43,16 +43,16 @@ namespace Server.Controllers
 
             try
             {
-                var result =await _userManager.CreateAsync(applicationUser, user.Password);
+                var result = await _userManager.CreateAsync(applicationUser, user.Password);
                 await _userManager.AddToRoleAsync(applicationUser, user.Role);
                 return Ok(result);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
-        
+
         [HttpPost]
         [Route("Login")]
         //POST : /api/User/Login
@@ -65,11 +65,11 @@ namespace Server.Controllers
                 var role = await _userManager.GetRolesAsync(user);
                 IdentityOptions _options = new IdentityOptions();
 
-                   var tokenDescriptor = new SecurityTokenDescriptor
+                var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                        new Claim("UserID", user.Id.ToString()), 
+                        new Claim("UserID", user.Id.ToString()),
                         new Claim(_options.ClaimsIdentity.RoleClaimType, role.FirstOrDefault())
                     }),
                     Expires = DateTime.UtcNow.AddMinutes(60),

@@ -1,15 +1,25 @@
+<app-navbar></app-navbar>
 <div>
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10 col-lg-10">
                 <div class="border">
-                    <div class="bg-white p-3 border-bottom">
-                        <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                            <h4>Last quizzes</h4>
-                            <button class="btn btn-dark" (click)="goPervious()">Go Back</button>
-                        </div>
+                    <div class="question bg-white p-3 border-bottom">
                     </div>
-                    <div class="bg-white p-3 border-bottom">
+                    <div class="question bg-white p-3 border-bottom">
+                        <div  *ngFor="let quizTaken of quizzesTaken">
+                            <div *ngFor="let quizDetails of quizTaken?.quizDetails">
+                                <form name="quizTakenDetails">
+                                    <span class="ans ml-2">{{quizTaken.firstName}}</span>
+                                    <span class="ans ml-2">{{quizTaken.lastName}}</span>
+                                    <span class="ans ml-2">{{quizDetails.quizName}}</span>
+                                    <span class="ans ml-2">{{quizDetails.score}}</span>
+                                </form>
+                            </div>
+                        </div>
+                    <div class="center">
+                    <button type="simple" class="btn btn-light" routerLink="/admin">Go Back</button> 
+                    </div>
                     </div>
                 </div>
             </div>

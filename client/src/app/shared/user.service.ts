@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
  
 @Injectable({
@@ -58,5 +58,9 @@ export class UserService {
       return true;
     }
     return false;
+  }
+
+  getUserProfile(formData) {
+    return this.http.get(this.rootUrl + '/UserProfile' , formData.UserName );
   }
 }

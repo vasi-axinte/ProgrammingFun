@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   },
     err=> { 
       this.toastr.error('Incorrect user or email!');
+      this.service.getUserProfile(this.formModel.UserName).subscribe();
     }
   );
   }

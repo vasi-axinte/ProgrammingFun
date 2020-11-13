@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { QuestionService } from '../shared/question.service';
 import { UserAnswer } from '../userAnswer';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-quiz',
@@ -19,6 +20,7 @@ export class QuizComponent implements OnInit {
 
   constructor(private questionService: QuestionService,
     private quizService: QuizService,
+    private userService: UserService,
     private route: ActivatedRoute) { }
     
   ngOnInit(): void {
@@ -47,7 +49,7 @@ export class QuizComponent implements OnInit {
   }
 
   onSubmit() {
-    this.questionService.sendAnswers(this.answers).subscribe();
+    this.questionService.sendAnswers(this.answers).subscribe((data : any) => {});
   }
 }
 

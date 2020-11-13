@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Quiz } from '../quiz';
 import { Observable } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
+import { QuizTaken } from '../quizTaken';
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class QuizService {
 
   getQuizzes(): Observable<Quiz> {
     return this.http.get<Quiz>(this.rootUrl + '/Quiz');
+  }
+
+  QuizzesTaken(): Observable<QuizTaken>{
+    return this.http.get<QuizTaken>(this.rootUrl + '/Quiz/QuizScores');
   }
 }

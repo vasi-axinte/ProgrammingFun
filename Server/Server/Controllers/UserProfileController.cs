@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Server.Models;
 
 namespace Server.Controllers
@@ -15,27 +16,44 @@ namespace Server.Controllers
     public class UserProfileController : ControllerBase
     {
         public UserManager<ApplicationUser> _userManager;
+        private ApplicationDbContext _dbContext;
 
-        public UserProfileController(UserManager<ApplicationUser> userManager)
+        public UserProfileController(UserManager<ApplicationUser> userManager, ApplicationDbContext dbContext)
         {
             _userManager = userManager;
+            _dbContext = dbContext;
         }
-    
-    
-       [HttpGet]
-       [Authorize(Roles = "Admin")]
-       [Route("AdminRole")]
-       public string GetForAdmin()
-       {
-            return "Web method for Admin";
-       }
 
-       [HttpGet]
-       [Authorize(Roles = "User")]
-       [Route("UserRole")]
-       public string GetForUser()
-       {
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("AdminRole")]
+        public string GetForAdmin()
+        {
+            return "Web method for Admin";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "User")]
+        [Route("UserRole")]
+        public string GetForUser()
+        {
             return "Web method for User";
-       }
+        }
+
+        //[HttpGet]
+        //public List<UserProfileDTO> GetUserProfile(string userName)
+        //{
+        //    if (_dbContext.ApplicationUsers.Any(au => au.UserName == userName))
+        //    {
+        //        var result = _dbContext.ApplicationUsers.Select(au => new UserProfileDTO
+        //        {
+        //            FirstName = au.FirstName,
+        //            LastName = au.LastName,
+        //        }).ToList();
+
+        //        return result;
+        //    }
+        //}
     }
 }
