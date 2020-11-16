@@ -1,7 +1,9 @@
-import { QuizDetails } from './quizDetails';
+import { Quiz } from './quiz';
+import { UserAnswer } from './userAnswer';
+import { UserDetails } from './userDetails';
 
 export interface QuizTaken {
-    fristName: string,
-    lastName: string,
-    quizDetails: QuizDetails[]
+    userDetails: UserDetails[],
+    quizName: string,
+    answers: UserAnswer[],
 }

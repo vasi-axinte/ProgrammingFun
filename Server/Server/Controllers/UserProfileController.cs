@@ -41,19 +41,17 @@ namespace Server.Controllers
             return "Web method for User";
         }
 
-        //[HttpGet]
-        //public List<UserProfileDTO> GetUserProfile(string userName)
-        //{
-        //    if (_dbContext.ApplicationUsers.Any(au => au.UserName == userName))
-        //    {
-        //        var result = _dbContext.ApplicationUsers.Select(au => new UserProfileDTO
-        //        {
-        //            FirstName = au.FirstName,
-        //            LastName = au.LastName,
-        //        }).ToList();
+        [HttpGet("{userId}")]
+        public List<UserProfileDTO> GetUserProfile([FromRoute] string userId)
+        {
+            var result = _dbContext.ApplicationUsers.Where(ap => ap.Id == userId)
+           .Select(ap => new UserProfileDTO
+           {
+               FirstName = ap.FirstName,
+               LastName = ap.LastName,
+           }).ToList();
 
-        //        return result;
-        //    }
-        //}
+            return result;
+        }
     }
 }
