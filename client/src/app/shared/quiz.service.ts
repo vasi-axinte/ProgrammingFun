@@ -4,6 +4,7 @@ import { Quiz } from '../quiz';
 import { Observable } from 'rxjs';
 import { FormBuilder, Validators } from '@angular/forms';
 import { QuizTaken } from '../quizTaken';
+import { UserQuiz } from '../userQuiz';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,11 @@ export class QuizService {
     return this.http.get<Quiz>(this.rootUrl + '/Quiz');
   }
 
-  QuizzesTaken(): Observable<QuizTaken>{
-    return this.http.get<QuizTaken>(this.rootUrl + '/Quiz/QuizScores');
+  QuizzesTaken(): Observable<UserQuiz>{
+    return this.http.get<UserQuiz>(this.rootUrl + '/Quiz/QuizScores');
+  }
+
+  sendQuiz(quizTaken){
+    return this.http.post<QuizTaken>(this.rootUrl + '/Quiz/QuizTaken', quizTaken);
   }
 }

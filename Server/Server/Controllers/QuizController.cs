@@ -160,5 +160,22 @@ namespace Server.Controllers
                 }); ;
             return await user.ToListAsync();
         }
+
+        [HttpPost]
+        [Route("QuizTaken")]
+        public void InsertTakenQuiz(TakenQuizDTO[] QuiztakenSent)
+        {
+            foreach (var quizTaken in QuiztakenSent)
+            {
+                var quizTakenByUser = new UserScore
+                {
+                    QuizId = quizTaken.QuizId,
+                    UserId = quizTaken.UserId,
+                    Score = quizTaken.Score,
+                };
+                _dbContext.UserScores.Add(quizTakenByUser);
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

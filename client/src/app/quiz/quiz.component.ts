@@ -21,7 +21,8 @@ export class QuizComponent implements OnInit {
   answers: UserAnswer[] = [];
   userId : string;
   user : UserDetails;
-  quizTaken: QuizTaken;
+  quizTaken: QuizTaken[] = [];
+  score : number;
 
   constructor(private questionService: QuestionService,
     private quizService: QuizService,
@@ -52,9 +53,18 @@ export class QuizComponent implements OnInit {
 
   combineDetails()
   {
-    this.quizTaken.answers = this.answers;
-    this.quizTaken.userDetails.push(this.user);
-    this.quizTaken.quizName = this.quiz.quizName;
+    let fullQuiz = {
+      userId: this.userId,
+      quizId: this.quiz.quizId,
+      score: this.score,
+    }
+    this.quizTaken.push(fullQuiz);
+    this.sendQuiz(this.quizTaken);
+  }
+
+  sendQuiz(quizTaken)
+  {
+    this.quizService.sendQuiz(this.quizTaken).subscribe();
   }
 
   onRadioChange(event, questionId) {
@@ -72,7 +82,10 @@ export class QuizComponent implements OnInit {
   }
 
   onSubmit() {
-    this.questionService.sendAnswers(this.answers).subscribe((data : any) => {});
+    this.questionService.sendAnswers(this.answers).subscribe((data : any) => {
+     this.score = data;
+     this.combineDetails();
+    });
   }
 }
 
