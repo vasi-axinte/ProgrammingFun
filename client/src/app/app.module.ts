@@ -24,6 +24,7 @@ import { QuizSentConfirmationComponent } from './quiz-sent-confirmation/quiz-sen
 import { QuizzesTakenComponent } from './quizzes-taken/quizzes-taken.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { InspectQuizComponent } from './inspect-quiz/inspect-quiz.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     DeleteQuestionComponent,
     QuizSentConfirmationComponent,
     QuizzesTakenComponent,
+    InspectQuizComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,8 @@ namespace Server.Models
     {
         public string QuizName { get; set; }
 
+        public int QuizId { get; set; }
+
         public int Score { get; set; }
     }
 }

@@ -156,6 +156,7 @@ namespace Server.Controllers
                     {
                         Score = q.Score,
                         QuizName = q.Quiz.QuizName,
+                        QuizId = q.Quiz.QuizId,
                     }).ToList()
                 }); ;
             return await user.ToListAsync();
@@ -163,15 +164,15 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("QuizTaken")]
-        public void InsertTakenQuiz(TakenQuizDTO[] QuiztakenSent)
+        public void InsertTakenQuiz(TakenQuizDTO[] quizTakenSent)
         {
-            foreach (var quizTaken in QuiztakenSent)
+            foreach (var detail in quizTakenSent)
             {
                 var quizTakenByUser = new UserScore
                 {
-                    QuizId = quizTaken.QuizId,
-                    UserId = quizTaken.UserId,
-                    Score = quizTaken.Score,
+                    QuizId = detail.QuizId,
+                    UserId = detail.UserId,
+                    Score = detail.Score,
                 };
                 _dbContext.UserScores.Add(quizTakenByUser);
                 _dbContext.SaveChanges();

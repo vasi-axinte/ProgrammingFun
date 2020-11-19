@@ -24,4 +24,5 @@ export class QuizzesTakenComponent implements OnInit {
       this.quizzesTaken = quizzes;
     });
   }
+
 }
