@@ -1,35 +1,31 @@
-<div class="registerForm">
-  <h2>User Registration</h2>
-  <form [formGroup]="service.formModel" class="form-horizontal" autocomplete="off" (submit)="onSubmit()">
-    <div class="form-group required">
-      <label class="col-sm-1 ">Username</label>
-      <input class="from-control" formControlName="UserName">
-    </div>
+<div class="wrapper fadeInDown">
+  <div class="registerForm">
+    <h2 class="fadeIn first">User Registration</h2>
+    <form [formGroup]="service.formModel" class="form-horizontal" autocomplete="off" (submit)="onSubmit()">
+      <div class="form-group">
+        <input class="fadeIn second" formControlName="UserName" placeholder="Username">
+      </div>
+  
+      <div class="form-group">
+        <input class="fadeIn second" formControlName="FirstName" placeholder="Firstname">
+      </div>
+  
+      <div class="form-group">
+        <input class="fadeIn second" formControlName="LastName" placeholder="Lastname">
+      </div>
+  
+      <div class="form-group">
+        <input class="fadeIn second" formControlName="Email" placeholder="Email">
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email!</label>
+      </div>
+  
+      <div class="form-group">
+        <input class="fadeIn second" type="password" formControlName="Password" placeholder="Password">
+      </div>
+      <p class="fadeIn third">(*) - required </p>
 
-    <div class="form-group required">
-      <label class="col-sm-1 ">FirstName</label>
-      <input class="from-control" formControlName="FirstName">
-    </div>
-
-    <div class="form-group required">
-      <label class="col-sm-1">LastName</label>
-      <input class="from-control" formControlName="LastName">
-    </div>
-
-    <div class="form-group required">
-      <label class="col-sm-1 ">Email</label>
-      <input class="from-control" formControlName="Email">
-      <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid email!</label>
-    </div>
-
-    <div class="form-group required">
-      <label class="col-sm-1">Password</label>
-      <input type="password" class="from-control" formControlName="Password">
-    </div>
-    <p>(*) - required </p>
-    <div>
-      <button type="submit" class="btn btn-lg btn-block" [disabled]="service.formModel.invalid">Register</button>
-      <button type= "simple" class="btn btn-lg btn-block" routerLink="/login">To Login</button> 
-    </div>
- </form>
+      <button class="btn btn-lg" [disabled]="service.formModel.invalid">Register</button>
+      <button class="btn btn-lg" routerLink="/login">Login</button> 
+   </form>
+  </div>
 </div>

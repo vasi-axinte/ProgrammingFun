@@ -1,18 +1,25 @@
-button[type=edit-quiz].btn {
-    width: 150px;
-    height: 10px;
-    line-height: 10px;
-    min-height: 30px;
-    font-size: 15px;
-    padding: 150;
-    margin: 100;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
 .badge-pill {
    height: 30px;
    font-size: 15px;
    margin-left: 5px;
    margin-top: 5px;
+   display: inline-block;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+
+.btn {
+    color: white;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
 }

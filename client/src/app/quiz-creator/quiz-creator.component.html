@@ -1,11 +1,12 @@
-<div class="quizCreator">
+<div class="wrapper fadeInDown">
     <h2>Create new quiz</h2>
-    <form [formGroup]="service.quizForm" autocomplete="off" (submit)="onSubmit()">
-        <div class="form-group quiz">
-            <label class="col-sm-1 ">Quiz Name</label>
-            <input class="from-control" formControlName="quizName">
-        </div>
-        <button type="submit" class="btn btn-lg btn-block" [disabled]="service.quizForm.invalid">Submit</button>
-        <button type= "simple" class="btn btn-lg btn-block" routerLink="/admin">Go Back</button> 
-    </form>
+    <div class="quizCreator">
+        <form [formGroup]="service.quizForm" autocomplete="off" (submit)="onSubmit()">
+            <div class="form-group quiz">
+                <input class="from-control" formControlName="quizName" placeholder="Quiz Name">
+            </div>
+            <button class="btn btn-lg" [disabled]="service.quizForm.invalid">Add</button>
+            <button class="btn btn-lg" routerLink="/admin">Back</button> 
+        </form>
+    </div>
 </div>

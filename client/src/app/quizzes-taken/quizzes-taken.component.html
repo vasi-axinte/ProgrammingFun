@@ -1,28 +1,24 @@
 <app-navbar></app-navbar>
-<div>
+<div class="wrapper fadeInDown">
     <div class="container mt-5">
         <div class="d-flex justify-content-center row">
             <div class="col-md-10 col-lg-10">
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
-                    </div>
-                    <div class="question bg-white p-3 border-bottom">
                         <div  *ngFor="let quizTaken of quizzesTaken">
                             <div *ngFor="let quizDetails of quizTaken?.quizDetails">
                                 <form name="quizTakenDetails">
                                     <span class="ans ml-2">{{quizTaken.firstName}}</span>
-                                    <span class="ans ml-2">{{quizTaken.lastName}}</span>
+                                     <span class="ans ml-2">{{quizTaken.lastName}}</span>
                                     <span routerLink="/inspectQuiz/{{quizDetails?.quizId}}" class="ans ml-2">{{quizDetails.quizName}}</span>
                                     <span class="ans ml-2">{{quizDetails.score}}</span>
                                 </form>
+                                </div>
                             </div>
-                        </div>
-                    <div class="center">
-                    <button type="simple" class="btn btn-light" routerLink="/admin">Go Back</button> 
-                    </div>
+                        <button class="btn btn-lg" routerLink="/admin">Back</button> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> 

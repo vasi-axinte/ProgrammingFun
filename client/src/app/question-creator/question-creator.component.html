@@ -1,37 +1,33 @@
-<div class="questionCreator">
-    <h2>Create new question</h2>
+<div class="wrapper fadeInDown">
+  <div class="questionCreator">
+    <h2 class="fadeIn first">Create question</h2>
     <form [formGroup]="service.questionForm" autocomplete="off" (submit)="onSubmit()">
-        
-        <div class="form-group question">
-            <label class="col-sm-1 ">Question Text</label>
-            <input class="from-control" formControlName="text">
+          <div class="form-group question">
+            <input class="fadeIn second" formControlName="text" placeholder="Question Text">
+          </div>
+  
+          <div class="form-group question">
+            <input class="fadeIn second" formControlName="option1" placeholder="Answer Option">
           </div>
       
           <div class="form-group question">
-            <label class="col-sm-1 ">Answer Option 1</label>
-            <input class="from-control" formControlName="option1">
+            <input class="fadeIn second" formControlName="option2" placeholder="Answer Option">
           </div>
       
           <div class="form-group question">
-            <label class="col-sm-1">Answer Option 2</label>
-            <input class="from-control" formControlName="option2">
-          </div>
-      
-          <div class="form-group question">
-            <label class="col-sm-1 ">Answer Option 3</label>
-            <input class="from-control" formControlName="option3">
+            <input class="fadeIn second" formControlName="option3" placeholder="Answer Option">
           </div>
 
           <div class="form-group question">
-            <label class="col-sm-1 ">Answer Option 4</label>
-            <input class="from-control" formControlName="option4">
+            <input class="fadeIn second" formControlName="option4" placeholder="Answer Option">
           </div>
       
           <div class="form-group question">
-            <label class="col-sm-1 ">Correct answer</label>
-            <input class="from-control" type="number" formControlName="correctAnswer">
+            <input class="fadeIn second" type="number" formControlName="correctAnswer" placeholder="Correct answer">
           </div>
-          <button type="submit" class="btn btn-lg btn-block" [disabled]="service.questionForm.invalid">Submit</button>
-          <button type= "simple" class="btn btn-lg btn-block" routerLink="/admin">Go Back</button> 
+
+          <button type="submit" class="btn btn-lg" [disabled]="service.questionForm.invalid">Add</button>
+          <button type= "simple" class="btn btn-lg" routerLink="/admin">Back</button> 
     </form>
+  </div>
 </div>
