@@ -5,16 +5,16 @@
             <div class="col-md-10 col-lg-10">
                 <div class="border">
                     <div class="question bg-white p-3 border-bottom">
-                        <div  *ngFor="let quizTaken of quizzesTaken">
-                            <div *ngFor="let quizDetails of quizTaken?.quizDetails">
-                                <form name="quizTakenDetails">
-                                    <span class="ans ml-2">{{quizTaken.firstName}}</span>
-                                     <span class="ans ml-2">{{quizTaken.lastName}}</span>
-                                    <span routerLink="/inspectQuiz/{{quizDetails?.quizId}}" class="ans ml-2">{{quizDetails.quizName}}</span>
-                                    <span class="ans ml-2">{{quizDetails.score}}</span>
-                                </form>
+                        <table class="mat-elevation-z8">
+                            <div *ngFor="let quizTaken of quizzesTaken">
+                                <div *ngFor="let quizDetails of quizTaken?.quizDetails">
+                                    <td><span class="badge badge-pill">{{quizTaken.firstName}}</span></td>
+                                    <td><span class="badge badge-pill">{{quizTaken.lastName}}</span></td>
+                                    <td><span routerLink="/inspectQuiz/{{quizDetails?.quizId}}" class="badge badge-pill-clickable">{{quizDetails.quizName}}</span></td>
+                                    <td><span class="badge badge-pill">{{quizDetails.score}}</span></td>
                                 </div>
                             </div>
+                        </table>
                         <button class="btn btn-lg" routerLink="/admin">Back</button> 
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
-    <div *ngIf="userRole == true">
-        <a class="nav-link" routerLink="/admin">Admin Panel</a>
-    </div>
+    <ul>
+    <a *ngIf="userRole == true" class="nav-link" routerLink="/admin">Admin Panel</a>
     <a class="nav-link" routerLink="/home">Home</a>
+    </ul>
     <button class="btn btn-lg" (click)="onLogout()">Logout</button>    
 </nav>  

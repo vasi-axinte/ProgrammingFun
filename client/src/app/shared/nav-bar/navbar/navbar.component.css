@@ -6,6 +6,12 @@
     color: white;
 }
 
-.nav {
-    color: black;
+a {
+    display: inline;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }

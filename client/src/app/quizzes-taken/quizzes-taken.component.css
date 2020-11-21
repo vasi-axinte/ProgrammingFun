@@ -96,3 +96,27 @@ input[type=text]:placeholder {
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
+
+.badge-pill {
+  height: 30px;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.badge-pill-clickable {
+  height: 30px;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 5px;
+  display: inline-block;
+}
+
+.badge-pill-clickable:hover {
+  background-color: green;
+}
+
+table {
+  width: 100%;
+}
