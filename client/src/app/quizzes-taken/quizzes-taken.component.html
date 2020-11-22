@@ -1,24 +1,33 @@
 <app-navbar></app-navbar>
 <div class="wrapper fadeInDown">
-    <div class="container mt-5">
-        <div class="d-flex justify-content-center row">
-            <div class="col-md-10 col-lg-10">
-                <div class="border">
-                    <div class="question bg-white p-3 border-bottom">
-                        <table class="mat-elevation-z8">
-                            <div *ngFor="let quizTaken of quizzesTaken">
-                                <div *ngFor="let quizDetails of quizTaken?.quizDetails">
-                                    <td><span class="badge badge-pill">{{quizTaken.firstName}}</span></td>
-                                    <td><span class="badge badge-pill">{{quizTaken.lastName}}</span></td>
-                                    <td><span routerLink="/inspectQuiz/{{quizDetails?.quizId}}" class="badge badge-pill-clickable">{{quizDetails.quizName}}</span></td>
-                                    <td><span class="badge badge-pill">{{quizDetails.score}}</span></td>
-                                </div>
-                            </div>
-                        </table>
-                        <button class="btn btn-lg" routerLink="/admin">Back</button> 
-                    </div>
+  <div class="container mt-5">
+    <div class="d-flex justify-content-center row">
+      <div>
+        <div class="border">
+          <div class="bg-white p-3 border-bottom">
+            <table class="table">
+              <thead>
+                <div>
+                  <th *ngFor="let columnName of columnNames" scope="col">{{columnName}}</th>
                 </div>
-            </div>
+              </thead>
+              <tbody>
+                <div *ngFor="let quizTaken of quizzesTaken"> 
+                  <ng-template ngFor let-quizDetails [ngForOf]="quizTaken?.quizDetails">
+                    <tr>
+                    <td>{{quizTaken.firstName}}</td>
+                    <td>{{quizTaken.lastName}}</td>
+                    <td><span routerLink="/inspectQuiz/{{quizDetails?.quizId}}" class="badge badge-pill-clickable">{{quizDetails.quizName}}</span></td>
+                    <td>{{quizDetails.score}}</td> 
+                    <tr>
+                  </ng-template>
+                </div>
+              </tbody>
+            </table>
+            <button class="btn btn-lg" routerLink="/admin">Back</button> 
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div> 

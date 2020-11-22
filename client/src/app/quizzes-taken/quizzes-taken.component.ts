@@ -10,7 +10,9 @@ import { UserQuiz } from '../userQuiz';
 })
 export class QuizzesTakenComponent implements OnInit {
 
+  columnNames = ['Firstname', 'Lastname', 'Quizname', 'Score'];
   quizzesTaken: UserQuiz[];
+
   constructor(private quizService : QuizService) { }
 
   ngOnInit(): void {

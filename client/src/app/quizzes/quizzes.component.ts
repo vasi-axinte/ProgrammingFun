@@ -23,5 +23,10 @@ export class QuizzesComponent implements OnInit {
   this.quizService.getQuizzes().subscribe((quiz) => {
   this.quizzes = quiz;
   });
-}
+  }
+  
+  openQuiz(quizId)
+  {
+     window.open("/editQuiz/");
+  }
 }

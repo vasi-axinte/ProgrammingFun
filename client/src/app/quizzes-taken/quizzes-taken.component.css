@@ -120,3 +120,15 @@ input[type=text]:placeholder {
 table {
   width: 100%;
 }
+
+td {
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+}
+
+th {
+  width: 150px;
+  text-align: center;
+  padding: 5px;
+}
