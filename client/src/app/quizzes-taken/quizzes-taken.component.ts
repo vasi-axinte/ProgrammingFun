@@ -26,4 +26,9 @@ export class QuizzesTakenComponent implements OnInit {
       this.quizzesTaken = quizzes;
     });
   }
+
+  openQuiz(quizId)
+  {
+    window.open("/inspectQuiz/{{quizDetails?.quizId}}")
+  }
 }

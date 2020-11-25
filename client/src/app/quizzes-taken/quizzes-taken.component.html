@@ -17,7 +17,7 @@
                     <tr>
                     <td>{{quizTaken.firstName}}</td>
                     <td>{{quizTaken.lastName}}</td>
-                    <td><span routerLink="/inspectQuiz/{{quizDetails?.quizId}}" class="badge badge-pill-clickable">{{quizDetails.quizName}}</span></td>
+                    <td><span (click) ="openQuiz(quizDetails?.quizId)" class="badge badge-pill-clickable">{{quizDetails.quizName}}</span></td>
                     <td>{{quizDetails.score}}</td> 
                     <tr>
                   </ng-template>

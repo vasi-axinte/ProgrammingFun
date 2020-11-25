@@ -4,6 +4,8 @@ import { Question } from '../question';
 import { Quiz } from '../quiz';
 import { QuizService } from '../shared/quiz.service';
 
+
+
 @Component({
   selector: 'app-quiz-editor',
   templateUrl: './quiz-editor.component.html',
@@ -30,5 +32,4 @@ export class QuizEditorComponent implements OnInit {
     })
   }
 
-  
 }

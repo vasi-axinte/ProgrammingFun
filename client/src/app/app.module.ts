@@ -25,7 +25,8 @@ import { QuizzesTakenComponent } from './quizzes-taken/quizzes-taken.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { InspectQuizComponent } from './inspect-quiz/inspect-quiz.component';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -54,9 +55,12 @@ import { InspectQuizComponent } from './inspect-quiz/inspect-quiz.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [UserService, QuizService, QuestionService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [QuizEditorComponent]
 })
 export class AppModule { }
