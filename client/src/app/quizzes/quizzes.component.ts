@@ -4,7 +4,8 @@ import { Quiz } from '../quiz';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { QuizEditorComponent } from '../quiz-editor/quiz-editor.component';
-import { VariableAst } from '@angular/compiler';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-quizzes',
   templateUrl: './quizzes.component.html',
@@ -16,24 +17,20 @@ export class QuizzesComponent implements OnInit {
   currentDialog = null;
 
   constructor(private quizService: QuizService,
-    private route: ActivatedRoute,
-    public matDialog: MatDialog) {}
+    public matDialog: MatDialog,
+    public modalService: NgbModal) {}
 
   ngOnInit(): void {
    this.getQuizzes()
   }
      
   getQuizzes(){
-  this.quizService.getQuizzes().subscribe((quiz) => {
-  this.quizzes = quiz;
+    this.quizService.getQuizzes().subscribe((quiz) => {
+    this.quizzes=quiz;
   });
   }
-
   openDialog(quizId){
-    var dialogConfig = new MatDialogConfig();
-    dialogConfig.height = "350px";
-    dialogConfig.width = "600px";
-    dialogConfig.data = quizId
-    this.currentDialog = this.matDialog.open(QuizEditorComponent, dialogConfig);
+    this.currentDialog = this.modalService.open(QuizEditorComponent);
+    this.currentDialog.componentInstance.quizId = quizId;
   }
 }

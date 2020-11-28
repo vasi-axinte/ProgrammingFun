@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'questionCreator', component:QuestionCreatorComponent, canActivate:[AuthGuard], data:{permittedRoles:['Admin']}},
   { path: 'quizCreator', component:QuizCreatorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'insertQuestion/:quizId', component:InsertQuestionsComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
-  { path: 'editQuiz/:quizId', component:QuizEditorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
+  { path: 'editQuiz', component:QuizEditorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'deleteQuestion/:quizId', component:DeleteQuestionComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'quizConfirmation', component: QuizSentConfirmationComponent, canActivate:[AuthGuard]},
   { path: 'quizzesTaken', component: QuizzesTakenComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},

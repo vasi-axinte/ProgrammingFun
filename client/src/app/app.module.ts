@@ -27,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { InspectQuizComponent } from './inspect-quiz/inspect-quiz.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    NgbModule
   ],
   providers: [UserService, QuizService, QuestionService],
   bootstrap: [AppComponent],
