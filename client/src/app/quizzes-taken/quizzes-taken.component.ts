@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { InspectQuizComponent } from '../inspect-quiz/inspect-quiz.component';
 import { QuizTaken } from '../quizTaken';
 import { QuizService } from '../shared/quiz.service';
 import { UserQuiz } from '../userQuiz';
@@ -12,8 +15,11 @@ export class QuizzesTakenComponent implements OnInit {
 
   columnNames = ['Firstname', 'Lastname', 'Quizname', 'Score'];
   quizzesTaken: UserQuiz[];
+  currentDialog = null;
 
-  constructor(private quizService : QuizService) { }
+  constructor(private quizService : QuizService,
+    public matDialog: MatDialog,
+    public modalService: NgbModal) { }
 
   ngOnInit(): void {
      this.getQuizzesTaken();
@@ -27,8 +33,9 @@ export class QuizzesTakenComponent implements OnInit {
     });
   }
 
-  openQuiz(quizId)
+  openDialog(quizId)
   {
-    window.open("/inspectQuiz/{{quizDetails?.quizId}}")
+    this.currentDialog = this.modalService.open(InspectQuizComponent);
+    this.currentDialog.componentInstance.quizId = quizId;
   }
 }

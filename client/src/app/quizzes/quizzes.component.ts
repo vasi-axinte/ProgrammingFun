@@ -30,7 +30,7 @@ export class QuizzesComponent implements OnInit {
   });
   }
   openDialog(quizId){
-    this.currentDialog = this.modalService.open(QuizEditorComponent);
+    this.currentDialog = this.modalService.open(QuizEditorComponent, { windowClass : "quizModal"});
     this.currentDialog.componentInstance.quizId = quizId;
   }
 }

@@ -33,5 +33,4 @@ export class QuizEditorComponent implements OnInit {
     this.quiz = quiz;
     })
   }
-
 }
