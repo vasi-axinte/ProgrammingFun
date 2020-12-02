@@ -5,27 +5,27 @@
                 <div class="border">
                     <div class="bg-white p-3 border-bottom">
                         <div *ngFor="let question of quiz?.questions">
-                            <form>
-                                <div class="d-flex flex-row align-items-center question-text">
-                                    <h5 class="mt-1 ml-2">{{question.text}}</h5>
+                            <form class="question">
+                                <div>
+                                    <span class="questionText">{{question.text}}</span>
                                 </div>
-                                <div class="ans ml-2">
+                                <div>
                                  <span>{{question.option1}}</span>
                                 </div>
-                                <div class="ans ml-2">
+                                <div>
                                     <span>{{question.option2}}</span>
                                 </div>
-                                <div class="ans ml-2">
+                                <div>
                                   <span>{{question.option3}}</span>
                                 </div>
-                                <div class="ans ml-2">
+                                <div>
                                    <span>{{question.option4}}</span>
                                 </div>
                             </form>
+                        <button class="btn btn-dark" (click)="deleteQuestionInQuiz(question.questionId)">Delete from quiz</button>
                        </div>
                     </div>
-                    <button routerLink="/insertQuestion/{{quiz?.quizId}}" class="btn btn-default insert">Add question</button>
-                    <button routerLink="/deleteQuestion/{{quiz?.quizId}}" class="btn btn-default delete">Delete question</button>
+                    <button routerLink="/insertQuestion/{{quiz?.quizId}}" class="btn btn-dark">Add question</button>
                 </div>
             </div>
         </div>

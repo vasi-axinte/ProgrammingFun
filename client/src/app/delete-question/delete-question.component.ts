@@ -20,23 +20,5 @@ export class DeleteQuestionComponent implements OnInit {
     private toastr: ToastrService) { }
  
   ngOnInit(): void {
-    this.service.getQuestions().subscribe((question) => 
-    {this.questions= question;})
   }
-
-  deleteQuestionInQuiz(questionId)
-  {
-    this.quizId = +this.route.snapshot.paramMap.get('quizId');
-    this.service.deleteQuestionFromQuiz(questionId, this.quizId).subscribe(
-      (res: any) => {
-          this.toastr.success('Question deleted!');
-      }
-      );
-  }
-
-  goPervious()
-  {
-    window.history.back();
-  }
-
 }
