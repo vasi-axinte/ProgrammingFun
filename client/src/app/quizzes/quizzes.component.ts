@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { Quiz } from '../quiz';
-import { ActivatedRoute } from '@angular/router';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { QuizEditorComponent } from '../quiz-editor/quiz-editor.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -17,7 +15,6 @@ export class QuizzesComponent implements OnInit {
   currentDialog = null;
 
   constructor(private quizService: QuizService,
-    public matDialog: MatDialog,
     public modalService: NgbModal) {}
 
   ngOnInit(): void {
@@ -30,7 +27,7 @@ export class QuizzesComponent implements OnInit {
   });
   }
   openDialog(quizId){
-    this.currentDialog = this.modalService.open(QuizEditorComponent, { windowClass : "quizModal"});
+    this.currentDialog = this.modalService.open(QuizEditorComponent);
     this.currentDialog.componentInstance.quizId = quizId;
   }
 }

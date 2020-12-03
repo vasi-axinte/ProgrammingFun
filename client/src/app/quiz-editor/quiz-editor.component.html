@@ -4,6 +4,7 @@
             <div class="col-md-10 col-lg-10">
                 <div class="border">
                     <div class="bg-white p-3 border-bottom">
+                        <div *ngIf="!quiz?.questions">This quiz is empty</div>
                         <div *ngFor="let question of quiz?.questions">
                             <form class="question">
                                 <div>
@@ -22,10 +23,10 @@
                                    <span>{{question.option4}}</span>
                                 </div>
                             </form>
-                        <button class="btn btn-dark" (click)="deleteQuestionInQuiz(question.questionId)">Delete from quiz</button>
+                        <button class="btn btn-dark" (click)="deleteQuestionInQuiz(question.questionId)">Delete</button>
                        </div>
                     </div>
-                    <button routerLink="/insertQuestion/{{quiz?.quizId}}" class="btn btn-dark">Add question</button>
+                    <button (click)="openAddQuestionDialog(quiz?.quizId)" class="btn btn-dark">Add question</button>
                 </div>
             </div>
         </div>

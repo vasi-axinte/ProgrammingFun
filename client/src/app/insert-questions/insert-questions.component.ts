@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { QuestionService} from '../shared/question.service';
 import { Question } from '../question';
-import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { QuizService } from '../shared/quiz.service';
+import { Quiz } from '../quiz';
 
 
 @Component({
@@ -12,36 +13,51 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InsertQuestionsComponent implements OnInit {
 
-  questions: Question;
-  quizId: number
+  questions: Question[] =[];
+  quiz: Quiz;
+  quizQuestions: Question;
+  questionExistsInQuiz: boolean;
+  
  
-  constructor(private service: QuestionService,
-    private route: ActivatedRoute,
-    private toastr: ToastrService) { }
+  @Input() quizId: number
+  constructor(private questionService: QuestionService,
+    private toastr: ToastrService,
+    private quizService: QuizService) { }
 
   ngOnInit(): void {
-    this.getQuestions();
+    this.getCurrentQuizAndQuestions();
+    
   }
 
-  getQuestions()
+  getCurrentQuizAndQuestions()
   {
-    this.service.getQuestions().subscribe((question) => 
-    {this.questions= question;})
+    this.quizService.getQuiz(this.quizId).subscribe((quiz) => {
+      this.quiz = quiz;
+    })
+    this.questionService.getQuestions().subscribe((question: any) => 
+    {
+        question.forEach(questionThatExists => {
+        this.checkIfQuestionExistsInQuiz(questionThatExists);
+        if(this.questionExistsInQuiz == false)
+        {
+          this.questions.push(questionThatExists);
+        }
+      });
+    })
   }
 
-  insertQuestionInQuiz(questionId)
+  checkIfQuestionExistsInQuiz(question)
   {
-    this.quizId = +this.route.snapshot.paramMap.get('quizId');
-    this.service.insertQuestionInQuiz(questionId, this.quizId).subscribe(
+    this.questionExistsInQuiz = this.quiz.questions.some(q => q.questionId == question.questionId);
+  }
+
+  insertQuestionInQuiz(questionId, quizId)
+  {
+    this.questionService.insertQuestionInQuiz(questionId, quizId).subscribe(
       (res: any) => 
       {
         this.toastr.success('Question added to quiz!');
       }
     );
-  }
-
-  goPervious()
-  {
-    window.history.back();
   }
 }

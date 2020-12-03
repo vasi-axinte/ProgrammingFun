@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthGuard } from './auth/auth.guard';
-import { DeleteQuestionComponent } from './delete-question/delete-question.component';
 import { HomeComponent } from './home/home.component';
 import { InsertQuestionsComponent } from './insert-questions/insert-questions.component';
 import { LoginComponent } from './login/login.component';
@@ -31,7 +30,6 @@ const routes: Routes = [
   { path: 'quizCreator', component:QuizCreatorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'insertQuestion/:quizId', component:InsertQuestionsComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'editQuiz', component:QuizEditorComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
-  { path: 'deleteQuestion/:quizId', component:DeleteQuestionComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'quizConfirmation', component: QuizSentConfirmationComponent, canActivate:[AuthGuard]},
   { path: 'quizzesTaken', component: QuizzesTakenComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}},
   { path: 'inspectQuiz/:quizId', component: InspectQuizComponent, canActivate:[AuthGuard], data: {permittedRoles:['Admin']}}
