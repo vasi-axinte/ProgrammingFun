@@ -17,7 +17,6 @@ export class InsertQuestionsComponent implements OnInit {
   quiz: Quiz;
   quizQuestions: Question;
   questionExistsInQuiz: boolean;
-  
  
   @Input() quizId: number
   constructor(private questionService: QuestionService,
@@ -36,13 +35,16 @@ export class InsertQuestionsComponent implements OnInit {
     })
     this.questionService.getQuestions().subscribe((question: any) => 
     {
+      if(question)
+      {
         question.forEach(questionThatExists => {
-        this.checkIfQuestionExistsInQuiz(questionThatExists);
-        if(this.questionExistsInQuiz == false)
-        {
-          this.questions.push(questionThatExists);
-        }
-      });
+          this.checkIfQuestionExistsInQuiz(questionThatExists);
+          if(this.questionExistsInQuiz == false)
+          {
+            this.questions.push(questionThatExists);
+          }
+        });
+      }
     })
   }
 
@@ -53,7 +55,7 @@ export class InsertQuestionsComponent implements OnInit {
 
   insertQuestionInQuiz(questionId, quizId)
   {
-    this.questionService.insertQuestionInQuiz(questionId, quizId).subscribe(
+    this.questionService.insertQuestionInQuiz(questionId, this.quizId).subscribe(
       (res: any) => 
       {
         this.toastr.success('Question added to quiz!');

@@ -27,6 +27,7 @@ import { InspectQuizComponent } from './inspect-quiz/inspect-quiz.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AskForInsertComponent } from './ask-for-insert/ask-for-insert.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     QuizSentConfirmationComponent,
     QuizzesTakenComponent,
     InspectQuizComponent,
+    AskForInsertComponent,
   ],
   imports: [
     BrowserModule,

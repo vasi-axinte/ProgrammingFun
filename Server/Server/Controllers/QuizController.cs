@@ -103,7 +103,7 @@ namespace Server.Controllers
         }
 
         [HttpPost]
-        public void PostQuiz(QuizDTO quiz)
+        public int PostQuiz(QuizDTO quiz)
         {
             var quizSent = new Quiz
             {
@@ -112,6 +112,7 @@ namespace Server.Controllers
 
             _dbContext.Quiz.Add(quizSent);
             _dbContext.SaveChanges();
+            return quizSent.QuizId;
         }
 
         [HttpPost]

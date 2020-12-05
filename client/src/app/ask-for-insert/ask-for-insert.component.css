@@ -1,20 +1,16 @@
 .btn{
     border: none;
     text-align: center;
-    text-decoration: none;
+    align-items: center;
     text-transform: uppercase;
     font-size: 12px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
-.question{
+.ask{
     font-size: 15px;
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-left: 10px;
 }
-
-.answer{
-    margin-top:5px;
-}
-
-
-
