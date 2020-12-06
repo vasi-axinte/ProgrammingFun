@@ -1,0 +1,22 @@
+.btn{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.question{
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.answer{
+    margin-top:5px;
+}
+
+.questionText{
+    font-size: 20px;
+    color: red;
+}

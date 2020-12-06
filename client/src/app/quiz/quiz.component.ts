@@ -8,6 +8,8 @@ import { UserAnswer } from '../userAnswer';
 import { UserService } from '../shared/user.service';
 import { UserDetails } from '../userDetails';
 import { QuizTaken } from '../quizTaken';
+import { QuizSentConfirmationComponent } from '../quiz-sent-confirmation/quiz-sent-confirmation.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-quiz',
@@ -23,11 +25,13 @@ export class QuizComponent implements OnInit {
   user : UserDetails;
   quizTaken: QuizTaken[] = [];
   score : number;
+  currentDialog = null;
 
   constructor(private questionService: QuestionService,
     private quizService: QuizService,
     private userService: UserService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    public modalService: NgbModal) { }
     
   ngOnInit(): void {
     this.getQuiz();
@@ -86,6 +90,10 @@ export class QuizComponent implements OnInit {
      this.score = data;
      this.combineDetails();
     });
+  }
+
+  openDialog() {
+    this.currentDialog = this.modalService.open(QuizSentConfirmationComponent);
   }
 }
 
