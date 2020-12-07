@@ -52,15 +52,21 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("Check")]
-        public int CheckSelectedAnswers(AnswersCheckDTO[] questionIdAndAnswers)
+        public int CheckAndInsertSelectedAnswers(UserAnswer[] AnswerDetails)
         {
             int scoreTest = 0;
-            foreach (var answer in questionIdAndAnswers)
+            foreach (var answer in AnswerDetails)
             {
                 if (_dbContext.Questions.Any(q => (q.QuestionId == answer.QuestionId) && (q.CorrectAnswer == answer.SelectedAnswer)))
                 {
                     scoreTest = scoreTest + 1;
                 }
+            }
+
+            foreach(var answerDetail in AnswerDetails)
+            { 
+                _dbContext.UserAnswer.AddRange(answerDetail);
+                _dbContext.SaveChanges();
             }
             return scoreTest;
         }

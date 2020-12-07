@@ -5,7 +5,8 @@
             <div class="form-group quiz">
                 <input class="from-control" formControlName="quizName" placeholder="Quiz Name">
             </div>
-            <button class="btn btn-lg" [disabled]="service.quizForm.invalid">Add</button>
+            <button class="btn btn-dark" [disabled]="service.quizForm.invalid">Add</button>
+            <button class="btn btn-dark" routerLink="/admin">Back</button>
         </form>
     </div>
 </div>

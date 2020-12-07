@@ -14,5 +14,8 @@ namespace Server.Models
 
         [ForeignKey("UserId")]
         public virtual ICollection<UserScore> UserScore { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual ICollection<UserAnswer> UserAnswer { get; set; }
     }
 }

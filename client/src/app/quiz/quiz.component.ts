@@ -4,7 +4,7 @@ import { Quiz } from '../quiz';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { QuestionService } from '../shared/question.service';
-import { UserAnswer } from '../userAnswer';
+import { UserAnswerDetails } from '../userAnswer';
 import { UserService } from '../shared/user.service';
 import { UserDetails } from '../userDetails';
 import { QuizTaken } from '../quizTaken';
@@ -20,7 +20,7 @@ export class QuizComponent implements OnInit {
 
   quiz: Quiz;
   quizId: number;
-  answers: UserAnswer[] = [];
+  answersDetails: UserAnswerDetails[] = [];
   userId : string;
   user : UserDetails;
   quizTaken: QuizTaken[] = [];
@@ -72,21 +72,23 @@ export class QuizComponent implements OnInit {
   }
 
   onRadioChange(event, questionId) {
-    let questionWithAnswerIndex = this.answers.findIndex(q => q.questionId === questionId);
+    let  AnswerDetailsIndex = this.answersDetails.findIndex(q => q.questionId === questionId);
     
-    if(questionWithAnswerIndex != -1) {
-       this.answers[questionWithAnswerIndex].selectedAnswer = +event.target.value;
+    if( AnswerDetailsIndex != -1) {
+       this.answersDetails[ AnswerDetailsIndex].selectedAnswer = +event.target.value;
     } else {
-      let questionWithAnswer = {
+      let AnswerDetails = {
         selectedAnswer: +event.target.value,
-        questionId: questionId
+        questionId: questionId,
+        quizId: this.quizId,
+        userId: this.userId
       }
-      this.answers.push(questionWithAnswer);
+      this.answersDetails.push(AnswerDetails);
     }
   }
 
   onSubmit() {
-    this.questionService.sendAnswers(this.answers).subscribe((data : any) => {
+    this.questionService.sendAnswers(this.answersDetails).subscribe((data : any) => {
      this.score = data;
      this.combineDetails();
     });

@@ -19,6 +19,10 @@ namespace Server.Models
             modelBuilder.Entity<UserScore>()
                 .HasKey(q => new { q.QuizId, q.UserId });
 
+            modelBuilder.Entity<UserAnswer>()
+                .HasKey(q => new { q.QuizId, q.UserId, q.QuestionId});
+
+
             base.OnModelCreating(modelBuilder);
         }
 
@@ -31,5 +35,7 @@ namespace Server.Models
         public DbSet<QuizQuestion> QuizQuestions { get; set; }
 
         public DbSet<Quiz> Quiz { get; set; }
+
+        public DbSet<UserAnswer> UserAnswer { get; set; }
     }
 }

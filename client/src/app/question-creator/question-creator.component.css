@@ -97,3 +97,7 @@ input[type=text]:placeholder {
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
+
+.btn {
+  margin-left: 5px;
+}
