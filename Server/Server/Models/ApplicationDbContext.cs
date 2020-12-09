@@ -20,7 +20,7 @@ namespace Server.Models
                 .HasKey(q => new { q.QuizId, q.UserId });
 
             modelBuilder.Entity<UserAnswer>()
-                .HasKey(q => new { q.QuizId, q.UserId, q.QuestionId});
+                .HasKey(q => new { q.UserId, q.QuizId, q.QuestionId});
 
 
             base.OnModelCreating(modelBuilder);

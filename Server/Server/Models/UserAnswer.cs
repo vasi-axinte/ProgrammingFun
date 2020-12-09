@@ -19,5 +19,7 @@ namespace Server.Models
 
         public ApplicationUser ApplicationUser { get; set; }
 
+        public Question Question { get; set; }
+
     }
 }

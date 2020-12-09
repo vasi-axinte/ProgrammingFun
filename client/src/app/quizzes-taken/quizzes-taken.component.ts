@@ -37,5 +37,6 @@ export class QuizzesTakenComponent implements OnInit {
   {
     this.currentDialog = this.modalService.open(InspectQuizComponent);
     this.currentDialog.componentInstance.quizId = quizId;
+    this.currentDialog.componentInstance.userId = 1;
   }
 }

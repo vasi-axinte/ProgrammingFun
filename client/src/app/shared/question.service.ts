@@ -3,7 +3,7 @@ import { Question } from '../question';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserAnswer } from '../userAnswer';
+import { UserAnswerDetails } from '../userAnswer';
 
 @Injectable({
   providedIn: 'root'

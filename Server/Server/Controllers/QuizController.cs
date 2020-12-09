@@ -179,5 +179,25 @@ namespace Server.Controllers
                 _dbContext.SaveChanges();
             }
         }
+
+        //[HttpGet]
+        //[Route("QuizScores")]
+        //public async Task<List<UserScoreDTO>> GetQuizScores()
+        //{
+        //    var user = _dbContext.ApplicationUsers.Include(ap => ap.UserScore)
+        //        .ThenInclude(us => us.Quiz)
+        //        .Select(x => new UserScoreDTO
+        //        {
+        //            FirstName = x.FirstName,
+        //            LastName = x.LastName,
+        //            QuizDetails = x.UserScore.Select(q => new QuizDetailsDTO
+        //            {
+        //                Score = q.Score,
+        //                QuizName = q.Quiz.QuizName,
+        //                QuizId = q.Quiz.QuizId,
+        //            }).ToList()
+        //        }); ;
+        //    return await user.ToListAsync();
+        //}
     }
 }

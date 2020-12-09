@@ -10,17 +10,18 @@ import { QuizService } from '../shared/quiz.service';
 export class InspectQuizComponent implements OnInit {
 
   @Input() quizId: number
+  @Input() userId: string
   quiz:Quiz;
+  columnNames = ['Firstname', 'Lastname', 'Quizname', 'Selected Answer'];
 
   constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
-    this.getTakenQuiz(this.quizId);
+    //this.getTakenQuizDetails(this.quizId, this.userId);
   }
 
-  getTakenQuiz(quizId) {
-    this.quizService.getQuiz(this.quizId).subscribe((quiz) => {
-    this.quiz = quiz;
-    })
-  }
+  // getTakenQuizDetails(quizId, userId) {
+  //   this.quizService.getTakenQuiz(this.quizId, this.userId).subscribe((quiz) => {
+  //   })
+  // }
 }

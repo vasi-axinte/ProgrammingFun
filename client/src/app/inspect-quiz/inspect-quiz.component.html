@@ -1,1 +1,30 @@
-<p>{{quizId}}</p>
+<div class="container mt-5">
+  <div class="d-flex justify-content-center row">
+    <div>
+      <div class="border">
+        <div class="bg-white p-3 border-bottom">
+          <table class="table">
+            <thead>
+              <div>
+                <th *ngFor="let columnName of columnNames" scope="col">{{columnName}}</th>
+              </div>
+            </thead>
+            <tbody>
+              <div *ngFor=""> 
+                <ng-template >
+                  <tr>
+                  <td>{{quizId}}</td>
+                  <td></td>
+                  <td></td>
+                  <td></td> 
+                  <tr>
+                </ng-template>
+              </div>
+            </tbody>
+          </table>
+          <button class="btn btn-lg" routerLink="/admin">Back</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
