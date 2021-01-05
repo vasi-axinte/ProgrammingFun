@@ -118,3 +118,9 @@ input[type=text]:placeholder {
   -moz-animation-delay: 0.8s;
   animation-delay: 0.8s;
 }
+
+.btn {
+  align-items: center;
+  margin-left: 5px;
+}
+

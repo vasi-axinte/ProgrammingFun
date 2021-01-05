@@ -10,19 +10,18 @@
               </div>
             </thead>
             <tbody>
-              <div *ngFor=""> 
-                <ng-template >
+              <div *ngFor="let quizTaken of quizTakenDetails"> 
+                <ng-template ngFor let-answerDetails [ngForOf]="takenQuiz?.answerDetails">
                   <tr>
-                  <td>{{quizId}}</td>
-                  <td></td>
-                  <td></td>
-                  <td></td> 
-                  <tr>
+                    <td>{{quizTaken.firstName}}</td>
+                    <td>{{quizTaken.lastName}}</td>
+                    <td>{{answerDetails.question}}</td>
+                    <td>{{answerDetails.selectedAnswer}}</td> 
+                    <tr>
                 </ng-template>
               </div>
             </tbody>
           </table>
-          <button class="btn btn-lg" routerLink="/admin">Back</button> 
         </div>
       </div>
     </div>

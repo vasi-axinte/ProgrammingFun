@@ -122,3 +122,8 @@ input[type=text]:placeholder {
 p {
     color:red;
 }
+
+.btn {
+  align-items: center;
+  margin-left: 5px;
+}

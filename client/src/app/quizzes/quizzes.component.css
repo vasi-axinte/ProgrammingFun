@@ -16,11 +16,7 @@
 
 .btn {
     color: white;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
+    margin-left: 30px
 }
 
 .badge-pill:hover {

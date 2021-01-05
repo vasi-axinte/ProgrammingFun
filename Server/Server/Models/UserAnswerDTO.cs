@@ -7,13 +7,12 @@ namespace Server.Models
 {
     public class UserAnswerDTO
     {
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
         public string UserId { get; set; }
 
-        public int QuizId { get; set; }
-
-        public int QuestionId { get; set; }
-
-        public int SelectedAnswer { get; set; }
-
+        public List<UserAnswerDetailsDTO> UserAnswerDetails { get; set; }
     }
 }

@@ -20,6 +20,7 @@ export class QuizEditorComponent implements OnInit {
   quiz:Quiz;
   questions = {};
   currentDialog = null;
+  quizNull : boolean;
 
   @Input() quizId: number
 
@@ -38,7 +39,7 @@ export class QuizEditorComponent implements OnInit {
     this.quiz = quiz;
     if(quiz.questions.length == 0)
     {
-       this.quiz.questions = null;
+      this.quizNull = true;
     }
     })
   }

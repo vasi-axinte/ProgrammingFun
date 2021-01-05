@@ -15,11 +15,10 @@ namespace Server.Models
 
         public int SelectedAnswer { get; set; }
 
-        public Quiz Quiz { get; set; }
+        public QuizQuestion QuizQuestion { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 
-        public Question Question { get; set; }
 
     }
 }

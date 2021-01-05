@@ -1,6 +1,7 @@
 import { Component, OnInit,  Input  } from '@angular/core';
 import { Quiz } from '../quiz';
 import { QuizService } from '../shared/quiz.service';
+import { UserQuiz } from '../userQuiz';
 
 @Component({
   selector: 'app-inspect-quiz',
@@ -12,16 +13,19 @@ export class InspectQuizComponent implements OnInit {
   @Input() quizId: number
   @Input() userId: string
   quiz:Quiz;
-  columnNames = ['Firstname', 'Lastname', 'Quizname', 'Selected Answer'];
+  quizTakenDetails: UserQuiz[];
+  columnNames = ['Firstname', 'Lastname', 'Quesiton', 'Selected Answer'];
 
   constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
-    //this.getTakenQuizDetails(this.quizId, this.userId);
+    this.getTakenQuizDetails();
   }
 
-  // getTakenQuizDetails(quizId, userId) {
-  //   this.quizService.getTakenQuiz(this.quizId, this.userId).subscribe((quiz) => {
-  //   })
-  // }
+   getTakenQuizDetails() {
+    this.quizService.getTakenQuizDetails(this.quizId, this.userId).subscribe((quizzes: any) => 
+    {
+      this.quizTakenDetails = quizzes;
+    });
+    }
 }

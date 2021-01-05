@@ -153,13 +153,14 @@ namespace Server.Controllers
                 {
                     FirstName = x.FirstName,
                     LastName = x.LastName,
+                    UserId = x.Id,
                     QuizDetails = x.UserScore.Select(q => new QuizDetailsDTO
                     {
                         Score = q.Score,
                         QuizName = q.Quiz.QuizName,
                         QuizId = q.Quiz.QuizId,
                     }).ToList()
-                }); ;
+                }); 
             return await user.ToListAsync();
         }
 
@@ -180,24 +181,26 @@ namespace Server.Controllers
             }
         }
 
-        //[HttpGet]
-        //[Route("QuizScores")]
-        //public async Task<List<UserScoreDTO>> GetQuizScores()
-        //{
-        //    var user = _dbContext.ApplicationUsers.Include(ap => ap.UserScore)
-        //        .ThenInclude(us => us.Quiz)
-        //        .Select(x => new UserScoreDTO
-        //        {
-        //            FirstName = x.FirstName,
-        //            LastName = x.LastName,
-        //            QuizDetails = x.UserScore.Select(q => new QuizDetailsDTO
-        //            {
-        //                Score = q.Score,
-        //                QuizName = q.Quiz.QuizName,
-        //                QuizId = q.Quiz.QuizId,
-        //            }).ToList()
-        //        }); ;
-        //    return await user.ToListAsync();
-        //}
+        [HttpGet("QuizTakenDetails/{selectedQuiz}")]
+        public  UserAnswerDTO GetQuizTakenDetails([FromRoute] UserQuizDetailsDTO selectedQuiz)
+        {
+            var user = _dbContext.ApplicationUsers.Include(ap => ap.UserAnswer)
+                .ThenInclude(ua => ua.QuizQuestion).First(u => u.Id == selectedQuiz.UserId);
+
+
+           var quizTakenDetails = new UserAnswerDTO
+           {
+               FirstName = user.FirstName,
+               LastName = user.LastName,
+               UserId = user.Id,
+               UserAnswerDetails = user.UserAnswer.Select(ua => new UserAnswerDetailsDTO
+               {
+                   SelectedAnswer = ua.SelectedAnswer,
+                   Question = ua.QuizQuestion.Question.Text,
+               }).ToList()
+           }; 
+            return quizTakenDetails;
+        }
+       
     }
 }

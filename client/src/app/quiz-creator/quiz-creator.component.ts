@@ -29,12 +29,12 @@ export class QuizCreatorComponent implements OnInit {
         this.service.quizForm.reset();
         this.toastr.success('Quiz was created');
         this.lastQuizId = quizId;
-        this.openQuestionDialog()
+        this.openDialog()
       });
 
   }
 
-  openQuestionDialog()
+  openDialog()
   {
     this.currentDialog = this.modalService.open(AskForInsertComponent);
     this.currentDialog.componentInstance.lastQuizId = this.lastQuizId;

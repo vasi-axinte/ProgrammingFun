@@ -23,7 +23,9 @@ export class AskForInsertComponent implements OnInit {
   }
   
   getLastQuiz(){
-    this.quizService.getQuiz(this.lastQuizId).subscribe();
+    this.quizService.getQuiz(this.lastQuizId).subscribe((quiz) =>  {
+      this.lastQuiz = quiz
+    });
     this.openAddQuestionDialog();
   }
 

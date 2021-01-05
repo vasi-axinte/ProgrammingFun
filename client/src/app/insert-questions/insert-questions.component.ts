@@ -4,6 +4,7 @@ import { Question } from '../question';
 import { ToastrService } from 'ngx-toastr';
 import { QuizService } from '../shared/quiz.service';
 import { Quiz } from '../quiz';
+import { NgIf } from '@angular/common';
 
 
 @Component({
@@ -13,12 +14,13 @@ import { Quiz } from '../quiz';
 })
 export class InsertQuestionsComponent implements OnInit {
 
-  questions: Question[] =[];
+  questionsAvailable: Question[] =[];
   quiz: Quiz;
-  quizQuestions: Question;
+  quizQuestions: Question[] = [];;
   questionExistsInQuiz: boolean;
- 
+
   @Input() quizId: number
+
   constructor(private questionService: QuestionService,
     private toastr: ToastrService,
     private quizService: QuizService) { }
@@ -33,15 +35,16 @@ export class InsertQuestionsComponent implements OnInit {
     this.quizService.getQuiz(this.quizId).subscribe((quiz) => {
       this.quiz = quiz;
     })
-    this.questionService.getQuestions().subscribe((question: any) => 
+
+    this.questionService.getQuestions().subscribe((questionsThatExists: any) => 
     {
-      if(question)
+      if(questionsThatExists)
       {
-        question.forEach(questionThatExists => {
-          this.checkIfQuestionExistsInQuiz(questionThatExists);
+        questionsThatExists.forEach((question: Question) => {
+          this.checkIfQuestionExistsInQuiz(question);
           if(this.questionExistsInQuiz == false)
           {
-            this.questions.push(questionThatExists);
+            this.questionsAvailable.push(question);
           }
         });
       }
@@ -50,7 +53,13 @@ export class InsertQuestionsComponent implements OnInit {
 
   checkIfQuestionExistsInQuiz(question)
   {
-    this.questionExistsInQuiz = this.quiz.questions.some(q => q.questionId == question.questionId);
+    this.quizQuestions.forEach(quizQuestion=> {
+       if(quizQuestion.questionId == question.questionId)
+       {
+        this.questionExistsInQuiz = true;
+       }
+       else this.questionExistsInQuiz = false;
+    });
   }
 
   insertQuestionInQuiz(questionId, quizId)

@@ -1,6 +1,8 @@
+import { AnswerDetails } from './answerDetails';
+
 export interface QuizTakenDetails {
-    Firstname: string,
-    Lastname: string,
-    Question: string,
-    Answer: number,
+    firstName: string,
+    lastName: string,
+    userId: string,
+    answerDetails: AnswerDetails[],
 }

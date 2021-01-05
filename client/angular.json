@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "InternshipProject"
+  "defaultProject": "InternshipProject",
+  "cli": {
+    "analytics": false
+  }
 }
