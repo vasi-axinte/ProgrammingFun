@@ -61,4 +61,8 @@ export class QuestionService {
   sendAnswers(answers) { 
     return this.http.post(this.rootUrl + '/Question/Check', answers);
   } 
+
+  getQuizQuestions(quizId){
+    return this.http.get<Question>(this.rootUrl + '/Quiz/QuizQuestions/' + quizId)
+  }
 }

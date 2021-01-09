@@ -201,6 +201,22 @@ namespace Server.Controllers
            }; 
             return quizTakenDetails;
         }
-       
+
+        [HttpGet("QuizQuestions/{quizId}")]
+        public List<QuestionDTO> GetQuizQuestions([FromRoute] int quizId)
+        {
+            var quizQuestions = _dbContext.QuizQuestions.Include(qq => qq.Question)
+                .Where(q => q.QuizId == quizId).Select(qqq => new QuestionDTO
+                {
+                    QuestionId = qqq.QuestionId,
+                    Text = qqq.Question.Text,
+                    Option1 = qqq.Question.Option1,
+                    Option2 = qqq.Question.Option2,
+                    Option3 = qqq.Question.Option3,
+                    Option4 = qqq.Question.Option4,
+                }).ToList();
+
+            return quizQuestions;
+        }
     }
 }

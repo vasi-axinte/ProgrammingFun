@@ -7,6 +7,7 @@ import { QuizTaken } from '../quizTaken';
 import { UserQuiz } from '../userQuiz';
 import { QuizTakenDetails } from '../quizTakenDetails';
 import { SelectedQuiz } from '../selectedQuiz'
+import { Question } from '../question';
 
 @Injectable({
   providedIn: 'root'

@@ -16,49 +16,53 @@ export class InsertQuestionsComponent implements OnInit {
 
   questionsAvailable: Question[] =[];
   quiz: Quiz;
-  quizQuestions: Question[] = [];;
   questionExistsInQuiz: boolean;
+  questionExists: boolean;
+  quizQuestions: Question[] = [];
+  existentQuestions: Question[];
 
   @Input() quizId: number
 
   constructor(private questionService: QuestionService,
-    private toastr: ToastrService,
-    private quizService: QuizService) { }
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.getCurrentQuizAndQuestions();
-    
+   this.getQuizQuestions();
   }
 
-  getCurrentQuizAndQuestions()
+  getQuizQuestions()
   {
-    this.quizService.getQuiz(this.quizId).subscribe((quiz) => {
-      this.quiz = quiz;
-    })
-
-    this.questionService.getQuestions().subscribe((questionsThatExists: any) => 
+    this.questionService.getQuizQuestions(this.quizId).subscribe((questions: any) =>  
     {
-      if(questionsThatExists)
+      this.quizQuestions = questions;
+      this.questionService.getQuestions().subscribe((questions: any) => 
       {
-        questionsThatExists.forEach((question: Question) => {
-          this.checkIfQuestionExistsInQuiz(question);
-          if(this.questionExistsInQuiz == false)
-          {
+        this.existentQuestions = questions;
+        if(this.quizQuestions.length == 0)
+        {
+          this.existentQuestions.forEach(question => {
             this.questionsAvailable.push(question);
-          }
-        });
-      }
-    })
-  }
+          });
+        }
+        else this.checkIfQuestionExistsInQuiz(  this.quizQuestions, this.existentQuestions)
+      });
+    });
+  } 
 
-  checkIfQuestionExistsInQuiz(question)
+  checkIfQuestionExistsInQuiz(quizQuestions, existentQuestions)
   {
-    this.quizQuestions.forEach(quizQuestion=> {
-       if(quizQuestion.questionId == question.questionId)
-       {
-        this.questionExistsInQuiz = true;
-       }
-       else this.questionExistsInQuiz = false;
+    quizQuestions.forEach((quizQuestion : Question) => 
+    {
+      existentQuestions.forEach((question : Question) =>  {
+        if(question.questionId === quizQuestion.questionId)
+        {
+          this.questionExistsInQuiz == true;
+        }
+        else 
+        {
+          this.questionsAvailable.push(question);
+        }
+      });
     });
   }
 
