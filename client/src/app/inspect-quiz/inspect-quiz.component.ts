@@ -23,7 +23,7 @@ export class InspectQuizComponent implements OnInit {
   }
 
    getTakenQuizDetails() {
-    this.quizService.getTakenQuizDetails(this.quizId, this.userId).subscribe((quizzes: any) => 
+    this.quizService.getTakenQuizDetails(this.userId, this.quizId).subscribe((quizzes: any) => 
     {
       this.quizTakenDetails = quizzes;
     });

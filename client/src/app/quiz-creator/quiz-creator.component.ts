@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { QuizService } from '../shared/quiz.service';
 import { ToastrService } from 'ngx-toastr';
 import { AskForInsertComponent } from '../ask-for-insert/ask-for-insert.component';
@@ -13,10 +13,13 @@ export class QuizCreatorComponent implements OnInit {
 
   currentDialog = null;
   lastQuizId : number;
+  closeDialog: string;
+  isOpen: number;
 
   constructor(public service: QuizService,
     private toastr: ToastrService,
-    public modalService: NgbModal) { }
+    public modalService: NgbModal,
+   ) { }
 
   ngOnInit(): void {
     this.service.quizForm.reset();
@@ -39,4 +42,6 @@ export class QuizCreatorComponent implements OnInit {
     this.currentDialog = this.modalService.open(AskForInsertComponent);
     this.currentDialog.componentInstance.lastQuizId = this.lastQuizId;
   }
+
+ 
 }

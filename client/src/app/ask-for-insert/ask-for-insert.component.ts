@@ -1,8 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { EventEmitter } from 'events';
+import { NumberLiteralType } from 'typescript';
 import { InsertQuestionsComponent } from '../insert-questions/insert-questions.component';
 import { Quiz } from '../quiz';
 import { QuizService } from '../shared/quiz.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ask-for-insert',
@@ -15,14 +18,17 @@ export class AskForInsertComponent implements OnInit {
   lastQuiz : Quiz;
   currentDialog = null;
   constructor(private quizService: QuizService,
-    public modalService: NgbModal) { }
+    public modalService: NgbModal,
+    public activeModal: NgbActiveModal) { }
   
   @Input() lastQuizId: number;
+  @Output() closeCurrentModal: EventEmitter = new EventEmitter();
 
   ngOnInit(): void {
   }
   
-  getLastQuiz(){
+  getLastQuiz()
+  {
     this.quizService.getQuiz(this.lastQuizId).subscribe((quiz) =>  {
       this.lastQuiz = quiz
     });
@@ -33,5 +39,10 @@ export class AskForInsertComponent implements OnInit {
   {
     this.currentDialog = this.modalService.open(InsertQuestionsComponent);
     this.currentDialog.componentInstance.quizId = this.lastQuizId;
+  }0
+
+  closeModal()
+  {
+    this.activeModal.close();
   }
 }

@@ -11,13 +11,13 @@
             </thead>
             <tbody>
               <div *ngFor="let quizTaken of quizTakenDetails"> 
-                <ng-template ngFor let-answerDetails [ngForOf]="takenQuiz?.answerDetails">
+                <ng-template ngFor let-answerDetails [ngForOf]="quizTaken?.answerDetails">
                   <tr>
-                    <td>{{quizTaken.firstName}}</td>
-                    <td>{{quizTaken.lastName}}</td>
-                    <td>{{answerDetails.question}}</td>
-                    <td>{{answerDetails.selectedAnswer}}</td> 
-                    <tr>
+                  <td>{{quizTaken.firstName}}</td>
+                  <td>{{quizTaken.lastName}}</td>
+                  <td>{{answerDetails.quizName}}</td>
+                  <td>{{answerDetails.score}}</td> 
+                  <tr>
                 </ng-template>
               </div>
             </tbody>

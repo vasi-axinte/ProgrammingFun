@@ -4,7 +4,7 @@ import { Quiz } from '../quiz';
 import { QuizService } from '../shared/quiz.service';
 import { ToastrService } from 'ngx-toastr';
 import { QuestionService } from '../shared/question.service';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InsertQuestionsComponent } from '../insert-questions/insert-questions.component';
 
 
@@ -24,11 +24,12 @@ export class QuizEditorComponent implements OnInit {
 
   @Input() quizId: number
 
-  constructor(private router:Router,
+  constructor(
     private quizService: QuizService,
     private toastr: ToastrService,
     private questionService: QuestionService,
-    public modalService: NgbModal) { }
+    public modalService: NgbModal,
+    public activeModal: NgbActiveModal) { }
  
   ngOnInit(): void {
     this.getQuiz(this.quizId);
@@ -60,5 +61,10 @@ export class QuizEditorComponent implements OnInit {
   {
     this.currentDialog = this.modalService.open(InsertQuestionsComponent);
     this.currentDialog.componentInstance.quizId = quizId;
+  }
+
+  closeModal()
+  {
+    this.activeModal.close();
   }
 }

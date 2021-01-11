@@ -47,7 +47,7 @@ export class QuizService {
     return this.http.post<QuizTaken>(this.rootUrl + '/Quiz/QuizTaken', quizTaken);
   }
 
-  getTakenQuizDetails(quizId, userId): Observable<QuizTakenDetails>{
+  getTakenQuizDetails(userId, quizId): Observable<QuizTakenDetails>{
    var selectedQuiz = {
       QuizId: quizId, 
       UserId: userId

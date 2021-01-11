@@ -182,24 +182,24 @@ namespace Server.Controllers
         }
 
         [HttpGet("QuizTakenDetails/{selectedQuiz}")]
-        public  UserAnswerDTO GetQuizTakenDetails([FromRoute] UserQuizDetailsDTO selectedQuiz)
+        public List<UserAnswerDTO> GetQuizTakenDetails([FromRoute] UserQuizDetailsDTO selectedQuiz)
         {
             var user = _dbContext.ApplicationUsers.Include(ap => ap.UserAnswer)
-                .ThenInclude(ua => ua.QuizQuestion).First(u => u.Id == selectedQuiz.UserId);
+                .ThenInclude(ua => ua.QuizQuestion).Select(uad => new UserAnswerDTO
+                {
+                    FirstName = uad.FirstName,
+                    LastName = uad.LastName,
+                    UserId = uad.Id,
+                    UserAnswerDetails = uad.UserAnswer.Select(ua => new UserAnswerDetailsDTO
+                    {
+                        SelectedAnswer = ua.SelectedAnswer,
+                        Question = ua.QuizQuestion.Question.Text,
+                        QuizId = ua.QuizId,
+                    }).ToList()
+                })
+                .Where(uad => uad.UserId == selectedQuiz.UserId) ;
 
-
-           var quizTakenDetails = new UserAnswerDTO
-           {
-               FirstName = user.FirstName,
-               LastName = user.LastName,
-               UserId = user.Id,
-               UserAnswerDetails = user.UserAnswer.Select(ua => new UserAnswerDetailsDTO
-               {
-                   SelectedAnswer = ua.SelectedAnswer,
-                   Question = ua.QuizQuestion.Question.Text,
-               }).ToList()
-           }; 
-            return quizTakenDetails;
+            return user.ToList();
         }
 
         [HttpGet("QuizQuestions/{quizId}")]

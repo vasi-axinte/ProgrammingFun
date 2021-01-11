@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { QuizService } from '../shared/quiz.service';
 import { Quiz } from '../quiz';
 import { NgIf } from '@angular/common';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class InsertQuestionsComponent implements OnInit {
   @Input() quizId: number
 
   constructor(private questionService: QuestionService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    public activeModal: NgbActiveModal ) { }
 
   ngOnInit(): void {
    this.getQuizQuestions();
@@ -74,5 +76,10 @@ export class InsertQuestionsComponent implements OnInit {
         this.toastr.success('Question added to quiz!');
       }
     );
+  }
+
+  closeModal()
+  {
+    this.activeModal.close();
   }
 }

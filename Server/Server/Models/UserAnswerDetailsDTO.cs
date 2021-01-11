@@ -11,5 +11,7 @@ namespace Server.Models
         
         public string Question { get; set; }
 
+        public int QuizId { get; set; }
+
     }
 }
