@@ -1,6 +1,29 @@
 <app-navbar></app-navbar> 
-<button type="admin-panel" class="btn btn-light" routerLink="/questionCreator">Create Question</button>
-<button type="admin-panel" class="btn btn-light" routerLink="/quizCreator">Create Quiz</button>
-<button type="admin-panel" class="btn btn-light" routerLink="/quiz">Edit Quiz</button>
-<button type="admin-panel" class="btn btn-light" routerLink="/quizzesTaken">See last quizzes</button>
+<div>
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="bg-white p-3 border-bottom">
+                <div>
+                    <img class="img-responsive smaller" src="assets/newquestion.png">
+                    <button type="admin-panel" class="btn btn-dark" routerLink="/questionCreator">Create Question</button>
+                </div>
+
+                <div>
+                    <img class="img-responsive smaller" src="assets/newquiz.png">
+                    <button type="admin-panel" class="btn btn-dark" routerLink="/quizCreator">Create Quiz</button>
+                </div>
+
+                <div>  
+                    <img class="img-responsive smaller" src="assets/editquiz.png">
+                    <button type="admin-panel" class="btn btn-dark" routerLink="/quiz">Edit Quiz</button>
+                </div>
+
+                <div>
+                    <img class="img-responsive smaller" src="assets/allquizzes.png">
+                    <button type="admin-panel" class="btn btn-dark" routerLink="/quizzesTaken">See last quizzes</button>
+                </div>
+            </div>    
+        </div>
+    </div>
+</div>
 

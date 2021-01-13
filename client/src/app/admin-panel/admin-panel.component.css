@@ -1,14 +1,26 @@
 button[type=admin-panel].btn {
     width: 200px;
-    height: 10px;
-    line-height: 20px;
-    min-height: 30px;
-    font-size: 15px;
-    padding: 5px;
-    margin: auto;
-    margin-top: 10px;
+    height: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     margin-left: 5px;
+    margin-right: 5px;
+    display: block;
 }
+
+.btn:hover {
+    background-color: green;
+ }
+
+ .smaller {
+     width: 10%;
+     margin-left: 50px;
+     margin-top: 5px;
+ }
+ 
 
 
 
