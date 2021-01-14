@@ -13,14 +13,10 @@ button[type=admin-panel].btn {
 
 .btn:hover {
     background-color: green;
- }
+}
 
- .smaller {
-     width: 10%;
-     margin-left: 50px;
+ .smaller-image {
+     width: 50px;
      margin-top: 5px;
- }
- 
-
-
-
+     margin-left: 70px;
+}
